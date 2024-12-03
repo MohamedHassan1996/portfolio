@@ -14,7 +14,6 @@ class Career extends Model implements TranslatableContract
 
     public $translatedAttributes = ['title', 'description', 'content', 'extra_details', 'meta_data'];
     protected $fillable = ['is_active'];
-
     protected $casts = [
         'is_active' => CareerStatus::class,
     ];

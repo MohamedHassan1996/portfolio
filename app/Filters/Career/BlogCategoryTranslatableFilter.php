@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Filters\Career;
+namespace App\Filters\Blog;
 
+use Spatie\QueryBuilder\QueryBuilder;
+use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\Filters\Filter;
 use Illuminate\Database\Eloquent\Builder;
 
-class CareerSearchTranslatableFilter implements Filter
+class BlogCategoryTranslatableFilter implements Filter
 {
     public function __invoke(Builder $query, $value, string $property)
     {
