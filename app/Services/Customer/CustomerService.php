@@ -2,7 +2,6 @@
 
 namespace App\Services\Customer;
 
-use App\Enums\Company\CustomerStatus;
 use App\Filters\Customer\FilterCustomer;
 use App\Models\Customer\Customer;
 use Spatie\QueryBuilder\AllowedFilter;
@@ -21,7 +20,6 @@ class CustomerService{
         $customers = QueryBuilder::for(Customer::class)
             ->allowedFilters([
                 AllowedFilter::custom('search', new FilterCustomer()), // Add a custom search filter
-                AllowedFilter::exact('status'),
             ])->get();
 
         return $customers;

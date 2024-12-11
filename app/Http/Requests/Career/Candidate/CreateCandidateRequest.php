@@ -1,15 +1,14 @@
 <?php
 
-namespace App\Http\Requests\Blog\Category;
+namespace App\Http\Requests\Career\Candidate;
 
-use App\Enums\Blog\BlogCategoryStatus;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Contracts\Validation\Validator;
-use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Enum;
 
-class UpdateBlogCategoryRequest extends FormRequest
+
+class CreateCandidateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,16 +26,12 @@ class UpdateBlogCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'blogCategoryId' => 'required',
-            'nameEn' => ['required', Rule::unique('blog_category_translations', 'name')
-            ->ignore($this->blogCategoryId, 'blog_category_id')
-            ->where('locale', 'en')],
-            'nameAr' => ['required', Rule::unique('blog_category_translations', 'name')
-            ->ignore($this->blogCategoryId, 'blog_category_id')
-            ->where('locale', 'ar')],
-            'slug' => ['required'],
-            'description' => ['required'],
-            'isActive' => ['required', new Enum(BlogCategoryStatus::class)]
+            'name' => ['required'],
+            'email' => ['required', 'email'],
+            'phone' => ['required'],
+            'cv' => ['required', 'file'],
+            'coverLetter' => ['nullable'],
+            'careerId' => ['required'],
         ];
     }
 
@@ -46,5 +41,4 @@ class UpdateBlogCategoryRequest extends FormRequest
             'message' => $validator->errors()
         ], 401));
     }
-
 }

@@ -4,7 +4,6 @@ namespace App\Services\Blog;
 
 use App\Enums\Blog\BlogStatus;
 use App\Filters\Blog\BlogSearchTranslatableFilter;
-use App\Filters\Blog\FilterBlog;
 use App\Models\Blog\Blog;
 use App\Services\Upload\UploadService;
 use Illuminate\Http\UploadedFile;

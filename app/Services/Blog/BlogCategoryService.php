@@ -21,7 +21,7 @@ class BlogCategoryService{
         $blogCategories = QueryBuilder::for(BlogCategory::class)
         ->withTranslation() // Fetch translations if applicable
         ->allowedFilters([
-            AllowedFilter::custom('name', new BlogCategoryTranslatableFilter()), // Add a custom search filter
+            AllowedFilter::custom('search', new BlogCategoryTranslatableFilter()), // Add a custom search filter
         ])
         ->get();
 

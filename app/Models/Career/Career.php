@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Career extends Model implements TranslatableContract
 {
@@ -17,4 +18,9 @@ class Career extends Model implements TranslatableContract
     protected $casts = [
         'is_active' => CareerStatus::class,
     ];
+
+    public function translations(): HasMany
+    {
+        return $this->hasMany(CareerTranslation::class);
+    }
 }

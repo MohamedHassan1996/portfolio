@@ -4,6 +4,7 @@ namespace App\Services\Career;
 
 use App\Enums\Candidte\CandidateStatus;
 use App\Filters\Candidte\CandidateTranslatableFilter;
+use App\Filters\Career\FilterCandidate;
 use App\Models\Career\Candidate;
 use App\Services\Upload\UploadService;
 use Illuminate\Http\UploadedFile;
@@ -26,7 +27,7 @@ class CandidateService{
         $candidates = QueryBuilder::for(Candidate::class)
         ->withTranslation() // Fetch translations if applicable
         ->allowedFilters([
-            AllowedFilter::custom('name', new CandidateTranslatableFilter()), // Add a custom search filter
+            AllowedFilter::custom('search', new FilterCandidate()), // Add a custom search filter
         ])
         ->get();
 

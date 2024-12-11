@@ -18,5 +18,6 @@ class CareerTranslation extends Model
 
     protected $casts = [
         'meta_data' => 'array',
+        'extra_details' => 'array',
     ];
 }

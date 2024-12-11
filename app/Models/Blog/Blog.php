@@ -3,6 +3,7 @@
 namespace App\Models\Blog;
 
 use App\Enums\Blog\BlogStatus;
+use App\Traits\CreatedUpdatedBy;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
@@ -27,7 +28,7 @@ class Blog extends Model implements TranslatableContract
     public static function boot()
     {
         parent::boot();
-        static::createing(function ($model) {
+        static::creating(function ($model) {
             if($model->is_published == BlogStatus::PUBLISHED){
                 $model->published_at = now();
             }

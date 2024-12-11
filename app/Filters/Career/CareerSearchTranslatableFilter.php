@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filters\Blog;
+namespace App\Filters\Career;
 
 use Spatie\QueryBuilder\Filters\Filter;
 use Illuminate\Database\Eloquent\Builder;
