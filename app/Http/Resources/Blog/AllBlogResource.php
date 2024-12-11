@@ -26,7 +26,7 @@ class AllBlogResource extends JsonResource
             'thumbnail' => $this->thumbnail?Storage::url($this->thumbnail):"",
             //'metaData' => $this->meta_data??[],
             'publishedAt' => $this->published_at ? Carbon::parse($this->published_at)->format('d/m/Y H:i:s') : "",
-            'categoryName' => $this->blogCategory->name,
+            'categoryName' => $this->blogCategory->translations->first()->name,
             'isPublished' => $this->is_published
         ];
     }
