@@ -42,13 +42,3 @@ class BlogResource extends JsonResource
         ];
     }
 }
-
-return [
-    'blogCategoryId' => $this->id,
-    'isActive' => $this->is_active,
-    'slug' => $this->slug ?? "",
-    'nameEn' => $translations['nameEn'] ?? "", // Ensure English fallback if translation is missing
-    'nameAr' => $translations['nameAr'] ?? "",
-    'slugEn' => $translations['slugEn'] ?? "",
-    'slugAr' => $translations['slugAr'] ?? "",
-];
