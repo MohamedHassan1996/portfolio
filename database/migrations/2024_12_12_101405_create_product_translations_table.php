@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('product_translations', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('description');
+            $table->string('slug');
+            $table->text('content');
+            $table->json('meta_data')->nullable();
             $table->unsignedBigInteger('product_id'); // Add event_id column
             $table->string('locale');               // Add locale column for uniqueness constraint
             $table->unique(['product_id', 'locale']);

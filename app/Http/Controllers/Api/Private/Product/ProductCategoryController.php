@@ -1,23 +1,23 @@
 <?php
 
-namespace App\Http\Controllers\Api\Private\Newsletter;
+namespace App\Http\Controllers\Api\Private\ProductCategory;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Newsletter\Subscriber\CreateSubscriberRequest;
-use App\Http\Requests\Newsletter\Subscriber\UpdateSubscriberRequest;
-use App\Http\Resources\Newsletter\Subscriber\AllSubscriberCollection;
-use App\Http\Resources\Newsletter\Subscriber\SubscriberResource;
+use App\Http\Requests\Product\ProductCategory\CreateProductCategoryRequest;
+use App\Http\Requests\Product\ProductCategory\UpdateProductCategoryRequest;
+use App\Http\Resources\Product\ProductCategory\AllProductCategoryCollection;
+use App\Http\Resources\Product\ProductCategory\ProductCategoryResource;
 use App\Utils\PaginateCollection;
-use App\Services\Newsletter\SubscriberService;
+use App\Services\Product\ProductCategoryService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 
-class SubscriberController extends Controller
+class ProductCategoryController extends Controller
 {
-    protected $subcsciberService;
+    protected $productCategoryService;
 
-    public function __construct(SubscriberService $subcsciberService)
+    public function __construct(ProductCategoryService $productCategoryService)
     {
         $this->middleware('auth:api');
         // $this->middleware('permission:all_users', ['only' => ['allUsers']]);
@@ -26,7 +26,7 @@ class SubscriberController extends Controller
         // $this->middleware('permission:update_user', ['only' => ['update']]);
         // $this->middleware('permission:delete_user', ['only' => ['delete']]);
         // $this->middleware('permission:change_user_status', ['only' => ['changeStatus']]);
-        $this->subcsciberService = $subcsciberService;
+        $this->productCategoryService = $productCategoryService;
     }
 
     /**
@@ -34,10 +34,10 @@ class SubscriberController extends Controller
      */
     public function index(Request $request)
     {
-        $newsletters = $this->subcsciberService->allSubscribers();
+        $productCategorys = $this->productCategoryService->allProductCategorys();
 
         return response()->json(
-            new AllSubscriberCollection(PaginateCollection::paginate($newsletters, $request->pageSize?$request->pageSize:10))
+            new AllProductCategoryCollection(PaginateCollection::paginate($productCategorys, $request->pageSize?$request->pageSize:10))
         , 200);
 
     }
@@ -46,18 +46,18 @@ class SubscriberController extends Controller
      * Show the form for creating a new resource.
      */
 
-    /*public function create(CreateSubscriberRequest $createSubscriberRequest)
+    public function create(CreateProductCategoryRequest $createProductCategoryRequest)
     {
 
         try {
             DB::beginTransaction();
 
-            $this->subcsciberService->createSubscriber($createSubscriberRequest->validated());
+            $this->productCategoryService->createProductCategory($createProductCategoryRequest->validated());
 
             DB::commit();
 
             return response()->json([
-                'message' => 'تم اضافة بلد جديد بنجاح'
+                'message' => __('messages.success.created')
             ], 200);
 
         } catch (\Exception $e) {
@@ -66,7 +66,7 @@ class SubscriberController extends Controller
         }
 
 
-    }*/
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -74,10 +74,10 @@ class SubscriberController extends Controller
 
     public function edit(Request $request)
     {
-        $subscriber  =  $this->subcsciberService->editSubscriber($request->subscriberId);
+        $productCategory  =  $this->productCategoryService->editProductCategory($request->productCategoryId);
 
         return response()->json(
-            new SubscriberResource($subscriber)//new UserResource($user)
+            new ProductCategoryResource($productCategory)//new UserResource($user)
         ,200);
 
     }
@@ -85,12 +85,12 @@ class SubscriberController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateSubscriberRequest $updateSubscriberRequest)
+    public function update(UpdateProductCategoryRequest $updateProductCategoryRequest)
     {
 
         try {
             DB::beginTransaction();
-            $this->subcsciberService->updateSubscriber($updateSubscriberRequest->validated());
+            $this->productCategoryService->updateProductCategory($updateProductCategoryRequest->validated());
             DB::commit();
             return response()->json([
                  'message' => __('messages.success.updated')
@@ -111,7 +111,7 @@ class SubscriberController extends Controller
 
         try {
             DB::beginTransaction();
-            $this->subcsciberService->deleteSubscriber($request->subscriberId);
+            $this->productCategoryService->deleteProductCategory($request->productCategoryId);
             DB::commit();
             return response()->json([
                 'message' => __('messages.success.deleted')
@@ -126,7 +126,7 @@ class SubscriberController extends Controller
 
     public function changeStatus(Request $request)
     {
-        $this->subcsciberService->changeStatus($request->subscriberId, $request->isSubscribed);
+        $this->productCategoryService->changeStatus($request->productCategoryId, $request->isPublished);
         return response()->json([
             'message' => __('messages.success.updated')
         ], 200);

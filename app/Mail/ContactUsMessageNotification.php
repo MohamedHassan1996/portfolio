@@ -22,7 +22,7 @@ class ContactUsMessageNotification extends Mailable
     public function __construct(ContactUsMessage $contactUsMessage, ContactUs $contactUs)
     {
         $this->contactUsMessage = $contactUsMessage;
-        $this->contactUs = $contactUs
+        $this->contactUs = $contactUs;
     }
 
     /**

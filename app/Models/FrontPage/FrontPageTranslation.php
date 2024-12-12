@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models\Blog;
+namespace App\Models\FrontPage;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BlogTranslation extends Model
+class FrontPageTranslation extends Model
 {
     use HasFactory;
 
@@ -13,14 +13,11 @@ class BlogTranslation extends Model
 
     protected $fillable = [
         'title',
-        'content',
-        'slug',
+        'url',
         'meta_data',
     ];
 
     protected $casts = [
-        'meta_data' => 'array',
+        'meta_data' => 'json',
     ];
-
-
 }

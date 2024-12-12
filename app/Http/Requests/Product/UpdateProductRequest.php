@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Requests\Faq;
+namespace App\Http\Requests\Product;
 
-use App\Enums\Faq\FaqStatus;
+use App\Enums\Product\ProductStatus;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Enum;
 
-class UpdateFaqRequest extends FormRequest
+class UpdateProductRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,14 +28,19 @@ class UpdateFaqRequest extends FormRequest
     {
         return [
             'faqId' => 'required',
-            'questionEn' => ['required', Rule::unique('faq_translations', 'question')
-            ->ignore($this->faqId, 'faq_id')->where('locale', 'en')],
-            'questionAr' => ['required', Rule::unique('faq_translations', 'question')
-            ->ignore($this->faqId, 'faq_id')->where('locale', 'ar')],
-            'answerEn' => ['required'],
-            'answerAr' => ['required'],
-            'isPublished' => ['required', new Enum(FaqStatus::class)],
-            'order' => ['required']
+            'nameEn' => ['required', Rule::unique('product_translations', 'name')
+            ->ignore($this->productId, 'product_id')->where('locale', 'en')],
+            'nameAr' => ['required', Rule::unique('product_translations', 'question')
+            ->ignore($this->productId, 'product_id')->where('locale', 'ar')],
+            'discriptionEn' => ['required'],
+            'discriptionAr' => ['required'],
+            'slugEn' => ['required'],
+            'slugAr' => ['required'],
+            'contentEn' => ['required'],
+            'contentAr' => ['required'],
+            'metaDataEn' => ['required'],
+            'metaDataAr' => ['required'],
+            'isActive' => ['required', new Enum(ProductStatus::class)],
         ];
     }
 

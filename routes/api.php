@@ -5,6 +5,8 @@ use App\Http\Controllers\Api\Private\Blog\BlogController;
 use App\Http\Controllers\Api\Private\Customer\CustomerController;
 use App\Http\Controllers\Api\Private\Event\EventController;
 use App\Http\Controllers\Api\Private\Faq\FaqController;
+use App\Http\Controllers\Api\Private\Newsletter\NewsletterController;
+use App\Http\Controllers\Api\Private\Newsletter\SubscriberController;
 use App\Http\Controllers\Api\Private\Select\SelectController;
 use App\Http\Controllers\Api\Private\User\UserController;
 use App\Http\Controllers\Api\Public\Auth\AuthController;
@@ -74,6 +76,21 @@ Route::prefix('v1/{lang}/admin/faqs')->where(['lang' => 'en|ar'])->group(functio
     Route::get('edit', [FaqController::class, 'edit']);
     Route::put('update', [FaqController::class, 'update']);
     Route::delete('delete', [FaqController::class, 'delete']);
+});
+
+Route::prefix('v1/{lang}/admin/subscribers')->where(['lang' => 'en|ar'])->group(function(){
+    Route::get('', [SubscriberController::class, 'index']);
+    Route::get('edit', [SubscriberController::class, 'edit']);
+    Route::put('update', [SubscriberController::class, 'update']);
+    Route::delete('delete', [SubscriberController::class, 'delete']);
+});
+
+Route::prefix('v1/{lang}/admin/newsletters')->where(['lang' => 'en|ar'])->group(function(){
+    Route::get('', [NewsletterController::class, 'index']);
+    Route::post('create', [NewsletterController::class, 'create']);
+    Route::get('edit', [NewsletterController::class, 'edit']);
+    Route::put('update', [NewsletterController::class, 'update']);
+    Route::delete('delete', [NewsletterController::class, 'delete']);
 });
 
 Route::prefix('v1/admin/selects')->group(function(){

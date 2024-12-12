@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Requests\Faq;
+namespace App\Http\Requests\Product;
 
-use App\Enums\Faq\FaqStatus;
+use App\Enums\Product\ProductStatus;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Validation\Rules\Enum;
 
 
-class CreateFaqRequest extends FormRequest
+class CreateProductRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,12 +27,18 @@ class CreateFaqRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'questionEn' => ['required', 'unique:faq_translations,question,NULL,id,locale,en'],
-            'questionAr' => ['required', 'unique:faq_translations,question,NULL,id,locale,ar'],
-            'answerEn' => ['required'],
-            'answerAr' => ['required'],
-            'isPublished' => ['required', new Enum(FaqStatus::class)],
-            'order' => ['required']
+            'nameEn' => ['required', 'unique:product_translations,name,NULL,id,locale,en'],
+            'nameAr' => ['required', 'unique:product_translations,name,NULL,id,locale,ar'],
+            'discriptionEn' => ['required'],
+            'discriptionAr' => ['required'],
+            'slugEn' => ['required'],
+            'slugAr' => ['required'],
+            'contentEn' => ['required'],
+            'contentAr' => ['required'],
+            'metaDataEn' => ['required'],
+            'metaDataAr' => ['required'],
+            'isActive' => ['required', new Enum(ProductStatus::class)],
+            'images' => ['nullable'],
         ];
 
 

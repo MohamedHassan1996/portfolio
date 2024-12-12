@@ -35,7 +35,7 @@ class NewsletterService{
         $newsletter = Newsletter::create([
             'subject' => $newsletterData['subject'],
             'content' => $newsletterData['content'],
-            'is_sent' => NewsletterStatus::from($newsletterData['is_sent'])->value,
+            'is_sent' => NewsletterStatus::from($newsletterData['isSent'])->value,
         ]);
 
         if($newsletter->is_sent == NewsletterStatus::SENT){

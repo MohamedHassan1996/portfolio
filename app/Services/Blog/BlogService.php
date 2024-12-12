@@ -27,11 +27,12 @@ class BlogService{
         $locale = app()->getLocale(); // Get the current locale
 
         $blogs = QueryBuilder::for(Blog::class)
+            ->withTranslation() // Fetch translations if applicable
             ->with(['blogCategory.translations' => function ($query) use ($locale) {
                 $query->where('locale', $locale); // Load translations for the current locale
             }])
             ->allowedFilters([
-                AllowedFilter::custom('title', new BlogSearchTranslatableFilter()), // Add a custom search filter
+                AllowedFilter::custom('search', new BlogSearchTranslatableFilter()), // Add a custom search filter
             ])
             ->get();
 

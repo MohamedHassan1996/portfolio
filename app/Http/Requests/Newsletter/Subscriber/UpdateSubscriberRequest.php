@@ -27,7 +27,7 @@ class UpdateSubscriberRequest extends FormRequest
     {
         return [
             'subscriberId' => 'required',
-            'email' => ['required', 'unique:subscribers,email,{$this->subscriberId}'],
+            'email' => ['required', "unique:subscribers,email,{$this->subscriberId}"],
             'isSubscribed' => ['required', new Enum(NewsletterSubsciberStatus::class)],
         ];
     }

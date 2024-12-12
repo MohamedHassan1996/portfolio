@@ -3,6 +3,7 @@
 namespace App\Services\Newsletter;
 
 use App\Enums\Newsletter\NewsletterSubsciberStatus;
+use App\Filters\Newsletter\FilterSubscriber;
 use App\Models\Newsletter\Subscriber;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
@@ -19,7 +20,7 @@ class SubscriberService{
     {
         $subscribers = QueryBuilder::for(Subscriber::class)
             ->allowedFilters([
-                AllowedFilter::exact('email'),
+                AllowedFilter::custom('email', new FilterSubscriber()), // Add a custom search filter
                 AllowedFilter::exact('isSubscribed'), // Add a custom search filter
             ])->get();
 

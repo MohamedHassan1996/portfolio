@@ -11,7 +11,7 @@ class BlogSearchTranslatableFilter implements Filter
     {
         $query->where(function ($query) use ($property, $value) {
             foreach (config('app.available_locales', ['en', 'ar']) as $locale) {
-                $query->orWhereTranslationLike($property, "%{$value}%", $locale);
+                $query->orWhereTranslationLike('title', "%{$value}%", $locale);
             }
         });
     }
