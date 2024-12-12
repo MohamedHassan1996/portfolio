@@ -57,7 +57,7 @@ class BlogController extends Controller
             DB::commit();
 
             return response()->json([
-                'message' => 'تم اضافة بلد جديد بنجاح'
+                'message' => __('messages.success.created')
             ], 200);
 
         } catch (\Exception $e) {
@@ -93,7 +93,7 @@ class BlogController extends Controller
             $this->blogService->updateBlog($updateBlogRequest->validated());
             DB::commit();
             return response()->json([
-                 'message' => 'تم تحديث بيانات البلد!'
+                 'message' => __('messages.success.updated')
             ], 200);
         } catch (\Exception $e) {
             DB::rollBack();
@@ -114,7 +114,7 @@ class BlogController extends Controller
             $this->blogService->deleteBlog($request->blogId);
             DB::commit();
             return response()->json([
-                'message' => 'تم حذف البلد بنجاح!'
+                'message' => __('messages.success.deleted')
             ], 200);
 
         } catch (\Exception $e) {
@@ -128,7 +128,7 @@ class BlogController extends Controller
     {
         $this->blogService->changeStatus($request->blogId, $request->isPublished);
         return response()->json([
-            'message' => 'تم تغيير حالة البلد بنجاح!'
+            'message' => __('messages.success.updated')
         ], 200);
     }
 

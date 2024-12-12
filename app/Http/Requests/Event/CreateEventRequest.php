@@ -32,7 +32,7 @@ class CreateEventRequest extends FormRequest
             'titleAr' => ['required', 'unique:event_translations,title,NULL,id,locale,ar'],
             'descriptionEn' => ['required'],
             'descriptionAr' => ['required'],
-            'slugnEn' => ['required'],
+            'slugEn' => ['required'],
             'slugAr' => ['required'],
             'date' => ['required'],
             'time' => ['required'],

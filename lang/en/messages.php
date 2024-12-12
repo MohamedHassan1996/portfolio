@@ -2,12 +2,12 @@
 
 return [
     'success' => [
-        'created' => 'Post created successfully!',
-        'updated' => 'Post updated successfully!',
-        'deleted' => 'Post deleted successfully!',
+        'created' => 'created successfully!',
+        'updated' => 'updated successfully!',
+        'deleted' => 'deleted successfully!',
     ],
     'error' => [
-        'not_found' => 'Post not found!',
+        'not_found' => 'not found!',
         'unauthorized' => 'You are not authorized to perform this action.',
     ],
 ];

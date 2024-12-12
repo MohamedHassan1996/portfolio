@@ -34,6 +34,7 @@ class EventService{
     public function createEvent(array $eventData): Event
     {
 
+        $path = null;
         if(isset($eventData['thumbnail']) && $eventData['thumbnail'] instanceof UploadedFile){
             $path =  $this->uploadService->uploadFile($eventData['thumbnail'], 'events');
         }

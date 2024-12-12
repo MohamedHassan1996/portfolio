@@ -88,6 +88,7 @@ class BlogService{
         $blog->is_published = BlogStatus::from($blogData['isPublished'])->value;
         $blog->category_id = $blogData['categoryId'];
 
+        $path = null;
 
         if(isset($blogData['thumbnail']) && $blogData['thumbnail'] instanceof UploadedFile){
             $path =  $this->uploadService->uploadFile($blogData['thumbnail'], 'blogs');

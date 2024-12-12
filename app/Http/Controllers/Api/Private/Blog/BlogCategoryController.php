@@ -96,7 +96,7 @@ class BlogCategoryController extends Controller
             $this->blogCategoryService->updateBlogCategory($updateBlogCategoryRequest->validated());
             DB::commit();
             return response()->json([
-                 'message' => 'تم تحديث بيانات البلد!'
+                 'message' => __('messages.success.updated')
             ], 200);
         } catch (\Exception $e) {
             DB::rollBack();
@@ -117,7 +117,7 @@ class BlogCategoryController extends Controller
             $this->blogCategoryService->deleteBlogCategory($request->blogCategoryId);
             DB::commit();
             return response()->json([
-                'message' => 'تم حذف البلد بنجاح!'
+                'message' => __('messages.success.deleted')
             ], 200);
 
         } catch (\Exception $e) {

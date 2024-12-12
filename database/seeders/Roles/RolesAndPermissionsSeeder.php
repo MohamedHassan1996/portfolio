@@ -36,6 +36,32 @@ class RolesAndPermissionsSeeder extends Seeder
             'update_customer',
             'delete_customer',
 
+            'all_events',
+            'create_event',
+            'edit_event',
+            'update_event',
+            'delete_event',
+            'change_event_status',
+
+            'all_blog_categories',
+            'create_blog_category',
+            'edit_blog_category',
+            'update_blog_category',
+            'delete_blog_category',
+
+            'all_blogs',
+            'create_blog',
+            'edit_blog',
+            'update_blog',
+            'delete_blog',
+            'change_blog_status',
+
+            'all_faqs',
+            'create_faq',
+            'edit_faq',
+            'update_faq',
+            'delete_faq',
+
         ];
 
         foreach ($permissions as $permission) {
