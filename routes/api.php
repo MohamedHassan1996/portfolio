@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\Private\Blog\BlogCategoryController;
 use App\Http\Controllers\Api\Private\Blog\BlogController;
 use App\Http\Controllers\Api\Private\Customer\CustomerController;
 use App\Http\Controllers\Api\Private\Event\EventController;
+use App\Http\Controllers\Api\Private\Faq\FaqController;
 use App\Http\Controllers\Api\Private\Select\SelectController;
 use App\Http\Controllers\Api\Private\User\UserController;
 use App\Http\Controllers\Api\Public\Auth\AuthController;
@@ -65,6 +66,14 @@ Route::prefix('v1/{lang}/admin/events')->where(['lang' => 'en|ar'])->group(funct
     Route::get('edit', [EventController::class, 'edit']);
     Route::put('update', [EventController::class, 'update']);
     Route::delete('delete', [EventController::class, 'delete']);
+});
+
+Route::prefix('v1/{lang}/admin/faqs')->where(['lang' => 'en|ar'])->group(function(){
+    Route::get('', [FaqController::class, 'index']);
+    Route::post('create', [FaqController::class, 'create']);
+    Route::get('edit', [FaqController::class, 'edit']);
+    Route::put('update', [FaqController::class, 'update']);
+    Route::delete('delete', [FaqController::class, 'delete']);
 });
 
 Route::prefix('v1/admin/selects')->group(function(){

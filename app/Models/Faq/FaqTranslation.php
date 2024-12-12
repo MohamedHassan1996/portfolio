@@ -9,7 +9,7 @@ class FaqTranslation extends Model
 {
     use HasFactory;
 
-    protected $timestamps = false;
+    public $timestamps = false;
     protected $fillable = [
         'qustion',
         'answer',

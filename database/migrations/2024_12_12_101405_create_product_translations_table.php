@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('product_category_translations', function (Blueprint $table) {
+        Schema::create('product_translations', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->unsignedBigInteger('product_category_id'); // Add event_id column
+            $table->unsignedBigInteger('product_id'); // Add event_id column
             $table->string('locale');               // Add locale column for uniqueness constraint
-            $table->unique(['product_category_id', 'locale']);
-            $table->foreign('product_category_id')->references('id')->on('product_categories')->onDelete('cascade');
+            $table->unique(['product_id', 'locale']);
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('product_category_translations');
+        Schema::dropIfExists('product_translations');
     }
 };

@@ -37,12 +37,12 @@ class FaqService{
         $faq->is_published = FaqStatus::from($faqData['isPublished'])->value;
 
         if(!empty($faqData['questionAr'])){
-            $faq->translateOrNew('ar')->title = $faqData['questionAr'];
+            $faq->translateOrNew('ar')->question = $faqData['questionAr'];
             $faq->translateOrNew('ar')->answer = $faqData['answerAr'];
         }
 
         if(!empty($faqData['questionEn'])){
-            $faq->translateOrNew('en')->title = $faqData['questionEn'];
+            $faq->translateOrNew('en')->question = $faqData['questionEn'];
             $faq->translateOrNew('en')->answer = $faqData['answerEn'];
         }
 
@@ -60,18 +60,18 @@ class FaqService{
     public function updateFaq(array $faqData): Faq
     {
 
-        $faq = new Faq();
+        $faq = Faq::find($faqData['faqId']);
 
         $faq->order = $faqData['order'];
         $faq->is_published = FaqStatus::from($faqData['isPublished'])->value;
 
         if(!empty($faqData['questionAr'])){
-            $faq->translateOrNew('ar')->title = $faqData['questionAr'];
+            $faq->translateOrNew('ar')->question = $faqData['questionAr'];
             $faq->translateOrNew('ar')->answer = $faqData['answerAr'];
         }
 
         if(!empty($faqData['questionEn'])){
-            $faq->translateOrNew('en')->title = $faqData['questionEn'];
+            $faq->translateOrNew('en')->question = $faqData['questionEn'];
             $faq->translateOrNew('en')->answer = $faqData['answerEn'];
         }
 

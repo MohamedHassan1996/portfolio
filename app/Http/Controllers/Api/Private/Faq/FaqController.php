@@ -57,7 +57,7 @@ class FaqController extends Controller
             DB::commit();
 
             return response()->json([
-                'message' => 'تم اضافة بلد جديد بنجاح'
+                'message' => __('messages.success.created')
             ], 200);
 
         } catch (\Exception $e) {
@@ -93,7 +93,7 @@ class FaqController extends Controller
             $this->faqService->updateFaq($updateFaqRequest->validated());
             DB::commit();
             return response()->json([
-                 'message' => 'تم تحديث بيانات البلد!'
+                 'message' => __('messages.success.updated')
             ], 200);
         } catch (\Exception $e) {
             DB::rollBack();
@@ -114,7 +114,7 @@ class FaqController extends Controller
             $this->faqService->deleteFaq($request->faqId);
             DB::commit();
             return response()->json([
-                'message' => 'تم حذف البلد بنجاح!'
+                'message' => __('messages.success.deleted')
             ], 200);
 
         } catch (\Exception $e) {
@@ -128,7 +128,7 @@ class FaqController extends Controller
     {
         $this->faqService->changeStatus($request->faqId, $request->isPublished);
         return response()->json([
-            'message' => 'تم تغيير حالة البلد بنجاح!'
+            'message' => __('messages.success.updated')
         ], 200);
     }
 

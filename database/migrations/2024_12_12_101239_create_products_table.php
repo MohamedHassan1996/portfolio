@@ -1,6 +1,6 @@
 <?php
 
-use App\Enums\Product\ProductCategoryStatus;
+use App\Enums\Product\ProductStatus;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,9 +12,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('product_categories', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->boolean('is_active')->default(ProductCategoryStatus::ACTIVE->value);
+            $table->boolean('is_active')->default(ProductStatus::ACTIVE->value);
+            $table->foreignId('product_category_id')->nullable()->constrained('product_categories')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('product_categories');
+        Schema::dropIfExists('products');
     }
 };
