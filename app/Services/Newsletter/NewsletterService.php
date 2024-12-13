@@ -3,6 +3,7 @@
 namespace App\Services\Newsletter;
 
 use App\Enums\Newsletter\NewsletterStatus;
+use App\Filters\Newsletter\FilterNewsletter;
 use App\Mail\NewsletterMail;
 use App\Models\Newsletter\Newsletter;
 use App\Models\Newsletter\Subscriber;
@@ -22,7 +23,7 @@ class NewsletterService{
     {
         $newsletters = QueryBuilder::for(Newsletter::class)
             ->allowedFilters([
-                AllowedFilter::exact('subject'), // Add a custom search filter
+                AllowedFilter::custom('search', new FilterNewsletter()), // Add a custom search filter
             ])->get();
 
         return $newsletters;
