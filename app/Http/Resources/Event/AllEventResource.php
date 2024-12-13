@@ -21,13 +21,10 @@ class AllEventResource extends JsonResource
         return [
             'eventId' => $this->id,
             'title' => $this->title,
-            'description' => $this->description??"",
             'date' => $this->date?Carbon::parse($this->date)->format('d/m/Y'):"",
             'time' => $this->time?Carbon::parse($this->time)->format('H:i'):"",
             'location' => $this->location??'',
-            'slug' => $this->slug??"",
             'thumbnail' => $this->thumbnail?Storage::url($this->thumbnail):"",
-            'metaData' => $this->meta_data??[],
             'publishedAt' => $this->published_at ? Carbon::parse($this->published_at)->format('d/m/Y H:i:s') : "",
             'isPublished' => $this->is_published
         ];
