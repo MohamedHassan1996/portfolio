@@ -93,7 +93,7 @@ Route::prefix('v1/{lang}/admin/newsletters')->where(['lang' => 'en|ar'])->group(
     Route::delete('delete', [NewsletterController::class, 'delete']);
 });
 
-Route::prefix('v1/admin/selects')->group(function(){
+Route::prefix('v1/{lang}/admin/selects')->where(['lang' => 'en|ar'])->group(function(){
     Route::get('', [SelectController::class, 'getSelects']);
 });
 

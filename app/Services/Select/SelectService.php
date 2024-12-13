@@ -45,6 +45,7 @@ class SelectService
             'users' => ['getAllUsers', UserSelectService::class],
             'roles' => ['getAllRoles', RoleSelectService::class],
             'permissions' => ['getAllPermissions', PermissionSelectService::class],
+            'blogCategories' => ['getAllBlogCategories', BlogCategorySelectService::class],
             //'parameters' => ['getAllParameters', ParameterSelectService::class]
         ];
 
