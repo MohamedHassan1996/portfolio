@@ -3,6 +3,7 @@
 namespace App\Services\Faq;
 
 use App\Enums\Faq\FaqStatus;
+use App\Filters\Faq\FaqSearchTranslatableFilter;
 use App\Models\Faq\Faq;
 use Illuminate\Support\Facades\Storage;
 use Spatie\QueryBuilder\AllowedFilter;
@@ -21,7 +22,7 @@ class FaqService{
         $faqs = QueryBuilder::for(Faq::class)
             ->withTranslation() // Fetch translations if applicable
             ->allowedFilters([
-                //AllowedFilter::exact('title'), // Add a custom search filter
+                AllowedFilter::custom('search', new FaqSearchTranslatableFilter() ), // Add a custom search filter
             ])->get();
 
         return $faqs;
