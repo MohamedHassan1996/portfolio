@@ -3,6 +3,7 @@
 namespace App\Services\Event;
 
 use App\Enums\Event\EventStatus;
+use App\Filters\Event\EventSearchTranslatableFilter;
 use App\Models\Event\Event;
 use App\Services\Upload\UploadService;
 use Illuminate\Http\UploadedFile;
@@ -24,7 +25,7 @@ class EventService{
     {
         $events = QueryBuilder::for(Event::class)
             ->allowedFilters([
-                AllowedFilter::exact('title'), // Add a custom search filter
+                AllowedFilter::custom('search', new EventSearchTranslatableFilter()), // Add a custom search filter
             ])->get();
 
         return $events;
