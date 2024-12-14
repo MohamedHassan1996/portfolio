@@ -20,7 +20,7 @@ class SubscriberService{
     {
         $subscribers = QueryBuilder::for(Subscriber::class)
             ->allowedFilters([
-                AllowedFilter::custom('email', new FilterSubscriber()), // Add a custom search filter
+                AllowedFilter::custom('search', new FilterSubscriber()), // Add a custom search filter
                 AllowedFilter::exact('isSubscribed'), // Add a custom search filter
             ])->get();
 

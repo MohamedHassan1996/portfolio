@@ -11,9 +11,10 @@ use Astrotomic\Translatable\Translatable;
 class FrontPageSection extends Model implements TranslatableContract
 {
     use HasFactory, Translatable;
-    public $translatedAttributes = ['name', 'description'];
+    public $translatedAttributes = ['content'];
 
     protected $fillable = [
+        'name',
         'is_active',
     ];
 }
