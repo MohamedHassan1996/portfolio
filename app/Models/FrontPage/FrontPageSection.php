@@ -7,14 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
 
-class FrontPage extends Model implements TranslatableContract
+
+class FrontPageSection extends Model implements TranslatableContract
 {
     use HasFactory, Translatable;
-
-    public $translatedAttributes = ['title', 'url', 'meta_data'];
+    public $translatedAttributes = ['name', 'description'];
 
     protected $fillable = [
         'is_active',
     ];
-
 }

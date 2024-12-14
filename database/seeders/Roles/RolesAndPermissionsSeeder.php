@@ -62,6 +62,19 @@ class RolesAndPermissionsSeeder extends Seeder
             'update_faq',
             'delete_faq',
 
+            'all_product_categories',
+            'create_product_category',
+            'edit_product_category',
+            'update_product_category',
+            'delete_product_category',
+
+            'all_products',
+            'create_product',
+            'edit_product',
+            'update_product',
+            'delete_product',
+            'change_product_status',
+
         ];
 
         foreach ($permissions as $permission) {
