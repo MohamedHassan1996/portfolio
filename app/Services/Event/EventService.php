@@ -80,6 +80,8 @@ class EventService{
 
         $event = Event::find($eventData['eventId']);
 
+        $path = null;
+
         if(isset($eventData['thumbnail']) && $eventData['thumbnail'] instanceof UploadedFile){
             $path =  $this->uploadService->uploadFile($eventData['thumbnail'], 'events');
         }
