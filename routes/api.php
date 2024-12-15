@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\Private\Blog\BlogCategoryController;
 use App\Http\Controllers\Api\Private\Blog\BlogController;
+use App\Http\Controllers\Api\Private\Career\CareerController;
 use App\Http\Controllers\Api\Private\Customer\CustomerController;
 use App\Http\Controllers\Api\Private\Event\EventController;
 use App\Http\Controllers\Api\Private\Faq\FaqController;
@@ -91,6 +92,14 @@ Route::prefix('v1/{lang}/admin/newsletters')->where(['lang' => 'en|ar'])->group(
     Route::get('edit', [NewsletterController::class, 'edit']);
     Route::put('update', [NewsletterController::class, 'update']);
     Route::delete('delete', [NewsletterController::class, 'delete']);
+});
+
+Route::prefix('v1/{lang}/admin/careers')->where(['lang' => 'en|ar'])->group(function(){
+    Route::get('', [CareerController::class, 'index']);
+    Route::post('create', [CareerController::class, 'create']);
+    Route::get('edit', [CareerController::class, 'edit']);
+    Route::put('update', [CareerController::class, 'update']);
+    Route::delete('delete', [CareerController::class, 'delete']);
 });
 
 Route::prefix('v1/{lang}/admin/selects')->where(['lang' => 'en|ar'])->group(function(){
