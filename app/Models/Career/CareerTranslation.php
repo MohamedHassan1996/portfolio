@@ -9,9 +9,13 @@ class CareerTranslation extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $fillable = [
         'title',
         'content',
+        'slug',
+        'extra_details',
         'dsecription',
         'meta_data',
     ];

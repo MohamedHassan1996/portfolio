@@ -17,4 +17,9 @@ class Candidate extends Model
         'cover_letter',
         'career_id',
     ];
+
+    public function career()
+    {
+        return $this->belongsTo(Career::class);
+    }
 }

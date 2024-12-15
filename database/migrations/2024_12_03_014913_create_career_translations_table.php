@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('description');
+            $table->string('slug');
             $table->text('content');
+            $table->json('extra_details')->nullable();
             $table->json('meta_data')->nullable();
             $table->unsignedBigInteger('career_id'); // Add event_id column
             $table->string('locale');               // Add locale column for uniqueness constraint

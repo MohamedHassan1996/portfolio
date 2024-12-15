@@ -36,7 +36,7 @@ class AllCandidateCollection extends ResourceCollection
 
         return [
             "result" => [
-                'candidates' => AllCandidateCollection::collection(($this->collection)->values()->all()),
+                'candidates' => AllCandidateResource::collection(($this->collection)->values()->all()),
             ],
             'pagination' => $this->pagination
         ];

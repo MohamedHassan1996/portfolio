@@ -19,11 +19,12 @@ class CareerResource extends JsonResource
 
         $translations = $this->translations->mapWithKeys(function ($translation) {
             return [
-                'title' . ucfirst($translation->locale) => $translation->name ?? "",
+                'title' . ucfirst($translation->locale) => $translation->title ?? "",
                 'description' . ucfirst($translation->locale) => $translation->description ?? "",
                 'extraDetails' . ucfirst($translation->locale) => $translation->extra_details ?? "",
                 'content' . ucfirst($translation->locale) => $translation->content ?? "",
                 'metaData' . ucfirst($translation->locale) => $translation->meta_data ?? [],
+                'slug' . ucfirst($translation->locale) => $translation->slug ?? [],
             ];
         });
 
@@ -39,17 +40,9 @@ class CareerResource extends JsonResource
             'metaDataEn' => $translations['metaDataEn'] ?? [],
             'extraDetailsAr' => $translations['extraDetailsAr'] ?? [],
             'extraDetailsEn' => $translations['extraDetailsEn'] ?? [],
+            'slugAr' => $translations['slugAr'] ?? "",
+            'slugEn' => $translations['slugEn'] ?? "",
             'isActive' => $this->is_active,
         ];
     }
 }
-
-return [
-    'blogCategoryId' => $this->id,
-    'isActive' => $this->is_active,
-    'slug' => $this->slug ?? "",
-    'nameEn' => $translations['nameEn'] ?? "", // Ensure English fallback if translation is missing
-    'nameAr' => $translations['nameAr'] ?? "",
-    'slugEn' => $translations['slugEn'] ?? "",
-    'slugAr' => $translations['slugAr'] ?? "",
-];

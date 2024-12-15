@@ -40,6 +40,10 @@ class UpdateCareerRequest extends FormRequest
             'contentAr' => ['required'],
             'metaDataAr' => ['nullable'],
             'metaDataEn' => ['nullable'],
+            'extraDetailsAr' => ['nullable'],
+            'extraDetailsEn' => ['nullable'],
+            'slugAr' => ['nullable'],
+            'slugEn' => ['nullable'],
             'isActive' => ['required', new Enum(CareerStatus::class)]
 
         ];

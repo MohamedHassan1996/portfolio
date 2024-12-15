@@ -25,7 +25,6 @@ class CandidateService{
     public function allCandidates()
     {
         $candidates = QueryBuilder::for(Candidate::class)
-        ->withTranslation() // Fetch translations if applicable
         ->allowedFilters([
             AllowedFilter::custom('search', new FilterCandidate()), // Add a custom search filter
         ])

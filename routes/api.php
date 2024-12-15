@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\Private\Blog\BlogCategoryController;
 use App\Http\Controllers\Api\Private\Blog\BlogController;
+use App\Http\Controllers\Api\Private\Career\CandidateController;
 use App\Http\Controllers\Api\Private\Career\CareerController;
 use App\Http\Controllers\Api\Private\Customer\CustomerController;
 use App\Http\Controllers\Api\Private\Event\EventController;
@@ -100,6 +101,13 @@ Route::prefix('v1/{lang}/admin/careers')->where(['lang' => 'en|ar'])->group(func
     Route::get('edit', [CareerController::class, 'edit']);
     Route::put('update', [CareerController::class, 'update']);
     Route::delete('delete', [CareerController::class, 'delete']);
+});
+
+Route::prefix('v1/{lang}/admin/candidates')->where(['lang' => 'en|ar'])->group(function(){
+    Route::get('', [CandidateController::class, 'index']);
+    Route::post('create', [CandidateController::class, 'create']);
+    Route::get('edit', [CandidateController::class, 'edit']);
+    Route::delete('delete', [CandidateController::class, 'delete']);
 });
 
 Route::prefix('v1/{lang}/admin/selects')->where(['lang' => 'en|ar'])->group(function(){
