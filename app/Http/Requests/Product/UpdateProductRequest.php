@@ -27,13 +27,13 @@ class UpdateProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'faqId' => 'required',
+            'productId' => 'required',
             'nameEn' => ['required', Rule::unique('product_translations', 'name')
             ->ignore($this->productId, 'product_id')->where('locale', 'en')],
-            'nameAr' => ['required', Rule::unique('product_translations', 'question')
+            'nameAr' => ['required', Rule::unique('product_translations', 'name')
             ->ignore($this->productId, 'product_id')->where('locale', 'ar')],
-            'discriptionEn' => ['required'],
-            'discriptionAr' => ['required'],
+            'descriptionEn' => ['required'],
+            'descriptionAr' => ['required'],
             'slugEn' => ['required'],
             'slugAr' => ['required'],
             'contentEn' => ['required'],

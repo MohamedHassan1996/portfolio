@@ -3,7 +3,9 @@
 namespace App\Services\Product;
 
 use App\Enums\Product\ProductCategoryStatus;
+use App\Filters\Product\ProductCategorySearchTranslatableFilter;
 use App\Models\Product\ProductCategory;
+use App\Services\Upload\UploadService;
 use Illuminate\Support\Facades\Storage;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
@@ -11,9 +13,11 @@ use Spatie\QueryBuilder\QueryBuilder;
 class ProductCategoryService{
 
     private $productCategory;
-    public function __construct(ProductCategory $productCategory)
+    private $uploadService;
+    public function __construct(ProductCategory $productCategory, UploadService $uploadService)
     {
         $this->productCategory = $productCategory;
+        $this->uploadService = $uploadService;
     }
 
     public function allProductCategorys()
@@ -21,7 +25,7 @@ class ProductCategoryService{
         $productCategorys = QueryBuilder::for(ProductCategory::class)
             ->withTranslation() // Fetch translations if applicable
             ->allowedFilters([
-                //AllowedFilter::exact('title'), // Add a custom search filter
+                AllowedFilter::custom('search', new ProductCategorySearchTranslatableFilter() ), // Add a custom search filter
             ])->get();
 
         return $productCategorys;
@@ -35,6 +39,12 @@ class ProductCategoryService{
 
         $productCategory->is_active = ProductCategoryStatus::from($productCategoryData['isActive'])->value;
 
+        $path = null;
+
+        if (isset($productCategoryData['image'])) {
+            $path = $this->uploadService->uploadFile($productCategoryData['image'], 'productCategories');
+        }
+
         if(!empty($productCategoryData['nameAr'])){
             $productCategory->translateOrNew('ar')->name = $productCategoryData['nameAr'];
         }
@@ -42,6 +52,8 @@ class ProductCategoryService{
         if(!empty($productCategoryData['nameEn'])){
             $productCategory->translateOrNew('en')->name = $productCategoryData['nameEn'];
         }
+
+        $productCategory->image = $path;
 
         $productCategory->save();
 
@@ -57,9 +69,17 @@ class ProductCategoryService{
     public function updateProductCategory(array $productCategoryData): ProductCategory
     {
 
+
         $productCategory = ProductCategory::find($productCategoryData['productCategoryId']);
 
         $productCategory->is_active = ProductCategoryStatus::from($productCategoryData['isActive'])->value;
+
+        $path = null;
+
+
+        if (isset($productCategoryData['image'])) {
+            $path = $this->uploadService->uploadFile($productCategoryData['image'], 'productCategories');
+        }
 
         if(!empty($productCategoryData['nameAr'])){
             $productCategory->translateOrNew('ar')->name = $productCategoryData['nameAr'];
@@ -67,6 +87,11 @@ class ProductCategoryService{
 
         if(!empty($productCategoryData['nameEn'])){
             $productCategory->translateOrNew('en')->name = $productCategoryData['nameEn'];
+        }
+
+        if($path){
+            Storage::disk('public')->delete($productCategory->image);
+            $productCategory->image = $path;
         }
 
         $productCategory->save();

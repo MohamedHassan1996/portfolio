@@ -3,6 +3,7 @@
 namespace App\Services\Product;
 
 use App\Enums\Product\ProductStatus;
+use App\Filters\Product\ProductSearchTranslatableFilter;
 use App\Models\Product\Product;
 use Illuminate\Support\Facades\Storage;
 use Spatie\QueryBuilder\AllowedFilter;
@@ -21,7 +22,7 @@ class ProductService{
         $products = QueryBuilder::for(Product::class)
             ->withTranslation() // Fetch translations if applicable
             ->allowedFilters([
-                //AllowedFilter::exact('title'), // Add a custom search filter
+                AllowedFilter::custom('search', new ProductSearchTranslatableFilter()), // Add a custom search filter
             ])->get();
 
         return $products;

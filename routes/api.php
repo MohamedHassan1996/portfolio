@@ -9,6 +9,8 @@ use App\Http\Controllers\Api\Private\Event\EventController;
 use App\Http\Controllers\Api\Private\Faq\FaqController;
 use App\Http\Controllers\Api\Private\Newsletter\NewsletterController;
 use App\Http\Controllers\Api\Private\Newsletter\SubscriberController;
+use App\Http\Controllers\Api\Private\Product\ProductCategoryController;
+use App\Http\Controllers\Api\Private\Product\ProductController;
 use App\Http\Controllers\Api\Private\Select\SelectController;
 use App\Http\Controllers\Api\Private\User\UserController;
 use App\Http\Controllers\Api\Public\Auth\AuthController;
@@ -109,6 +111,23 @@ Route::prefix('v1/{lang}/admin/candidates')->where(['lang' => 'en|ar'])->group(f
     Route::get('edit', [CandidateController::class, 'edit']);
     Route::delete('delete', [CandidateController::class, 'delete']);
 });
+
+Route::prefix('v1/{lang}/admin/product-categories')->where(['lang' => 'en|ar'])->group(function(){
+    Route::get('', [ProductCategoryController::class, 'index']);
+    Route::post('create', [ProductCategoryController::class, 'create']);
+    Route::get('edit', [ProductCategoryController::class, 'edit']);
+    Route::put('update', [ProductCategoryController::class, 'update']);
+    Route::delete('delete', [ProductCategoryController::class, 'delete']);
+});
+
+Route::prefix('v1/{lang}/admin/products')->where(['lang' => 'en|ar'])->group(function(){
+    Route::get('', [ProductController::class, 'index']);
+    Route::post('create', [ProductController::class, 'create']);
+    Route::get('edit', [ProductController::class, 'edit']);
+    Route::put('update', [ProductController::class, 'update']);
+    Route::delete('delete', [ProductController::class, 'delete']);
+});
+
 
 Route::prefix('v1/{lang}/admin/selects')->where(['lang' => 'en|ar'])->group(function(){
     Route::get('', [SelectController::class, 'getSelects']);

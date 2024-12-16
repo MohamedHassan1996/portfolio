@@ -61,11 +61,11 @@ class ProductController extends Controller
             $product = $this->productService->createProduct($data);
 
             foreach ($data['images'] as $key => $image) {
-                $path = $this->uploadService->uploadFile($image['file'], "products/$product->id");
+                $path = $this->uploadService->uploadFile($image['path'], "products/$product->id");
 
                 $this->productImageService->createProductImage([
                     'productId' => $product->id,
-                    'image' => $path
+                    'path' => $path
                 ]);
             }
             DB::commit();

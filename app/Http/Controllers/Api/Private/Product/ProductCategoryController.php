@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\Private\ProductCategory;
+namespace App\Http\Controllers\Api\Private\Product;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Product\ProductCategory\CreateProductCategoryRequest;

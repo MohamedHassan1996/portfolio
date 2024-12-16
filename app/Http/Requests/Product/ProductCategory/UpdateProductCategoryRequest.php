@@ -28,11 +28,13 @@ class UpdateProductCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'productCategoryId' => 'required',
             'nameEn' =>['required', Rule::unique('product_category_translations', 'name')
             ->ignore($this->productCategoryId, 'product_category_id')->where('locale', 'en')],
             'nameAr' => ['required', Rule::unique('product_category_translations', 'name')
             ->ignore($this->productCategoryId, 'product_category_id')->where('locale', 'ar')],
             'isActive' => ['required', new Enum(ProductCategoryStatus::class)],
+            'image' => ['nullable'],
         ];
 
 

@@ -15,7 +15,7 @@ class ProductCategory extends Model implements TranslatableContract
 
     protected $translatedAttributes = ['name'];
 
-    protected $fillable = ['is_active'];
+    protected $fillable = ['is_active', 'image'];
 
     protected $casts = [
         'is_active' => ProductCategoryStatus::class,

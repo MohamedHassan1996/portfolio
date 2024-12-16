@@ -27,9 +27,10 @@ class CreateProductCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nameEn' => ['required', 'unique:product_category_translations,question,NULL,id,locale,en'],
-            'nameAr' => ['required', 'unique:product_category_translations,question,NULL,id,locale,ar'],
+            'nameEn' => ['required', 'unique:product_category_translations,name,NULL,id,locale,en'],
+            'nameAr' => ['required', 'unique:product_category_translations,name,NULL,id,locale,ar'],
             'isActive' => ['required', new Enum(ProductCategoryStatus::class)],
+            'image' => ['nullable'],
         ];
 
 
