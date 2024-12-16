@@ -19,7 +19,7 @@ class AllContactUsMessageResource extends JsonResource
         return [
             'contactUsMessageId' => $this->id,
             'message' => $this->message,
-            'isAdmin' => $this->sender_type,
+            'isAdmin' => $this->is_admin,
             'sentAt' => Carbon::parse($this->created_at)->format('d/m/Y H:i'),
         ];
     }

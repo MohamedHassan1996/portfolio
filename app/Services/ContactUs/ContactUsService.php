@@ -4,6 +4,7 @@ namespace App\Services\ContactUs;
 
 use App\Enums\ContactUs\ContactMessagesStatus;
 use App\Enums\ContactUs\ContactUsStatus;
+use App\Filters\ContactUs\FilterContactUs;
 use App\Models\ContactUs\ContactUs;
 use Illuminate\Support\Facades\Storage;
 use Spatie\QueryBuilder\AllowedFilter;
@@ -21,7 +22,7 @@ class ContactUsService{
     {
         $contactUss = QueryBuilder::for(ContactUs::class)
             ->allowedFilters([
-                AllowedFilter::exact('email'), // Add a custom search filter
+                AllowedFilter::custom('search', new FilterContactUs()), // Add a custom search filter
             ])->get();
 
         return $contactUss;

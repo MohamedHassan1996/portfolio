@@ -3,6 +3,7 @@
 namespace App\Services\ContactUs;
 
 use App\Enums\ContactUs\SenderType;
+use App\Mail\ContactUsMessageNotification;
 use App\Models\ContactUs\ContactUs;
 use App\Models\ContactUs\ContactUsMessage;
 use Illuminate\Support\Facades\Mail;
@@ -25,9 +26,14 @@ class ContactMessageService implements ContactMessageServiceInterface{
         $contactUsMessage = ContactUsMessage::create([
             'contact_us_Id' => $contactUsData['contactUsId'],
             'message' => $contactUsData['message'],
-            'is_admin' => SenderType::from($contactUsData['sender_type'])->value,
-            'is_read' => $contactUsData['is_read']
+            'is_admin' => SenderType::from($contactUsData['isAdmin'])->value,
+            'is_read' => $contactUsData['isRead']??null
         ]);
+
+        $contactUs = ContactUs::find($contactUsData['contactUsId']);
+
+        //Mail::to($contactUs->email)->send(new ContactUsMessageNotification($contactUsMessage, $contactUs));
+
 
         return $contactUsMessage;
     }

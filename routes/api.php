@@ -4,6 +4,8 @@ use App\Http\Controllers\Api\Private\Blog\BlogCategoryController;
 use App\Http\Controllers\Api\Private\Blog\BlogController;
 use App\Http\Controllers\Api\Private\Career\CandidateController;
 use App\Http\Controllers\Api\Private\Career\CareerController;
+use App\Http\Controllers\Api\Private\ContactUs\ContactUsController;
+use App\Http\Controllers\Api\Private\ContactUs\ContactUsMessageController;
 use App\Http\Controllers\Api\Private\Customer\CustomerController;
 use App\Http\Controllers\Api\Private\Event\EventController;
 use App\Http\Controllers\Api\Private\Faq\FaqController;
@@ -127,6 +129,19 @@ Route::prefix('v1/{lang}/admin/products')->where(['lang' => 'en|ar'])->group(fun
     Route::put('update', [ProductController::class, 'update']);
     Route::delete('delete', [ProductController::class, 'delete']);
 });
+
+Route::prefix('v1/{lang}/admin/contact-us')->where(['lang' => 'en|ar'])->group(function(){
+    Route::get('', [ContactUsController::class, 'index']);
+    Route::get('edit', [ContactUsController::class, 'edit']);
+    Route::put('update', [ContactUsController::class, 'update']);
+    Route::delete('delete', [ContactUsController::class, 'delete']);
+});
+
+Route::prefix('v1/{lang}/admin/contact-us-messages')->where(['lang' => 'en|ar'])->group(function(){
+    Route::post('create', [ContactUsMessageController::class, 'create']);
+    Route::put('read-message', [ContactUsMessageController::class, 'read']);
+});
+
 
 
 Route::prefix('v1/{lang}/admin/selects')->where(['lang' => 'en|ar'])->group(function(){

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Api\Private\ContactUs;
 
 use App\Http\Controllers\Controller;
+use App\Models\ContactUs\ContactUsMessage;
 use App\Services\ContactUs\ContactMessageService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 
 
@@ -32,16 +34,31 @@ class ContactUsMessageController extends Controller
     {
         try {
             DB::beginTransaction();
-            $contactUsMessage = $this->contactUsMessageService->createContactUsMessage($request->contactUsId);
+            $contactUsMessage = $this->contactUsMessageService->createContactUsMessage($request->all());
             DB::commit();
             return response()->json([
-                'message' => 'تم حذف البلد بنجاح!'
+                'message' => __('messages.success.created')
             ], 200);
 
         } catch (\Exception $e) {
             DB::rollBack();
             throw $e;
         }
+
+    }
+
+    public function read(Request $request)
+    {
+        $message = ContactUsMessage::find($request->contactUsMessageId);
+
+        $message->update([
+            'is_read' => Carbon::now()
+        ]);
+
+        return response()->json([
+            'message' => __('messages.success.updated')
+        ], 200);
+
 
     }
 
