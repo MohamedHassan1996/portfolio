@@ -28,14 +28,14 @@ class UpdateBlogCategoryRequest extends FormRequest
     {
         return [
             'blogCategoryId' => 'required',
-            'nameEn' => ['required', Rule::unique('blog_category_translations', 'name')
+            'nameEn' => ['required', Rule::unique('blog_categories_translations', 'name')
             ->ignore($this->blogCategoryId, 'blog_category_id')
             ->where('locale', 'en')],
-            'nameAr' => ['required', Rule::unique('blog_category_translations', 'name')
+            'nameAr' => ['required', Rule::unique('blog_categories_translations', 'name')
             ->ignore($this->blogCategoryId, 'blog_category_id')
             ->where('locale', 'ar')],
-            'slug' => ['required'],
-            'description' => ['required'],
+            'slugAr' => ['required'],
+            'slugEn' => ['required'],
             'isActive' => ['required', new Enum(BlogCategoryStatus::class)]
         ];
     }

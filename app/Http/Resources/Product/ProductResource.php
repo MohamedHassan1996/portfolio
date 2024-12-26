@@ -5,6 +5,8 @@ namespace App\Http\Resources\Product;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
+use function PHPUnit\Framework\isEmpty;
+
 class ProductResource extends JsonResource
 {
     /**
@@ -38,8 +40,8 @@ class ProductResource extends JsonResource
             'descriptionAr' => $translations['descriptionAr'] ?? "",
             'contentEn' => $translations['contentEn'] ?? "",
             'contentAr' => $translations['contentAr'] ?? "",
-            'metaDataEn' => $translations['metaDataEn'] ?? "",
-            'metaDataAr' => $translations['metaDataAr'] ?? "",
+            'metaDataEn' => isEmpty($translations['metaDataEn'])? [] : $translations['metaDataEn'],
+            'metaDataAr' => isEmpty($translations['metaDataAr'])? [] : $translations['metaDataAr'],
         ];
     }
 

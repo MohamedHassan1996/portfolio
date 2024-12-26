@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FrontPages\DynamicPageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::prefix('{lang}/')
+    ->where(['lang' => 'en|ar'])
+    ->middleware(['web'])
+    ->group(function () {
+        Route::get('{slug}', [DynamicPageController::class, 'index'])
+            ->name('dynamic.page');
+    });
+
+
+

@@ -57,7 +57,7 @@ class NewsletterController extends Controller
             DB::commit();
 
             return response()->json([
-                'message' => 'تم اضافة بلد جديد بنجاح'
+                'message' => __('messages.success.created')
             ], 200);
 
         } catch (\Exception $e) {
@@ -93,7 +93,7 @@ class NewsletterController extends Controller
             $this->newsletterService->updateNewsletter($updateNewsletterRequest->validated());
             DB::commit();
             return response()->json([
-                 'message' => 'تم تحديث بيانات البلد!'
+                 'message' => __('messages.success.updated')
             ], 200);
         } catch (\Exception $e) {
             DB::rollBack();
@@ -114,7 +114,7 @@ class NewsletterController extends Controller
             $this->newsletterService->deleteNewsletter($request->newsletterId);
             DB::commit();
             return response()->json([
-                'message' => 'تم حذف البلد بنجاح!'
+                'message' => __('messages.success.deleted')
             ], 200);
 
         } catch (\Exception $e) {
@@ -126,9 +126,9 @@ class NewsletterController extends Controller
 
     public function changeStatus(Request $request)
     {
-        $this->newsletterService->changeStatus($request->newsletterId, $request->isPublished);
+        $this->newsletterService->changeStatus($request->newsletterId, $request->isSent);
         return response()->json([
-            'message' => 'تم تغيير حالة البلد بنجاح!'
+            'message' => __('messages.success.updated')
         ], 200);
     }
 

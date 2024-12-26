@@ -1,0 +1,288 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.navigation-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    padding: 20px 0;
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 80%;
+      margin: 0 auto;
+
+      .brand-links {
+        display: flex;
+        align-items: center;
+      }
+
+      .brand {
+        background: #fff;
+        border: 1px solid #e8e8e8;
+        border-radius: 999px;
+        padding: 7px 20px;
+
+        .brand-logo {
+          height: 40px;
+          object-fit: cover;
+        }
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-left: 20px;
+        background: white;
+        padding: 10px 20px;
+        border: 1px solid #e8e8e8;
+        border-radius: 99px;
+
+        .nav-link {
+          font-family: "Open Sans", sans-serif;
+          font-size: 14px;
+          text-transform: capitalize;
+          text-decoration: none;
+          color: var(--dark-color);
+          padding: 8px 16px;
+          border-radius: 999px;
+          transition: all 0.3s;
+
+          &.active {
+            background-color: var(--green-color);
+            color: white;
+            font-weight: bold;
+          }
+
+          &:hover {
+            background-color: var(--green-color);
+            color: white;
+          }
+        }
+      }
+
+      .contact-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        min-width: 149px;
+        height: 41px;
+        background: transparent;
+        color: var(--green-color);
+        border: 1px solid var(--green-color);
+        border-radius: 8px;
+        font-family: "Roboto", sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+
+        &:hover {
+          background-color: var(--green-color);
+          color: white;
+        }
+      }
+
+      .menu-bars {
+        background-color: var(--white-color);
+        padding: 10px 20px;
+        border-radius: 999px;
+        display: none;
+
+        img {
+          height: 24px;
+          width: 24px;
+        }
+      }
+    }
+
+    @media (max-width: 970px) {
+      .nav-links,
+      .contact-button {
+        display: none !important;
+      }
+      .menu-bars {
+        display: flex !important;
+      }
+      .side-bar-responsive.active {
+        box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.2);
+        left: 0px !important;
+        transition: left 0.4s ease-in-out;
+        .contact-button-side {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 5px;
+          width: 150px;
+          height: 41px;
+          background: transparent;
+          color: var(--green-color);
+          border: 1px solid var(--green-color);
+          border-radius: 8px;
+          font-family: "Roboto", sans-serif;
+          font-size: 14px;
+          font-weight: 500;
+          cursor: pointer;
+          transition: background-color 0.3s, color 0.3s;
+          &:hover {
+            background-color: var(--green-color);
+            color: white;
+          }
+        }
+      }
+    }
+  }
+
+  /* hero section */
+  @media (max-width: 1020px) {
+    .hero-title {
+      font-size: 50px !important;
+      line-height: 60px !important;
+    }
+
+    .img-hero-section {
+      width: 300px !important;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .hero-section-top {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-size: 35px !important;
+      line-height: 35px !important;
+    }
+
+    .hero-title,
+    .hero-btn {
+      margin: auto;
+      text-align: center !important;
+      margin-bottom: 20px !important;
+    }
+
+    .img-hero-section {
+      margin: auto !important;
+    }
+  }
+
+  /* ----------- about us ----------- */
+  .images-section {
+    display: flex;
+    align-items: flex-end;
+    @media (max-width: 767px) {
+      flex-direction: column-reverse !important;
+    }
+    .about-image-primary {
+      width: 387px;
+      height: 387px;
+    }
+
+    .about-image-secondary {
+      width: 289px;
+      height: 294px;
+      position: relative;
+      right: -40px;
+      top: 50px;
+      @media (max-width: 767px) {
+        top: -50px;
+        right: 0;
+        margin: auto;
+      }
+    }
+  }
+
+  /* career-details-page */
+  @media (max-width: 420px) {
+    .location,
+    .calendar,
+    .salary,
+    .time {
+      flex-direction: column;
+      height: 70px;
+      justify-content: space-around;
+    }
+  }
+
+  /*! FAQ */
+  .FAQ {
+    .hidden {
+      display: none;
+      transition: 1s;
+    }
+
+    .visible {
+      display: block;
+      transition: 1s;
+      border: 1px solid #333;
+      border-radius: 0px 0px 8px 8px;
+    }
+  }
+
+  /* about us */
+  .btn-aboutus-page:hover img {
+    /* home section */
+    transform: translateX(5px);
+    transition: 0.6s;
+  }
+
+  /* @media query */
+  @media (max-width: 991px) {
+    .heroSection-aboutus-page {
+      flex-direction: column-reverse !important;
+      gap: 50px;
+    }
+  }
+
+  @media (max-width: 920px) {
+    .whyUs {
+      flex-direction: column !important;
+    }
+  }
+
+  @media (max-width: 450px) {
+    .whyUs {
+      margin-bottom: 170px !important;
+      .medicine-items {
+        width: 280px;
+        top: 250px;
+        text-align: center;
+        left: 50%;
+        transform: translate(-50%);
+      }
+      .medicine-items > div {
+        flex-direction: column !important;
+      }
+    }
+    .team-card {
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)) !important;
+    }
+  }
+
+  /* contact us */
+  @media (max-width: 767px) {
+    .main-inputs {
+      width: 100%;
+    }
+  }
+
+  /* reviews */
+  @media (max-width: 767px) {
+    .reviews-persons {
+      flex-direction: column !important;
+      padding-block: 40px;
+      .text-reviews-person {
+        font-size: 22px !important;
+      }
+    }
+  }

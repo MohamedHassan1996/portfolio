@@ -13,7 +13,7 @@ class FrontPageTranslation extends Model
 
     protected $fillable = [
         'title',
-        'url',
+        'slug',
         'meta_data',
     ];
 

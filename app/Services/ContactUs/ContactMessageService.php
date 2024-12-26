@@ -19,8 +19,8 @@ class ContactMessageService implements ContactMessageServiceInterface{
             AllowedFilter::exact('contactUsId'), // Add a custom search filter
         ])->get();
 
-    return $allContactUsMessages;
-}
+        return $allContactUsMessages;
+    }
 
     public function createContactUsMessage(array $contactUsData){
         $contactUsMessage = ContactUsMessage::create([

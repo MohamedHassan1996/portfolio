@@ -1,12 +1,14 @@
 <?php
 
 use App\Enums\Product\ProductCategoryStatus;
+use App\Traits\CreatedUpdatedByMigration;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    use CreatedUpdatedByMigration;
     /**
      * Run the migrations.
      */
@@ -16,6 +18,7 @@ return new class extends Migration
             $table->id();
             $table->string('image')->nullable();
             $table->boolean('is_active')->default(ProductCategoryStatus::ACTIVE->value);
+            $this->CreatedUpdatedByRelationship($table);
             $table->timestamps();
         });
     }

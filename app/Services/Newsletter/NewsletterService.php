@@ -80,7 +80,7 @@ class NewsletterService{
 
     }
 
-    public function changeStatus(int $newsletterId, bool $isSent)
+    public function changeStatus(int $newsletterId, int $isSent)
     {
         $newsletter = Newsletter::find($newsletterId);
         if($newsletter->is_sent == NewsletterStatus::NOT_SENT){

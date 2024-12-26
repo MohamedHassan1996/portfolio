@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Api\Private\ProductImage;
+namespace App\Http\Controllers\Api\Private\Product;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\ProductImage\AllProductImageCollection;
+use App\Http\Resources\Product\ProductImage\ProductImageResource;
 use App\Services\Product\ProductImageService;
-use App\Utils\PaginateCollection;
 use App\Services\Upload\UploadService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -18,12 +17,9 @@ class ProductImageController extends Controller
     public function __construct(UploadService $uploadService, ProductImageService $productImageService)
     {
         $this->middleware('auth:api');
-        // $this->middleware('permission:all_users', ['only' => ['allUsers']]);
-        // $this->middleware('permission:create_user', ['only' => ['create']]);
-        // $this->middleware('permission:edit_user', ['only' => ['edit']]);
-        // $this->middleware('permission:update_user', ['only' => ['update']]);
-        // $this->middleware('permission:delete_user', ['only' => ['delete']]);
-        // $this->middleware('permission:change_user_status', ['only' => ['changeStatus']]);
+        // $this->middleware('permission:all_product_images', ['only' => ['allUsers']]);
+        // $this->middleware('permission:create_porduct_image', ['only' => ['create']]);
+        // $this->middleware('permission:delete_porduct_image', ['only' => ['delete']]);
         $this->productImageService = $productImageService;
         $this->uploadService = $uploadService;
     }
@@ -33,11 +29,9 @@ class ProductImageController extends Controller
      */
     public function index(Request $request)
     {
-        $productImages = $this->productImageService->allProductImages();
+        $productImages = $this->productImageService->allProductImages($request->all());
 
-        return response()->json(
-            new AllProductImageCollection(PaginateCollection::paginate($productImages, $request->pageSize?$request->pageSize:10))
-        , 200);
+        return ProductImageResource::collection($productImages);
 
     }
 

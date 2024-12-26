@@ -19,4 +19,9 @@ class Product extends Model implements TranslatableContract
     protected $casts = [
         'is_active' => ProductStatus::class,
     ];
+
+    public function images()
+    {
+        return $this->hasMany(ProductImage::class);
+    }
 }

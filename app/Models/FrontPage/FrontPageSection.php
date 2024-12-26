@@ -16,5 +16,11 @@ class FrontPageSection extends Model implements TranslatableContract
     protected $fillable = [
         'name',
         'is_active',
+        'front_page_id',
     ];
+
+    public function images()
+    {
+        return $this->hasMany(FrontPageSectionImage::class);
+    }
 }

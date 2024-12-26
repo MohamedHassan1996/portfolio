@@ -15,13 +15,14 @@ class ProductImageService{
         $this->productImage = $productImage;
     }
 
-    public function allProductImages()
+    public function allProductImages(array $filters)
     {
         $productImages = QueryBuilder::for(ProductImage::class)
-            ->withTranslation() // Fetch translations if applicable
             ->allowedFilters([
                 //AllowedFilter::exact('title'), // Add a custom search filter
-            ])->get();
+            ])
+            ->where('product_id', $filters['productId'])
+            ->get();
 
         return $productImages;
 
@@ -46,27 +47,17 @@ class ProductImageService{
         return ProductImage::with('translations')->find($productImageId);
     }*/
 
-    /*public function updateProductImage(array $productImageData): ProductImage
-    {
 
-        $productImage = ProductImage::find($productImageData['productImageId']);
-
-        $productImage->path = $productImageData['path'];
-        $productImage->product_id = $productImageData['productId'];
-
-
-        $productImage->save();
-
-        return $productImage;
-
-
-    }*/
 
 
     public function deleteProductImage(int $productImageId)
     {
 
         $productImage  = ProductImage::find($productImageId);
+
+        if($productImage->path){
+            Storage::disk('public')->delete($productImage->path);
+        }
 
         $productImage->delete();
 

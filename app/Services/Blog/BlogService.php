@@ -113,6 +113,11 @@ class BlogService{
             $blog->translateOrNew('en')->meta_data = $blogData['metaDataEn'];
         }
 
+        if($blog->thumbnail){
+            Storage::disk('public')->delete($blog->thumbnail);
+            $blog->thumbnail = $path;
+        }
+
         $blog->save();
 
         return $blog;
@@ -127,7 +132,7 @@ class BlogService{
         $blog  = Blog::find($blogId);
 
         if($blog->thumbnail){
-            Storage::delete($blog->thumbnail);
+            Storage::disk('public')->delete($blog->thumbnail);
         }
 
         $blog->delete();

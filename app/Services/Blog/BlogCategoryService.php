@@ -63,14 +63,18 @@ class BlogCategoryService{
 
         $blogCategory = BlogCategory::find($blogCategoryData['blogCategoryId']);
 
-        $blogCategory->update([
-            'title' => $blogCategoryData['title'],
-            'description' => $blogCategoryData['description'],
-            'slug' => $blogCategoryData['slug'],
-            'is_active' => BlogCategoryStatus::from($blogCategoryData['is_active'])->value,
-        ]);
+        $blogCategory->is_active = BlogCategoryStatus::from($blogCategoryData['isActive'])->value;
 
-        $blogCategory->country()->attach($blogCategoryData['countryIds']);
+        if (!empty($blogCategoryData['nameAr'])) {
+            $blogCategory->translateOrNew('ar')->name = $blogCategoryData['nameAr'];
+            $blogCategory->translateOrNew('ar')->slug = $blogCategoryData['slugAr'];
+        }
+
+        if (!empty($blogCategoryData['nameEn'])) {
+            $blogCategory->translateOrNew('en')->name = $blogCategoryData['nameEn'];
+            $blogCategory->translateOrNew('en')->slug = $blogCategoryData['slugEn'];
+        }
+
 
         return $blogCategory;
 

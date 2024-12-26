@@ -8,6 +8,7 @@ use App\Filters\User\FilterUserRole;
 use App\Models\User;
 use App\Services\Upload\UploadService;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Permission\Models\Role;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
@@ -75,7 +76,7 @@ class UserService{
         $avatarPath = null;
 
         if(isset($userData['avatar']) && $userData['avatar'] instanceof UploadedFile){
-            $avatarPath =  $this->uploadService->uploadFile($userData['avatar'], $userData['avatar']??'avatars');
+            $avatarPath =  $this->uploadService->uploadFile($userData['avatar'],'avatars');
         }
 
         $user = User::find($userData['userId']);
@@ -92,6 +93,7 @@ class UserService{
         $user->status = UserStatus::from($userData['status'])->value;
 
         if($avatarPath){
+            Storage::disk('public')->delete($user->avatar);
             $user->avatar = $avatarPath;
         }
 
@@ -109,7 +111,13 @@ class UserService{
     public function deleteUser(int $userId)
     {
 
-        return User::find($userId)->delete();
+        $user = User::find($userId);
+
+        if($user->avatar){
+            Storage::disk('public')->delete($user->avatar);
+        }
+
+        $user->delete();
 
     }
 

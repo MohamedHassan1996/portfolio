@@ -9,10 +9,13 @@ use App\Http\Controllers\Api\Private\ContactUs\ContactUsMessageController;
 use App\Http\Controllers\Api\Private\Customer\CustomerController;
 use App\Http\Controllers\Api\Private\Event\EventController;
 use App\Http\Controllers\Api\Private\Faq\FaqController;
+use App\Http\Controllers\Api\Private\FrontPage\FrontPagecontroller;
+use App\Http\Controllers\Api\Private\FrontPage\FrontPageSectionController;
 use App\Http\Controllers\Api\Private\Newsletter\NewsletterController;
 use App\Http\Controllers\Api\Private\Newsletter\SubscriberController;
 use App\Http\Controllers\Api\Private\Product\ProductCategoryController;
 use App\Http\Controllers\Api\Private\Product\ProductController;
+use App\Http\Controllers\Api\Private\Product\ProductImageController;
 use App\Http\Controllers\Api\Private\Select\SelectController;
 use App\Http\Controllers\Api\Private\User\UserController;
 use App\Http\Controllers\Api\Public\Auth\AuthController;
@@ -97,6 +100,7 @@ Route::prefix('v1/{lang}/admin/newsletters')->where(['lang' => 'en|ar'])->group(
     Route::get('edit', [NewsletterController::class, 'edit']);
     Route::put('update', [NewsletterController::class, 'update']);
     Route::delete('delete', [NewsletterController::class, 'delete']);
+    Route::put('change-status', [NewsletterController::class, 'changeStatus']);
 });
 
 Route::prefix('v1/{lang}/admin/careers')->where(['lang' => 'en|ar'])->group(function(){
@@ -130,6 +134,12 @@ Route::prefix('v1/{lang}/admin/products')->where(['lang' => 'en|ar'])->group(fun
     Route::delete('delete', [ProductController::class, 'delete']);
 });
 
+Route::prefix('v1/{lang}/admin/product-images')->where(['lang' => 'en|ar'])->group(function(){
+    Route::get('', [ProductImageController::class, 'index']);
+    Route::post('create', [ProductImageController::class, 'create']);
+    Route::delete('delete', [ProductImageController::class, 'delete']);
+});
+
 Route::prefix('v1/{lang}/admin/contact-us')->where(['lang' => 'en|ar'])->group(function(){
     Route::get('', [ContactUsController::class, 'index']);
     Route::get('edit', [ContactUsController::class, 'edit']);
@@ -141,6 +151,23 @@ Route::prefix('v1/{lang}/admin/contact-us-messages')->where(['lang' => 'en|ar'])
     Route::post('create', [ContactUsMessageController::class, 'create']);
     Route::put('read-message', [ContactUsMessageController::class, 'read']);
 });
+
+Route::prefix('v1/{lang}/admin/front-pages')->where(['lang' => 'en|ar'])->group(function(){
+    Route::get('', [FrontPagecontroller::class, 'index']);
+    Route::post('create', [FrontPagecontroller::class, 'create']);
+    Route::get('edit', [FrontPagecontroller::class, 'edit']);
+    Route::put('update', [FrontPagecontroller::class, 'update']);
+    Route::delete('delete', [FrontPagecontroller::class, 'delete']);
+});
+
+Route::prefix('v1/{lang}/admin/front-page-sections')->where(['lang' => 'en|ar'])->group(function(){
+    Route::get('', [FrontPageSectionController::class, 'index']);
+    Route::post('create', [FrontPageSectionController::class, 'create']);
+    Route::get('edit', [FrontPageSectionController::class, 'edit']);
+    Route::put('update', [FrontPageSectionController::class, 'update']);
+    Route::delete('delete', [FrontPageSectionController::class, 'delete']);
+});
+
 
 
 

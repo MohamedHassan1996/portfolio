@@ -2,11 +2,9 @@
 
 namespace App\Http\Requests\Customer;
 
-use App\Enums\Company\CustomerStatus;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Contracts\Validation\Validator;
-use Illuminate\Validation\Rules\Enum;
 
 
 class UpdateCustomerRequest extends FormRequest
@@ -29,7 +27,7 @@ class UpdateCustomerRequest extends FormRequest
         return [
             'customerId' => 'required',
             'name' =>['required'],
-            'email' =>['required'],
+            'email' =>['required', 'email', "unique:customers,email,{$this->customerId}"],
             'phone' =>['required'],
             'address' => 'required',
             'description' => 'required',

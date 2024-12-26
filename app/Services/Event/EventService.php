@@ -63,6 +63,7 @@ class EventService{
             $event->translateOrNew('en')->meta_data = $eventData['metaDataEn'];
         }
 
+
         $event->save();
 
 
@@ -109,6 +110,11 @@ class EventService{
             $event->translateOrNew('en')->description = $eventData['descriptionEn'];
             $event->translateOrNew('en')->meta_data = $eventData['metaDataEn'];
         }
+        if($path){
+            Storage::disk('public')->delete($path);
+            $event->thumbnail = $path;
+        }
+
 
         $event->save();
 
@@ -124,7 +130,7 @@ class EventService{
         $event  = Event::find($eventId);
 
         if($event->thumbnail){
-            Storage::delete($event->thumbnail);
+            Storage::disk('public')->delete($event->thumbnail);
         }
 
         $event->delete();

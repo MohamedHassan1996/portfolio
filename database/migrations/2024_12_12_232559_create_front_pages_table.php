@@ -1,11 +1,14 @@
 <?php
 
+use App\Enums\FrontPage\FrontPageStatus;
+use App\Traits\CreatedUpdatedByMigration;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    use CreatedUpdatedByMigration;
     /**
      * Run the migrations.
      */
@@ -14,6 +17,7 @@ return new class extends Migration
         Schema::create('front_pages', function (Blueprint $table) {
             $table->id();
             $table->tinyInteger('is_active')->default(FrontPageStatus::ACTIVE->value);
+            $this->CreatedUpdatedByRelationship($table);
             $table->timestamps();
         });
     }
