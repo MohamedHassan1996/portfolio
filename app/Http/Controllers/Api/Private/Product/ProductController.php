@@ -60,13 +60,15 @@ class ProductController extends Controller
 
             $product = $this->productService->createProduct($data);
 
-            foreach ($data['images'] as $key => $image) {
-                $path = $this->uploadService->uploadFile($image['path'], "products/$product->id");
+            if (isset($data['images'])) {
+                foreach ($data['images'] as $key => $image) {
+                    $path = $this->uploadService->uploadFile($image['path'], "products/$product->id");
 
-                $this->productImageService->createProductImage([
-                    'productId' => $product->id,
-                    'path' => $path
-                ]);
+                    $this->productImageService->createProductImage([
+                        'productId' => $product->id,
+                        'path' => $path
+                    ]);
+                }
             }
             DB::commit();
 

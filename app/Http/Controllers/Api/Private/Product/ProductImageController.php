@@ -10,10 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class ProductImageController extends Controller
-{
+{    protected $uploadService;
     protected $productImageService;
-    protected $uploadService;
-    protected $productImageImageService;
     public function __construct(UploadService $uploadService, ProductImageService $productImageService)
     {
         $this->middleware('auth:api');
@@ -47,12 +45,12 @@ class ProductImageController extends Controller
 
             $data = $request->images;
 
-            foreach ($data['images'] as $key => $image) {
-                $path = $this->uploadService->uploadFile($image['file'], "products/$request->productId");
+            foreach ($data as $key => $image) {
+                $path = $this->uploadService->uploadFile($image['path'], "products/$request->productId");
 
-                $this->productImageImageService->createProductImageImage([
+                $this->productImageService->createProductImage([
                     'productId' => $request->productId,
-                    'image' => $path
+                    'path' => $path
                 ]);
             }
             DB::commit();
