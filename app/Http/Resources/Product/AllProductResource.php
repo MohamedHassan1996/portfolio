@@ -15,13 +15,14 @@ class AllProductResource extends JsonResource
      *
      * @return array<string, mixed>
      */
+
     public function toArray(Request $request): array
     {
         return [
             'productId' => $this->id,
             'name' => $this->name,
             'isActive' => $this->is_active,
-            'image' => !isEmpty($this->images)? Storage::url($this->images->first()->path):"",
+            'image' => !empty($this->images)? Storage::url($this->images->first()->path):"",
         ];
     }
 }
