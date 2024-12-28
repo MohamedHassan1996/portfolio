@@ -4,12 +4,13 @@ namespace App\Models\ContactUs;
 
 use App\Enums\ContactUs\SenderType;
 use App\Models\User;
+use App\Traits\CreatedUpdatedBy;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class ContactUsMessage extends Model
 {
-    use HasFactory;
+    use HasFactory, CreatedUpdatedBy;
 
     protected $fillable = [
         'message',
@@ -25,6 +26,6 @@ class ContactUsMessage extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'created_by');
     }
 }

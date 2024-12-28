@@ -4,12 +4,13 @@ namespace App\Models\ContactUs;
 
 use App\Enums\ContactUs\ContactMessagesStatus;
 use App\Enums\ContactUs\SenderType;
+use App\Traits\CreatedUpdatedBy;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class ContactUs extends Model
 {
-    use HasFactory;
+    use HasFactory, CreatedUpdatedBy;
 
     protected $fillable = [
         'name',
