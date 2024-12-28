@@ -20,7 +20,7 @@ class AllContactUsMessageResource extends JsonResource
             'contactUsMessageId' => $this->id,
             'message' => $this->message,
             'isAdmin' => $this->is_admin,
-            'adminName' => $this->created_by ? $this->user->name : '',
+            'adminName' => $this->created_by != null? $this->user->name : '',
             'sentAt' => Carbon::parse($this->created_at)->format('d/m/Y H:i'),
         ];
     }
