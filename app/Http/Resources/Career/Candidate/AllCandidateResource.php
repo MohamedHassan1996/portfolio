@@ -21,7 +21,7 @@ class AllCandidateResource extends JsonResource
             'name' => $this->name,
             'email' => $this->email,
             'phone' => $this->phone,
-            'cv' => $this->cv?Storage::url($this->cv):"",
+            'cv' => $this->cv?Storage::disk('public')->url($this->cv):"",
             'coverLetter' => $this->cover_letter??"",
             'careerName' => $this->career->title,
         ];

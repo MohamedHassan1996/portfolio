@@ -30,7 +30,7 @@ class EventResource extends JsonResource
             'date' => $this->date ?? '',
             'time' => $this->time ?? '',
             'location' => $this->location ?? '',
-            'thumbnail' => $this->thumbnail ? Storage::url($this->thumbnail) : "",
+            'thumbnail' => $this->thumbnail ? Storage::disk('public')->url($this->thumbnail) : "",
             'isPublished' => $this->is_published,
 
             // Translated fields

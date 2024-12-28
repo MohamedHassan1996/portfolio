@@ -25,7 +25,7 @@ class FrontPageSectionService{
     public function allFrontPageSections(array $filters)
     {
         $frontPageSections = QueryBuilder::for(FrontPageSection::class)
-            ->withTranslation() // Fetch translations if applicable
+            ->with('translations') // Fetch translations if applicable
             ->allowedFilters([
             ])
             ->where('is_active', true)

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
-
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class FrontPageSection extends Model implements TranslatableContract
 {
@@ -22,5 +22,10 @@ class FrontPageSection extends Model implements TranslatableContract
     public function images()
     {
         return $this->hasMany(FrontPageSectionImage::class);
+    }
+
+    public function translations(): HasMany
+    {
+        return $this->hasMany(FrontPageSectionTranslation::class);
     }
 }

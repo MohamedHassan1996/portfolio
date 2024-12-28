@@ -36,7 +36,7 @@ class BlogResource extends JsonResource
             'contentEn' => $translations['contentEn'] ?? "",
             'metaDataAr' => $translations['metaDataAr'] ?? [],
             'metaDataEn' => $translations['metaDataEn'] ?? [],
-            'thumbnail' => $this->thumbnail?Storage::url($this->thumbnail):"",
+            'thumbnail' => $this->thumbnail?Storage::disk('public')->url($this->thumbnail):"",
             'categoryId' => $this->category_id,
             'isPublished' => $this->is_published
         ];

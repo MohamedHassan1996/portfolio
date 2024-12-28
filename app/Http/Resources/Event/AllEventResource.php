@@ -24,7 +24,7 @@ class AllEventResource extends JsonResource
             'date' => $this->date?Carbon::parse($this->date)->format('d/m/Y'):"",
             'time' => $this->time?Carbon::parse($this->time)->format('H:i'):"",
             'location' => $this->location??'',
-            'thumbnail' => $this->thumbnail?Storage::url($this->thumbnail):"",
+            'thumbnail' => $this->thumbnail?Storage::disk('public')->url($this->thumbnail):"",
             'publishedAt' => $this->published_at ? Carbon::parse($this->published_at)->format('d/m/Y H:i:s') : "",
             'isPublished' => $this->is_published
         ];
