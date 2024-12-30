@@ -14,7 +14,7 @@ return new class extends Migration
     use CreatedUpdatedByMigration;
     public function up(): void
     {
-        Schema::create('events_translations', function (Blueprint $table) {
+        Schema::create('event_translations', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->string('description');
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('events_translations');
+        Schema::dropIfExists('event_translations');
     }
 };
