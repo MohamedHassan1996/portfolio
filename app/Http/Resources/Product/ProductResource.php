@@ -41,8 +41,8 @@ class ProductResource extends JsonResource
             'descriptionAr' => $translations['descriptionAr'] ?? "",
             'contentEn' => $translations['contentEn'] ?? "",
             'contentAr' => $translations['contentAr'] ?? "",
-            'metaDataEn' => isEmpty($translations['metaDataEn'])? [] : $translations['metaDataEn'],
-            'metaDataAr' => isEmpty($translations['metaDataAr'])? [] : $translations['metaDataAr'],
+            'metaDataEn' => $translations['metaDataEn']?? [] ,
+            'metaDataAr' => $translations['metaDataAr']?? [],
             'images' => $this->images? ProductImageResource::collection($this->images): [],
         ];
     }
