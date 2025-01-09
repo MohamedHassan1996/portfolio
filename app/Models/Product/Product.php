@@ -24,4 +24,9 @@ class Product extends Model implements TranslatableContract
     {
         return $this->hasMany(ProductImage::class);
     }
+
+    public function firstImage()
+    {
+        return $this->hasOne(ProductImage::class)->latest();
+    }
 }

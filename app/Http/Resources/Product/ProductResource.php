@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Product;
 
+use App\Http\Resources\Product\ProductImage\ProductImageResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -42,6 +43,7 @@ class ProductResource extends JsonResource
             'contentAr' => $translations['contentAr'] ?? "",
             'metaDataEn' => isEmpty($translations['metaDataEn'])? [] : $translations['metaDataEn'],
             'metaDataAr' => isEmpty($translations['metaDataAr'])? [] : $translations['metaDataAr'],
+            'images' => $this->images? ProductImageResource::collection($this->images): [],
         ];
     }
 

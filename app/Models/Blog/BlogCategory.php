@@ -27,4 +27,8 @@ class BlogCategory extends Model implements TranslatableContract
     {
         return $this->hasMany(BlogCategoryTranslation::class);
     }
+
+    public function blogs(){
+        return $this->hasMany(Blog::class, 'category_id');
+    }
 }

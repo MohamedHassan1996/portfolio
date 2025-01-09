@@ -63,7 +63,7 @@ class ProductService{
 
     public function editProduct(int $productId)
     {
-        return Product::with('translations')->find($productId);
+        return Product::with('translations', 'images')->find($productId);
     }
 
     public function updateProduct(array $productData): Product

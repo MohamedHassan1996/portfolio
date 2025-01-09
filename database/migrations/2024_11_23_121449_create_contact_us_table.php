@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('phone');
             $table->string('email');
-            $table->text('status')->default(ContactMessagesStatus::OPENED->value);
+            $table->boolean('status')->default(ContactMessagesStatus::OPENED->value);
             $this->CreatedUpdatedByRelationship($table);
             $table->timestamps();
         });

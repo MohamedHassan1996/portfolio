@@ -31,6 +31,8 @@ class CreateBlogRequest extends FormRequest
             'titleAr' => ['required', 'unique:blog_translations,title,NULL,id,locale,ar'],
             'slugEn' => ['required'],
             'slugAr' => ['required'],
+            'descriptionEn' => ['required'],
+            'descriptionAr' => ['required'],
             'contentEn' => ['nullable'],
             'contentAr' => ['nullable'],
             'thumbnail' => ['nullable'],

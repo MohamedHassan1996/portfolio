@@ -14,7 +14,7 @@ class Blog extends Model implements TranslatableContract
 {
     use HasFactory, Translatable;
 
-    protected $translatedAttributes = ['title', 'content', 'slug', 'meta_data'];
+    protected $translatedAttributes = ['title', 'content', 'slug', 'meta_data', 'description'];
     protected $fillable = [
         'thumbnail',
         'is_published',

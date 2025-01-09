@@ -23,6 +23,7 @@ class BlogResource extends JsonResource
                 'slug' . ucfirst($translation->locale) => $translation->slug ?? "",
                 'content' . ucfirst($translation->locale) => $translation->content ?? "",
                 'metaData' . ucfirst($translation->locale) => $translation->meta_data ?? [],
+                'description' . ucfirst($translation->locale) => $translation->description ?? [],
             ];
         });
 
@@ -36,6 +37,8 @@ class BlogResource extends JsonResource
             'contentEn' => $translations['contentEn'] ?? "",
             'metaDataAr' => $translations['metaDataAr'] ?? [],
             'metaDataEn' => $translations['metaDataEn'] ?? [],
+            'descriptionAr' => $translations['descriptionAr'] ?? [],
+            'descriptionEn' => $translations['descriptionEn'] ?? [],
             'thumbnail' => $this->thumbnail?Storage::disk('public')->url($this->thumbnail):"",
             'categoryId' => $this->category_id,
             'isPublished' => $this->is_published

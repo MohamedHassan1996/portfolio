@@ -18,8 +18,6 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->tinyInteger('is_active')->default(FrontPageSectionStatus::ACTIVE->value);
-            $table->unsignedBigInteger('front_page_id');
-            $table->foreign('front_page_id')->references('id')->on('front_pages')->onDelete('cascade');
             $this->CreatedUpdatedByRelationship($table);
             $table->timestamps();
         });

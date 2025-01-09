@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class FrontPage extends Model implements TranslatableContract
 {
@@ -17,9 +19,9 @@ class FrontPage extends Model implements TranslatableContract
         'is_active',
     ];
 
-    public function sections()
+    public function sections(): BelongsToMany
     {
-        return $this->hasMany(FrontPageSection::class, 'front_page_id');
+        return $this->belongsToMany(FrontPageSection::class, 'page_sections', 'front_page_id', 'front_page_section_id');
     }
 
 }

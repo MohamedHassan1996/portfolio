@@ -14,24 +14,13 @@ class LanguageMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        // Get the language parameter from the route
-        $lang = $request->route('lang', 'en');  // Default to 'en' if no language is provided
+        $lang = $request->route('lang') ?? 'en'; // Default to 'en'
 
-        // Validate the language (optional, handle unsupported languages)
-        if (!in_array($lang, ['en', 'ar'])) {
-            abort(404, 'Language not supported.');
+        if (!in_array($lang, ['ar','en'])) {
+            $lang = 'en';
         }
 
-        // Set the application locale
         App::setLocale($lang);
-
-        // Optionally, store the language in the session to persist it across requests
-        Session::put('locale', $lang);
-
-        $locale = $request->get('lang', config('app.locale')); // Default to app locale if not provided
-
-        // Set the application locale
-        App::setLocale($locale);
 
         return $next($request);
     }

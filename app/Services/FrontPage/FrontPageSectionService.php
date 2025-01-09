@@ -43,7 +43,6 @@ class FrontPageSectionService{
 
         $frontPageSection->name = $frontPageSectionData['name'];
         $frontPageSection->is_active = FrontPageSectionStatus::from($frontPageSectionData['isActive'])->value;
-        $frontPageSection->front_page_id = $frontPageSectionData['frontPageId'];
         if(!empty($frontPageSectionData['contentAr'])){
             $frontPageSection->translateOrNew('ar')->content = $frontPageSectionData['contentAr'];
         }

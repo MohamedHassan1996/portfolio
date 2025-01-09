@@ -13,6 +13,7 @@ use App\Http\Controllers\Api\Private\FrontPage\FrontPagecontroller;
 use App\Http\Controllers\Api\Private\FrontPage\FrontPageSectionController;
 use App\Http\Controllers\Api\Private\Newsletter\NewsletterController;
 use App\Http\Controllers\Api\Private\Newsletter\SubscriberController;
+use App\Http\Controllers\Api\Private\Newsletter\WebsiteSubscriberController;
 use App\Http\Controllers\Api\Private\Product\ProductCategoryController;
 use App\Http\Controllers\Api\Private\Product\ProductController;
 use App\Http\Controllers\Api\Private\Product\ProductImageController;
@@ -169,7 +170,10 @@ Route::prefix('v1/{lang}/admin/front-page-sections')->where(['lang' => 'en|ar'])
 });
 
 
-
+Route::prefix('v1/subscribers')->where(['lang' => 'en|ar'])->group(function(){
+    Route::post('create', [WebsiteSubscriberController::class, 'create']);
+    Route::delete('delete', [WebsiteSubscriberController::class, 'delete']);
+});
 
 Route::prefix('v1/{lang}/admin/selects')->where(['lang' => 'en|ar'])->group(function(){
     Route::get('', [SelectController::class, 'getSelects']);

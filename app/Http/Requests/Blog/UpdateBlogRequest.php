@@ -36,6 +36,8 @@ class UpdateBlogRequest extends FormRequest
             ->where('locale', 'ar')],
             'slugEn' => ['required'],
             'slugAr' => ['required'],
+            'descriptionEn' => 'required',
+            'descriptionAr' => 'required',
             'contentEn' => ['required'],
             'contentAr' => ['required'],
             'thumbnail' => ['nullable'],

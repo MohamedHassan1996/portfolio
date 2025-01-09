@@ -2,7 +2,138 @@
 @tailwind components;
 @tailwind utilities;
 
-.navigation-bar {
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* not used */
+  :root {
+    --primary-color: #ea5212; /* Main theme color */
+    --secondary-color: #166e1d; /* Secondary theme color */
+    --background-color: #ffffff; /* Background color */
+    --text-color: #333333; /* Default text color */
+    --hover-color: rgba(234, 82, 18, 0.8); /* Hover effect color */
+    --green-color: #166e1d; /* Green color for buttons */
+  }
+
+  /* Dark theme */
+  [data-theme="dark"] {
+    --primary-color: #333333;
+    --secondary-color: #fbfcf8;
+    --background-color: #1a1a1a;
+    --text-color: #ffffff;
+    --hover-color: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Light theme */
+  [data-theme="light"] {
+    --primary-color: #ea5212;
+    --secondary-color: #166e1d;
+    --background-color: #ffffff;
+    --text-color: #333333;
+    --hover-color: rgba(234, 82, 18, 0.8);
+  }
+
+  body {
+    font-family: "Open Sans", sans-serif;
+    line-height: 1.6; /* Added for better readability */
+    color: #333; /* Set a default text color */
+    background-color: #f9f9f9; /* Set a default background color */
+    overflow-x: hidden;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .heroSection,
+  .products-section,
+  .product-information-page,
+  .blog-information,
+  .career-details-page,
+  .FAQ,
+  .products-page,
+  .blog-page,
+  .aboutus-page,
+  .contactus-page {
+    background: url('../../public/storage/assets/heroSection.png');
+  }
+
+  .ProductsSection {
+    background: url('../../public/storage/assets/MagicPattern.design.png');
+    background-color: #333;
+  }
+
+  .pinned {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  .header {
+    box-sizing: border-box;
+    padding: 20px;
+    transition: box-shadow 0.3s ease;
+  }
+
+  @media (max-width: 991px) {
+    .main-title {
+      font-size: 2.9rem !important;
+      line-height: 60px !important;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .main-title {
+      font-size: 2rem !important;
+      line-height: 44px !important;
+    }
+  }
+
+  /* scroll bar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #ea5212;
+    border-radius: 20px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: var(--background-body);
+  }
+
+  /*  */
+
+  @media (max-width: 840px) {
+    .contactPage-responsive {
+      flex-direction: column !important;
+    }
+  }
+
+  @media (max-width: 991px) {
+    .blog-container {
+      width: 98% !important;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .blog-content-section {
+      flex-direction: column-reverse !important;
+    }
+
+    .blogs-Categories {
+      width: 100%;
+    }
+  }
+
+  .navigation-bar {
     position: fixed;
     top: 0;
     left: 0;
@@ -38,7 +169,7 @@
         display: flex;
         align-items: center;
         gap: 16px;
-        margin-left: 20px;
+        margin-inline-start: 20px;
         background: white;
         padding: 10px 20px;
         border: 1px solid #e8e8e8;
@@ -141,6 +272,53 @@
   }
 
   /* hero section */
+
+  .hero-title,
+.aboutUs .main-title,
+.aboutUs .description,
+.products .main-title,
+.whyUs .main-title,
+.news .title .news .description {
+  text-align: left;
+}
+
+.rtl {
+  .hero-title,
+  .aboutUs .main-title,
+  .aboutUs .description,
+  .products .main-title,
+  .whyUs .main-title,
+  .news .title .news .description {
+    text-align: right;
+  }
+
+  .nav-link {
+    font-weight: bold;
+  }
+
+  .hero-btn .arrow-icon {
+    transform: rotate(90deg) !important;
+  }
+  .contact-button-side, .contact-button .arrow-icon {
+    transform: rotate(-175deg) !important;
+  }
+
+  .images-section {
+    .about-image-secondary {
+      right: 40px !important;
+    }
+  }
+
+  .btn-aboutus-page .arrow-icon {
+    transform: rotate(180deg);
+  }
+
+  .slider-navigation {
+    flex-direction: row-reverse !important;
+  }
+
+}
+
   @media (max-width: 1020px) {
     .hero-title {
       font-size: 50px !important;
@@ -285,4 +463,40 @@
         font-size: 22px !important;
       }
     }
+  }
+
+  .flag-icon {
+    width: 20px;
+    height: 15px;
+    margin-right: 10px;
+  }
+
+  .options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 1000;
+  }
+
+  .options li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .options li:hover {
+    background-color: #f0f0f0;
+  }
+
+  .custom-select.open .options {
+    display: block;
   }

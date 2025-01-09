@@ -32,7 +32,6 @@ class CreateFrontPageSectionRequest extends FormRequest
             'contentEn' => ['required'],
             'contentAr' => ['required'],
             'isActive' => ['required', new Enum(FrontPageSectionStatus::class)],
-            'frontPageId' => ['required'],
         ];
 
 

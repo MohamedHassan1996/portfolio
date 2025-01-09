@@ -27,7 +27,7 @@ class CreateSubscriberRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => ['required', 'unique:faqs,question'],
+            'email' => ['required', 'unique:subscribers,email'],
             'isSubscribed' => ['required', new Enum(NewsletterSubsciberStatus::class)],
         ];
 

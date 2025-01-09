@@ -16,6 +16,7 @@ class BlogTranslation extends Model
         'content',
         'slug',
         'meta_data',
+        'description',
     ];
 
     protected $casts = [

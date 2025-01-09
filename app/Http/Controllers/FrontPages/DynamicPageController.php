@@ -25,8 +25,61 @@ class DynamicPageController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($lang, $slug)
+    public function index($lang='en', $slug=null)
     {
+        $slug = $slug == null && !in_array($lang, ['en', 'ar']) ? $lang : $slug;
+
+        if (!in_array($lang, ['en', 'ar'])) {
+            $lang = 'en';
+        }
+
+        // Fetch the controller name based on the slug
+        $page = DB::table('front_page_translations')
+            ->leftJoin('front_pages', 'front_page_translations.front_page_id', '=', 'front_pages.id')
+            ->where('front_pages.is_active', 1)
+            ->where('front_page_translations.slug', $slug)
+            ->where('front_page_translations.locale', $lang)
+            ->first();
+        /*if (!$page && url()->current() != url('/') && !in_array($lang, [ 'ar'])) {
+            abort(404, 'Controller not found');
+        } elseif ($page && $page->controller_name) {
+            $controllerClass = "App\\Http\\Controllers\\FrontPages\\{$page->controller_name}";
+        }elseif(!$page && count(explode('/', parse_url(url()->current(), PHP_URL_PATH))) > 2){
+
+            abort(404, 'Controller not found');
+        }else{
+            $controllerClass = "App\\Http\\Controllers\\FrontPages\\HomePageController";
+        }*/
+
+        if (!$page) {
+            $controllerClass = "App\\Http\\Controllers\\FrontPages\\HomePageController";
+        }else{
+            $controllerClass = "App\\Http\\Controllers\\FrontPages\\{$page->controller_name}";
+
+        }
+
+
+        if (!class_exists($controllerClass)) {
+            abort(404, 'Controller not found');
+        }
+
+        //dd($slug);
+
+        session(['active_navbar_link' => $slug??'']);
+
+        $controllerInstance = app()->make($controllerClass);
+        return app()->call([$controllerInstance, 'index'], ['lang' => $lang, 'slug' => $slug]);
+    }
+
+    public function show($lang = '', $slug = '', $singleSlug = '')
+    {
+
+        if (!$singleSlug) {
+            $singleSlug = $slug;
+            $slug = $lang;
+            $lang = app()->getLocale();
+        }
+
         // Fetch the controller name based on the slug
         $page = DB::table('front_page_translations')
             ->leftJoin('front_pages', 'front_page_translations.front_page_id', '=', 'front_pages.id')
@@ -34,21 +87,18 @@ class DynamicPageController extends Controller
             ->where('front_page_translations.slug', $slug)
             ->first();
 
-
         if (!$page) {
-            abort(404, 'Page not found');
+            $controllerClass = "App\\Http\\Controllers\\FrontPages\\HomePageController";
+        } else {
+            $controllerClass = "App\\Http\\Controllers\\FrontPages\\{$page->controller_name}";
         }
-
-        // Dynamically call the controller
-        $controllerClass = "App\\Http\\Controllers\\FrontPages\\{$page->controller_name}";
-
 
         if (!class_exists($controllerClass)) {
             abort(404, 'Controller not found');
         }
 
         $controllerInstance = app()->make($controllerClass);
-        return app()->call([$controllerInstance, 'index'], ['lang' => $lang, 'slug' => $slug]);
+        return app()->call([$controllerInstance, 'show'], ['lang' => $lang, 'slug' => $slug, 'singleSlug' => $singleSlug]);
     }
 
 

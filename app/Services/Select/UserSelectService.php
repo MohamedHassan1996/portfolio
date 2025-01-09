@@ -10,4 +10,5 @@ class UserSelectService
     {
         return User::all(['id as value', 'name as label']);
     }
+
 }

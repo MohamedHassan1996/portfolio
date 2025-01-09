@@ -15,6 +15,7 @@ return new class extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->string('thumbnail')->nullable();
+            $table->string('description')->nullable();
             $table->tinyInteger('is_published')->default(BlogStatus::NOT_PUBLISHED->value);
             $table->timestamp('published_at')->nullable();
             $table->foreignId('category_id')->nullable()->constrained('blog_categories')->onUpdate('cascade')->onDelete('cascade');
