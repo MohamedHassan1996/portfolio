@@ -6,12 +6,12 @@
           <img src="{{ url('storage/assets/image_5d73f37c.jpeg') }}" width="70" height="50" alt="logo image" />
 
           <div class="address">
-            <div class="title items-stretch font-semibold text-[#FBFCF8] mt-1">Address:</div>
+            <div class="title items-stretch font-semibold text-[#FBFCF8] mt-1">{{ app()->getLocale() == 'en' ? 'Address:' : 'العنوان:' }}</div>
             <p class="text-[#FBFCF8] font-[100]">Level 1, 12 Sample St, Sydney NSW 2000</p>
           </div>
 
           <div class="contact">
-            <div class="title items-stretch font-semibold text-[#FBFCF8]">Contact:</div>
+            <div class="title items-stretch font-semibold text-[#FBFCF8]">{{ app()->getLocale() == 'en' ? 'Contact:' : 'اتصل بنا:' }}</div>
             <p class="text-[#FBFCF8] font-[100] mt-1">+20 1007 8155 7</p>
             <p class="text-[#FBFCF8] font-[100]">info@relume.io</p>
           </div>
@@ -26,47 +26,30 @@
         </div>
 
         <div class="flex flex-col gap-[16px] w-[100px]">
-          <a href="./index.html" class="[font-family:'Open_Sans',sans-serif] text-[18px] text-base font-normal leading-4 text-[#FBFCF8] cursor-pointer">home</a>
-          <a
-            href="./product.html"
-            class="[font-family:'Open_Sans',sans-serif] text-[18px] text-base font-normal leading-4 text-[#FBFCF8] cursor-pointer"
-          >
-            Products
-          </a>
-          <a
-            href="./about-us.html"
-            class="[font-family:'Open_Sans',sans-serif] text-[18px] text-base font-normal leading-4 text-[#FBFCF8] cursor-pointer"
-          >
-            About us
-          </a>
-          <a
-            href="./contactus.html"
-            class="[font-family:'Open_Sans',sans-serif] text-[18px] text-base font-normal leading-4 text-[#FBFCF8] cursor-pointer"
-          >
-            Contact
-          </a>
-          <a
-            href="./blog.html"
-            class="[font-family:'Open_Sans',sans-serif] text-[18px] text-base font-normal leading-4 text-[#FBFCF8] cursor-pointer"
-          >
-            Blog
-          </a>
+            @foreach ($navbarLinks as $navbarLink)
+                    @if ($navbarLink->controller_name != 'ContactPageController')
+                        <a href="{{ route('dynamic.page', ['lang' => app()->getLocale() == 'en' ? '':app()->getLocale(), 'slug' => $navbarLink->slug]) }}"
+                           class="[font-family:'Open_Sans',sans-serif] text-[18px] text-base font-normal leading-4 text-[#FBFCF8] cursor-pointer {{ session('active_navbar_link') === $navbarLink->slug ? 'active' : '' }}">
+                            {{ $navbarLink->title }}
+                        </a>
+                    @endif
+                @endforeach
         </div>
 
         <div class="SubscribeForm w-[450px] sm:mb-[250px]">
           <form class="Subscribe flex flex-col sm:flex-row gap-5 mb-6">
-            <input type="email" name="email" id="email" class="w-full p-[12px] outline-none border border-white bg-transparent rounded-[2px] text-[white]" placeholder="Enter your emailEnter your email" />
-            <button class="bg-[#EA5212] text-[white] rounded-[4px] px-[12px] h-[48px] outline-none" type="submit">Subscribe</button>
+            <input type="email" name="email" id="email" class="w-full p-[12px] outline-none border border-white bg-transparent rounded-[2px] text-[white]" placeholder="{{ app()->getLocale() == 'en' ? 'Enter your email' : 'أدخل بريدك الإلكتروني' }}" />
+            <button class="bg-[#EA5212] text-[white] rounded-[4px] px-[12px] h-[48px] outline-none" type="submit">{{ app()->getLocale() == 'en' ? 'Subscribe' : 'اشترك' }}</button>
           </form>
           <p class="text-[white] [font-family: Montserrat] font-[400] text-[16px]">
-            By subscribing you agree to with our Privacy Policy and provide
-            consent to receive updates from our company.
+            {{ app()->getLocale() == 'en' ? 'By subscribing you agree to with our Privacy Policy and provide
+            consent to receive updates from our company' : 'بالتسجيل، أنا أوافق على سياسة الخصوصية الخاصة بنا والموافقة على استقبال التحديثات من شركتنا' }}
           </p>
         </div>
       </div>
       <div  class="text-center mt-6 border-t pt-[32px] flex items-center justify-between flex-wrap-reverse border-[#FBFCF8]">
         <p class="text-[#FBFCF8] text-[14px]">
-          &copy; 2024 qoutation-technology. All rights reserved.
+          {{ app()->getLocale() == 'en' ? '© 2025 MBO pharma. All rights reserved.' : '© 2025 MBO pharma. جميع الحقوق محفوظة.' }}
         </p>
         <!--<div class="links flex flex-col gap-[24px] md:flex-row">
           <a href="" class="text-white">Privacy Policy</a>
@@ -89,7 +72,7 @@
       }
 
       try {
-        const response = await fetch('/v1/subscribers/create', {
+        const response = await fetch('api/v1/subscribers/create', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -117,7 +100,7 @@
       const popup = document.createElement('div');
       popup.className = 'custom-popup';
       popup.style.position = 'fixed';
-      popup.style.top = '50%';
+      popup.style.top = '50%';.
       popup.style.left = '50%';
       popup.style.transform = 'translate(-50%, -50%)';
       popup.style.padding = '20px';

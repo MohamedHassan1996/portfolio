@@ -26,10 +26,10 @@ class CreateCustomerRequest extends FormRequest
     {
         return [
             'name' =>['required'],
-            'email' =>['required', 'email', 'unique:customers,email'],
-            'phone' =>['required'],
-            'address' => 'required',
-            'description' => 'required',
+            'email'=> ['nullable', 'sometimes','email'],
+            'phone' =>['nullable'],
+            'address' => 'nullable',
+            'description' => 'nullable',
         ];
     }
 

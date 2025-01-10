@@ -26,7 +26,7 @@ class BlogPageController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index($lang='en', $slug=null)
     {
         $locale = app()->getLocale();
 
@@ -37,8 +37,8 @@ class BlogPageController extends Controller
         $blogQuery = Blog::where('is_published', BlogStatus::PUBLISHED->value);
 
         // Filter by categoryId if provided
-        if ($request->filled('categoryId')) {
-            $blogQuery->where('category_id', $request->categoryId);
+        if (request()->filled('categoryId')) {
+            $blogQuery->where('category_id', request()->categoryId);
         }
 
         // Paginate results (9 per page)

@@ -23,7 +23,7 @@ class ContactPageController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index($lang='en', $slug=null)
     {
         $locale = app()->getLocale();
 

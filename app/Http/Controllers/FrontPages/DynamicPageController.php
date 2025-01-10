@@ -38,8 +38,8 @@ class DynamicPageController extends Controller
             ->leftJoin('front_pages', 'front_page_translations.front_page_id', '=', 'front_pages.id')
             ->where('front_pages.is_active', 1)
             ->where('front_page_translations.slug', $slug)
-            ->where('front_page_translations.locale', $lang)
             ->first();
+
         /*if (!$page && url()->current() != url('/') && !in_array($lang, [ 'ar'])) {
             abort(404, 'Controller not found');
         } elseif ($page && $page->controller_name) {
@@ -51,11 +51,22 @@ class DynamicPageController extends Controller
             $controllerClass = "App\\Http\\Controllers\\FrontPages\\HomePageController";
         }*/
 
+        if($page && $page->locale != $lang){
+            $page = DB::table('front_page_translations')
+            ->leftJoin('front_pages', 'front_page_translations.front_page_id', '=', 'front_pages.id')
+            ->where('front_pages.is_active', 1)
+            ->where('front_page_translations.locale', $lang)
+            ->where('front_page_translations.front_page_id', $page->front_page_id)
+            ->first();
+
+            $slug = $page->slug;
+        }
+
         if (!$page) {
+
             $controllerClass = "App\\Http\\Controllers\\FrontPages\\HomePageController";
         }else{
             $controllerClass = "App\\Http\\Controllers\\FrontPages\\{$page->controller_name}";
-
         }
 
 
@@ -66,6 +77,20 @@ class DynamicPageController extends Controller
         //dd($slug);
 
         session(['active_navbar_link' => $slug??'']);
+
+        if($lang == 'ar'){
+            session(['body_direction' => [
+                'direction' => 'rtl',
+                'lang' => 'ar',
+                'body_class' => 'rtl'
+            ]]);
+        }else{
+            session(['body_direction' => [
+                'direction' => 'ltr',
+                'lang' => 'en',
+                'body_class' => ''
+            ]]);
+        }
 
         $controllerInstance = app()->make($controllerClass);
         return app()->call([$controllerInstance, 'index'], ['lang' => $lang, 'slug' => $slug]);
@@ -87,6 +112,17 @@ class DynamicPageController extends Controller
             ->where('front_page_translations.slug', $slug)
             ->first();
 
+            if($page && $page->locale != $lang){
+                $page = DB::table('front_page_translations')
+                ->leftJoin('front_pages', 'front_page_translations.front_page_id', '=', 'front_pages.id')
+                ->where('front_pages.is_active', 1)
+                ->where('front_page_translations.locale', $lang)
+                ->where('front_page_translations.front_page_id', $page->front_page_id)
+                ->first();
+
+                $slug = $page->slug;
+            }
+
         if (!$page) {
             $controllerClass = "App\\Http\\Controllers\\FrontPages\\HomePageController";
         } else {
@@ -95,6 +131,22 @@ class DynamicPageController extends Controller
 
         if (!class_exists($controllerClass)) {
             abort(404, 'Controller not found');
+        }
+
+        session(['active_navbar_link' => $slug??'']);
+
+        if($lang == 'ar'){
+            session(['body_direction' => [
+                'direction' => 'rtl',
+                'lang' => 'ar',
+                'body_class' => 'rtl'
+            ]]);
+        }else{
+            session(['body_direction' => [
+                'direction' => 'ltr',
+                'lang' => 'en',
+                'body_class' => ''
+            ]]);
         }
 
         $controllerInstance = app()->make($controllerClass);

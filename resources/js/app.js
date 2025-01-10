@@ -118,25 +118,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelectorAll('.language-picker').forEach((element) => {
         element.addEventListener('click', (event) => {
-          event.preventDefault(); // Prevent default anchor behavior
-          const lang = element.getAttribute('data-lang');
-          /*const currentUrl = window.location.origin + window.location.pathname;
-          console.log(currentUrl);
-          const newUrl = lang === 'ar' ? `${currentUrl}/ar` : currentUrl;
-          window.location.href = newUrl;*/
-          const htmlElement = document.documentElement;
-          const body = document.body;
-          if (lang == 'en') {
-            body.classList.remove('rtl');
-            htmlElement.setAttribute('dir', 'ltr');
-            htmlElement.setAttribute('lang', 'en');
-          } else {
-            body.classList.add('rtl');
-            htmlElement.setAttribute('dir', 'rtl');
-            htmlElement.setAttribute('lang', 'ar');
-          }
+            event.preventDefault(); // Prevent default anchor behavior
+
+            const lang = element.getAttribute('data-lang');
+            const currentUrl = new URL(window.location.href); // Get the current URL
+            const pathname = currentUrl.pathname;
+            const queryParams = currentUrl.search; // Preserve query parameters if any
+            const segments = pathname.split('/').filter(segment => segment !== ''); // Split URL into segments
+
+            // Determine if the first segment is a language code
+            const supportedLangs = ['ar', 'en', 'fr', 'es'];
+            let currentLang = supportedLangs.includes(segments[0]) ? segments.shift() : 'en';
+
+            // Replace the language segment or add it as the first segment
+            if (lang !== currentLang) {
+                const newPath = lang === 'en' ? `/${segments.join('/')}` : `/${lang}/${segments.join('/')}`;
+                const newUrl = `${currentUrl.origin}${newPath}${queryParams}`;
+                window.location.href = newUrl;
+            }
+
+            // Update HTML attributes for direction and language
+            const htmlElement = document.documentElement;
+            const body = document.body;
+            if (lang === 'en') {
+                body.classList.remove('rtl');
+                htmlElement.setAttribute('dir', 'ltr');
+                htmlElement.setAttribute('lang', 'en');
+            } else {
+                body.classList.add('rtl');
+                htmlElement.setAttribute('dir', 'rtl');
+                htmlElement.setAttribute('lang', lang);
+            }
         });
-      });
+    });
 
     let swiper = new Swiper(".mySwiper", {
       effect: "coverflow",

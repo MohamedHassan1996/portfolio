@@ -4,7 +4,7 @@
     @include('Layout.navbar')
     <!-- products -->
     <section class="contactus-page">
-        <div class="w-11/12 lg:w-4/5 m-auto pb-[11.5px] pt-40">
+        <div class="w-11/12 lg:w-4/5 m-auto pb-[11.5px] pt-40 mb-[100px]">
 
           @if (app()->getLocale() == 'en')
           <h2 class="main-title [font-family:Montserrat,sans-serif] text-6xl font-bold text-left leading-[72px] uppercase text-[#333333]">
@@ -29,12 +29,12 @@
                 <!-- name and phone -->
                 <div class="flex justify-start items-center gap-[20px] flex-col md:flex-row w-full box-border">
                   <div class="main-inputs flex justify-center items-stretch flex-col grow shrink basis-0 gap-[10px]">
-                    <label for="name" class="[font-family:Montserrat,sans-serif] text-[17px] font-semibold leading-[20.5px] text-[#333333] mt-[15px]">Name</label>
-                    <input placeholder="Brooklyn Simmons" type="text" id="name" class="border bg-[#fbfcf8] h-[50px] [font-family:Roboto,sans-serif] text-base font-normal box-border pl-3 rounded-sm border-solid border-[#333333] text-[#8e8e8e]" />
+                    <label for="name" class="[font-family:Montserrat,sans-serif] text-[17px] font-semibold leading-[20.5px] text-[#333333] mt-[15px]">{{ app()->getLocale() == 'en' ? 'Name' : 'الاسم' }}</label>
+                    <input type="text" id="name" class="border bg-[#fbfcf8] h-[50px] [font-family:Roboto,sans-serif] text-base font-normal box-border pl-3 rounded-sm border-solid border-[#333333] text-[#8e8e8e]" />
                   </div>
                   <div class="main-inputs flex justify-center items-stretch flex-col grow shrink basis-0 gap-[10px]">
-                    <label for="mobile-phone" class="[font-family:Montserrat,sans-serif] text-[17px] font-semibold leading-[20.5px] text-[#333333] mt-[15px]" >Mobile Phone</label>
-                    <input placeholder="+20 1007 4815 557" type="text" id="mobile-phone" class="border bg-[#fbfcf8] h-[50px] [font-family:Roboto,sans-serif] text-base font-normal box-border pl-3 rounded-sm border-solid border-[#333333] text-[#8e8e8e]" />
+                    <label for="mobile-phone" class="[font-family:Montserrat,sans-serif] text-[17px] font-semibold leading-[20.5px] text-[#333333] mt-[15px]" >{{ app()->getLocale() == 'en' ? 'Phone' : 'الهاتف' }}</label>
+                    <inputtype="text" id="mobile-phone" class="border bg-[#fbfcf8] h-[50px] [font-family:Roboto,sans-serif] text-base font-normal box-border pl-3 rounded-sm border-solid border-[#333333] text-[#8e8e8e]" />
                   </div>
                 </div>
 
@@ -46,11 +46,10 @@
                     for="email"
                     class="[font-family:Montserrat,sans-serif] text-[17px] font-semibold leading-[20.5px] text-[#333333] block mb-[15px]"
                   >
-                    Email
+                    {{ app()->getLocale() == 'en' ? 'Email' : 'البريد الإلكتروني' }}
                   </label>
                   <input
                     id="email"
-                    placeholder="example@mail.com"
                     type="text"
                     class="border h-[50px] w-full box-border bg-[#fbfcf8] [font-family:Roboto,sans-serif] text-base font-normal pl-3 rounded-sm border-solid border-[#333333] text-[#8e8e8e]"
                   />
@@ -60,12 +59,11 @@
                   <p
                     class="[font-family:Montserrat,sans-serif] text-[17px] font-semibold leading-[20.5px] text-[#333333] m-0 p-0"
                   >
-                    Subject
+                    {{ app()->getLocale() == 'en' ? 'Subject' : 'الموضوع' }}
                   </p>
                   <div class="w-[100.00%] box-border mt-[15px]">
                     <!-- Input Component is detected here -->
                     <input
-                      placeholder="Career"
                       type="text"
                       class="border bg-[#fbfcf8] h-[50px] w-[100.00%] [font-family:Roboto,sans-serif] text-base font-normal box-border pl-3 rounded-sm border-solid border-[#333333] text-[#8e8e8e]"
                     />
@@ -77,10 +75,9 @@
                     for="message"
                     class="[font-family:Montserrat,sans-serif] text-[17px] font-semibold leading-[20.5px] text-[#333333] m-0 p-0"
                   >
-                    Message
+                    {{ app()->getLocale() == 'en' ? 'Message' : 'الرسالة' }}
                   </label>
                   <textarea
-                    placeholder="message"
                     id="message"
                     class="rounded border min-h-[200px] bg-[#fbfcf8] box-border flex justify-start items-start flex-col w-[100.00%] mt-[15px] pl-3 pr-[2.25px] pt-[13px] pb-0.5 border-solid border-[#333333]"
                   ></textarea>
@@ -90,7 +87,7 @@
               <button
                 class="rounded border bg-transparent [font-family:Roboto,sans-serif] text-base font-medium text-[#ea5212] cursor-pointer min-w-[131px] h-[41px] w-[131px] block box-border mt-[22.5px] border-solid hover:bg-[#ea5212] hover:text-[#fff] border-[#ea5212]"
               >
-                Send Message
+                {{ app()->getLocale() == 'en' ? 'Send' : 'إرسال' }}
               </button>
             </div>
 

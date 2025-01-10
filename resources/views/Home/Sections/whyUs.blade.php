@@ -36,19 +36,18 @@
       >
         <div class="flex flex-row items-center gap-[11px] text-white">
           <image src="{{ url("storage/icons/Hand Coin Icon.png") }}" class="" alt="" />
-          <h5 class="title">Harum eum quas numquam nost</h5>
+          <h5 class="title">{{ app()->getLocale() == 'en' ? 'Harum eum quas numquam nost' : 'هذا نص يتم ستبداله' }}</h5>
         </div>
         <div class="flex flex-row items-center gap-[11px] text-white">
           <image src="{{ url("storage/icons/Medicine Icon.png") }}" class="" alt="" />
-          <h5 class="title">Harum eum quas numquam nost</h5>
-        </div>
+          <h5 class="title">{{ app()->getLocale() == 'en' ? 'Harum eum quas numquam nost' : 'هذا نص يتم ستبداله' }}</div>
         <div class="flex flex-row items-center gap-[11px] text-white">
           <image src="{{ url("storage/icons/Target Icon.png") }}" class="" alt="" />
-          <h5 class="title">Harum eum quas numquam nost</h5>
+          <h5 class="title">{{ app()->getLocale() == 'en' ? 'Harum eum quas numquam nost' : 'هذا نص يتم ستبداله' }}</h5>
         </div>
         <div class="flex flex-row items-center gap-[11px] text-white">
           <image src="{{ url("storage/icons/Watch Icon.png") }}" class="" alt="" />
-          <h5 class="title">Harum eum quas numquam nost</h5>
+          <h5 class="title">{{ app()->getLocale() == 'en' ? 'Harum eum quas numquam nost' : 'هذا نص يتم ستبداله' }}</h5>
         </div>
       </div>
     </div>

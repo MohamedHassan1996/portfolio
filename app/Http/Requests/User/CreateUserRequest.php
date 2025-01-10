@@ -30,7 +30,7 @@ class CreateUserRequest extends FormRequest
         return [
             'name' => 'required',
             'username'=> ['required', 'unique:users,username'],
-            'email'=> ['required', 'unique:users,email'],
+            'email'=> ['nullable', 'sometimes','email'],
             'phone' => '',
             'address' => '',
             'status' => ['required', new Enum(UserStatus::class)],

@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="{{ app()->getLocale() }}" dir="{{ session('body_direction')['direction'] }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +9,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700" />
-    <title>laravel app - @yield('title')</title>
+    <title>@yield('title')</title>
 </head>
-<body>
+<body class="{{ session('body_direction')['body_class'] }}">

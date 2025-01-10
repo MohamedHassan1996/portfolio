@@ -25,7 +25,7 @@ class ProductPageController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index($lang='en', $slug=null)
     {
         $locale = app()->getLocale();
 
@@ -37,8 +37,8 @@ class ProductPageController extends Controller
             ->where('is_active', ProductStatus::ACTIVE->value);
 
         // Filter by categoryId if provided
-        if ($request->filled('categoryId')) {
-            $productsQuery->where('product_category_id', $request->categoryId);
+        if (request()->filled('categoryId')) {
+            $productsQuery->where('product_category_id', request()->categoryId);
         }
 
         // Paginate results (9 per page)
@@ -48,12 +48,24 @@ class ProductPageController extends Controller
         return view('Product.index', compact('productPage', 'productCategories', 'products'));
     }
 
-    public function show($slug, $singleSlug, Request $request){
+    public function show($lang = 'en', $slug, $singleSlug, Request $request){
         $product = Product::with('translations')
         ->whereHas('translations', function ($query) use ($singleSlug) {
             $query->where('slug', $singleSlug)->where('locale', app()->getLocale());
         })
         ->first();
+
+        if (!$product) {
+            $product = Product::with('translations')
+            ->whereHas('translations', function ($query) use ($singleSlug) {
+                $query->where('slug', $singleSlug)->whereIn('locale', ['en', 'ar']);
+            })
+            ->first();
+        }
+
+        if (!$product) {
+            abort(404);
+        }
 
         $products = Product::where('is_active', ProductStatus::ACTIVE->value)->limit(3)->get();
 
