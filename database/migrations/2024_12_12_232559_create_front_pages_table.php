@@ -17,6 +17,7 @@ return new class extends Migration
         Schema::create('front_pages', function (Blueprint $table) {
             $table->id();
             $table->tinyInteger('is_active')->default(FrontPageStatus::ACTIVE->value);
+            $table->string('controller_name');
             $this->CreatedUpdatedByRelationship($table);
             $table->timestamps();
         });

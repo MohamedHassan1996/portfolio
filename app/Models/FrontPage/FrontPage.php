@@ -17,6 +17,7 @@ class FrontPage extends Model implements TranslatableContract
 
     protected $fillable = [
         'is_active',
+        'controller_name',
     ];
 
     public function sections(): BelongsToMany
