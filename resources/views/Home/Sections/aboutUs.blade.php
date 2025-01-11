@@ -1,6 +1,6 @@
 <!-- about us -->
 <section class="flex bg-[#FBFCF8] relative" id="about-us-section">
-    <img src="{{ url('storage/assets/image_gradient.png') }}" alt="Background" class="background-image z-0 top-0 left-0 absolute" />
+    <img src="{{ url('public/storage/assets/image_gradient.png') }}" alt="Background" class="background-image z-0 top-0 left-0 absolute" />
     <div class="w-11/12 md:w-4/5 m-auto py-40">
       <div class="flex flex-col md:flex-row justify-between items-center gap-[35px]">
         <div class="w-full md:w-[40%]">
@@ -15,7 +15,7 @@
           </p>
           <a  href="{{ app()->getLocale() == 'en' ? url('about-us') : url('ar/عنا') }}" class="btn-aboutus-page rounded bg-[#166e1d] outline-none [font-family:Roboto,sans-serif] text-base font-medium text-[white] cursor-pointer h-10 w-full md:w-[200px] flex items-center justify-center gap-[1px] mt-4 border-[none]" onclick="window.location.href = './about-us.html'">
             <span>{{ $aboutUsSection->content[0]['btnText'] }}</span>
-            <img class="arrow-icon" src="{{ url('storage/icons/about-icon-btn.svg') }}" alt="" />
+            <img class="arrow-icon" src="{{ url('public/storage/icons/about-icon-btn.svg') }}" alt="" />
           </a>
         </div>
 

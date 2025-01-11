@@ -23,10 +23,10 @@
         <!-- Navigation Buttons -->
         <div class="flex justify-center gap-4 mt-5 slider-navigation">
           <button class="next-btn bg-[#EA5212] p-2 rounded transform rotate-180">
-            <img src="{{ url('storage/icons/iconl.svg') }}" alt="Previous" width="20" />
+            <img src="{{ url('public/storage/icons/iconl.svg') }}" alt="Previous" width="20" />
           </button>
           <button class="prev-btn bg-[#EA5212] p-2 rounded">
-            <img src="{{ url('storage/icons/iconl.svg') }}" alt="Next" width="20" />
+            <img src="{{ url('public/storage/icons/iconl.svg') }}" alt="Next" width="20" />
           </button>
         </div>
         <!-- <div class="swiper-pagination"></div> -->
