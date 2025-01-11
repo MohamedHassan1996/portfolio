@@ -21,7 +21,7 @@
     <div class="h-[323px] relative">
       <div class="realative w-full h-full">
         <img
-          src="{{ url("storage/".$whyUsSectionImages[0]['path']) }}"
+          src="{{ url("public/storage/".$whyUsSectionImages[0]['path']) }}"
           class="w-full h-full"
           alt=""
           loading="lazy"
@@ -35,18 +35,18 @@
         class="medicine-items absolute top-[270px] left-[20px] w-[320px] rounded-[8px] shadow-2xl gap-[8px] flex flex-col p-[15px] bg-[#166E1D]"
       >
         <div class="flex flex-row items-center gap-[11px] text-white">
-          <image src="{{ url("storage/icons/Hand Coin Icon.png") }}" class="" alt="" />
+          <image src="{{ url("public/storage/icons/Hand Coin Icon.png") }}" class="" alt="" />
           <h5 class="title">{{ app()->getLocale() == 'en' ? 'Harum eum quas numquam nost' : 'هذا نص يتم ستبداله' }}</h5>
         </div>
         <div class="flex flex-row items-center gap-[11px] text-white">
-          <image src="{{ url("storage/icons/Medicine Icon.png") }}" class="" alt="" />
+          <image src="{{ url("public/storage/icons/Medicine Icon.png") }}" class="" alt="" />
           <h5 class="title">{{ app()->getLocale() == 'en' ? 'Harum eum quas numquam nost' : 'هذا نص يتم ستبداله' }}</div>
         <div class="flex flex-row items-center gap-[11px] text-white">
-          <image src="{{ url("storage/icons/Target Icon.png") }}" class="" alt="" />
+          <image src="{{ url("public/storage/icons/Target Icon.png") }}" class="" alt="" />
           <h5 class="title">{{ app()->getLocale() == 'en' ? 'Harum eum quas numquam nost' : 'هذا نص يتم ستبداله' }}</h5>
         </div>
         <div class="flex flex-row items-center gap-[11px] text-white">
-          <image src="{{ url("storage/icons/Watch Icon.png") }}" class="" alt="" />
+          <image src="{{ url("public/storage/icons/Watch Icon.png") }}" class="" alt="" />
           <h5 class="title">{{ app()->getLocale() == 'en' ? 'Harum eum quas numquam nost' : 'هذا نص يتم ستبداله' }}</h5>
         </div>
       </div>

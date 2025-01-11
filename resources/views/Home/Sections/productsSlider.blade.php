@@ -13,7 +13,7 @@
         <div class="swiper-wrapper flex justify-center items-center gap-8 mt-10">
           @foreach ($products as $product)
           <div class="swiper-slide w-[180px] h-[full] flex-none">
-            <img src="{{ url("storage/".$product->images()->first()->path) }}" class="object-cover w-full h-full rounded-xl" />
+            <img src="{{ url("public/storage/".$product->images()->first()->path) }}" class="object-cover w-full h-full rounded-xl" />
             <a href="{{ app()->getLocale() == 'en' ? url('products/'.$product->slug) : url('ar/المنتجات/'.$product->slug) }}" class="font-montserrat text-[17px] font-semibold uppercase underline text-[#fbfcf8] mt-2 text-start">
               {{ $product->name }}
             </a>

@@ -20,8 +20,8 @@
         </div>
 
         <div class="images-section flex flex-col md:flex-row items-end">
-          <img src="{{ url("storage/".$aboutUsSectionImages[0]['path']) }}" class="about-image-secondary mb-4 md:mb-0" alt="about-image-secondary" />
-          <img src="{{ url("storage/".$aboutUsSectionImages[1]['path']) }}" class="about-image-primary" alt="about-image-primary" />
+          <img src="{{ url("public/storage/".$aboutUsSectionImages[0]['path']) }}" class="about-image-secondary mb-4 md:mb-0" alt="about-image-secondary" />
+          <img src="{{ url("public/storage/".$aboutUsSectionImages[1]['path']) }}" class="about-image-primary" alt="about-image-primary" />
         </div>
 
       </div>
