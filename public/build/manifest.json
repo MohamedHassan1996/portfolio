@@ -1,4 +1,9 @@
 {
+  "resources/css/app.css": {
+    "file": "assets/app-cdd26ca3.css",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
   "resources/js/app.css": {
     "file": "assets/app-59b7e6ed.css",
     "src": "resources/js/app.css"
@@ -10,5 +15,13 @@
     "file": "assets/app-307dc59b.js",
     "isEntry": true,
     "src": "resources/js/app.js"
+  },
+  "storage/app/public/assets/MagicPattern.design.png": {
+    "file": "assets/MagicPattern.design-8d7e5dd6.png",
+    "src": "storage/app/public/assets/MagicPattern.design.png"
+  },
+  "storage/app/public/assets/heroSection.png": {
+    "file": "assets/heroSection-4f761604.png",
+    "src": "storage/app/public/assets/heroSection.png"
   }
 }
