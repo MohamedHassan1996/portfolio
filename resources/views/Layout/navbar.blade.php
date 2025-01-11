@@ -18,7 +18,7 @@
             <!-- Navigation Links -->
             <div class="nav-links">
                 @foreach ($navbarLinks as $navbarLink)
-                    @if ($navbarLink->controller_name != 'ContactPageController')
+                    @if ($navbarLink->controller_name != 'ContactPageController' || $navbarLink->controller_name != 'CareerPageController')
                         <a href="{{ route('dynamic.page', ['lang' => app()->getLocale() == 'en' ? '':app()->getLocale(), 'slug' => $navbarLink->slug]) }}"
                            class="nav-link {{ session('active_navbar_link') === $navbarLink->slug ? 'active' : '' }}">
                             {{ $navbarLink->title }}
