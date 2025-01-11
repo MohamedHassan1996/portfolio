@@ -36,7 +36,7 @@ Route::middleware(['web'])->group(function () {
         ->name('dynamic.page.show');*/
 
     Route::get('/', [HomePageController::class, 'index'])->name('home.index');
-    Route::get('/products', [HomePageController::class, 'index'])->name('Product.index');
+    Route::get('/products', [ProductPageController::class, 'index'])->name('Product.index');
 });
 
 Route::prefix('{lang?}')
@@ -44,7 +44,7 @@ Route::prefix('{lang?}')
     ->middleware(['web'])
     ->group(function () {
         Route::get('/', [HomePageController::class, 'index'])->name('home.index');
-        Route::get('/المنتجات', [HomePageController::class, 'index'])->name('Product.index');
+        Route::get('/المنتجات', [ProductPageController::class, 'index'])->name('Product.index');
 });
 
 
