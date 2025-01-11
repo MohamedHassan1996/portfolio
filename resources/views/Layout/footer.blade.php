@@ -19,21 +19,21 @@
           <div class="social-media-icons flex gap-[12px]">
             <a href="https://www.facebook.com" target="_blank"><img src="{{ url('public/storage/assets/Facebook.png') }}" width="25" height="25" alt="Facebook" /></a>
             <a href="https://www.instagram.com" target="_blank"><img src="{{ url('public/storage/assets/Instagram.png') }}" width="25" height="25" alt="Instagram" /></a>
-            <a href="https://www.linkedin.com" target="_blank"><img src="{{ url('public/storage/assets/LinkedIn.png') }}" width="25" height="25" alt="LinkedIn" /></a>
+            <a href="https://www.linkedin.com" target="_blank"><img src="{{ url('public/storage/assets/Linkedin.png') }}" width="25" height="25" alt="LinkedIn" /></a>
             <a href="https://twitter.com" target="_blank"><img src="{{ url('public/storage/assets/X.png') }}" width="25" height="25" alt="Twitter" /></a>
-            <a href="https://www.youtube.com" target="_blank"><img src="{{ url('public/storage/assets/Youtube.svg') }}" width="25" height="25" alt="YouTube"/></a>
+            <a href="https://www.youtube.com" target="_blank"><img src="{{ url('public/storage/assets/YouTube.svg') }}" width="25" height="25" alt="YouTube"/></a>
           </div>
         </div>
 
         <div class="flex flex-col gap-[16px] w-[100px]">
-            {{-- @foreach ($navbarLinks as $navbarLink)
+            @foreach ($navbarLinks as $navbarLink)
                     @if ($navbarLink->controller_name != 'ContactPageController')
-                        <a href="{{ route('home.index', ['lang' => app()->getLocale() == 'en' ? '':app()->getLocale(), 'slug' => $navbarLink->slug]) }}"
+                        <a href="{{ route('dynamic.page', ['lang' => app()->getLocale() == 'en' ? '':app()->getLocale(), 'slug' => $navbarLink->slug]) }}"
                            class="[font-family:'Open_Sans',sans-serif] text-[18px] text-base font-normal leading-4 text-[#FBFCF8] cursor-pointer {{ session('active_navbar_link') === $navbarLink->slug ? 'active' : '' }}">
                             {{ $navbarLink->title }}
                         </a>
                     @endif
-                @endforeach --}}
+                @endforeach
         </div>
 
         <div class="SubscribeForm w-[450px] sm:mb-[250px]">
