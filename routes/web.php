@@ -39,7 +39,7 @@ Route::middleware(['web'])->group(function () {
 });
 
 Route::prefix('{lang?}')
-    ->where(['lang' => 'ar|en']) // Supported languages
+    ->where(['lang' => 'ar|en'])
     ->middleware(['web'])
     ->group(function () {
         Route::get('/', [HomePageController::class, 'index'])->name('home.index');
