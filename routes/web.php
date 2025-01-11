@@ -31,24 +31,10 @@ Route::middleware(['web'])->group(function () {
         ->where('slug', '^(?!ar|fr|es)[^/]*$') // Single segment, not 'ar', 'fr', 'es'
         ->name('dynamic.page');
 
-    /*Route::get('{slug}/{single_slug}', [DynamicPageController::class, 'show'])
+    Route::get('{slug}/{single_slug}', [DynamicPageController::class, 'show'])
         ->where('slug', '^(?!ar|fr|es).*$') // Exclude 'ar', 'fr', 'es'
         ->name('dynamic.page.show');
-
-    Route::get('/', [HomePageController::class, 'index'])->name('home.index');
-    Route::get('/products', [ProductPageController::class, 'index'])->name('Product.index');
-    Route::get('/about-us', [ProductPageController::class, 'index'])->name('AboutUs.index');*/
 });
-
-/*Route::prefix('{lang?}')
-    ->where(['lang' => 'ar|en'])
-    ->middleware(['web'])
-    ->group(function () {
-        Route::get('/', [HomePageController::class, 'index'])->name('home.index');
-        Route::get('/المنتجات', [ProductPageController::class, 'index'])->name('Product.index');
-        Route::get('/about-us', [ProductPageController::class, 'index'])->name('AboutUs.index');
-});*/
-
 
 // ✅ Language-prefixed routes for other languages
 Route::prefix('{lang?}')
@@ -85,5 +71,3 @@ Route::prefix('{lang?}')
         ->where('slug', '[^/]*') // Single segment after language prefix
         ->name('dynamic.page');
     });*/
-
-
