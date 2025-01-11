@@ -37,6 +37,22 @@ class HomePageController extends Controller
 
         $blogs = Blog::where('is_published', BlogStatus::PUBLISHED->value)->limit(3)->get();
 
+        session(['active_navbar_link' => $slug??'']);
+
+        if($lang == 'ar'){
+            session(['body_direction' => [
+                'direction' => 'rtl',
+                'lang' => 'ar',
+                'body_class' => 'rtl'
+            ]]);
+        }else{
+            session(['body_direction' => [
+                'direction' => 'ltr',
+                'lang' => 'en',
+                'body_class' => ''
+            ]]);
+        }
+
         return view('Home.index', compact('homePage', 'products', 'blogs'));
     }
 }
