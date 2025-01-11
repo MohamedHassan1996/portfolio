@@ -3,7 +3,7 @@
     <div class="w-11/12 md:w-4/5 m-auto">
       <div class="flex gap-[64px] flex-wrap ">
         <div class="w-[450px] flex flex-col gap-[28px]">
-          <img src="{{ url('storage/assets/image_5d73f37c.jpeg') }}" width="70" height="50" alt="logo image" />
+          <img src="{{ url('public/storage/assets/image_5d73f37c.jpeg') }}" width="70" height="50" alt="logo image" />
 
           <div class="address">
             <div class="title items-stretch font-semibold text-[#FBFCF8] mt-1">{{ app()->getLocale() == 'en' ? 'Address:' : 'العنوان:' }}</div>
@@ -17,11 +17,11 @@
           </div>
 
           <div class="social-media-icons flex gap-[12px]">
-            <a href="https://www.facebook.com" target="_blank"><img src="{{ url('storage/assets/Facebook.png') }}" width="25" height="25" alt="Facebook" /></a>
-            <a href="https://www.instagram.com" target="_blank"><img src="{{ url('storage/assets/Instagram.png') }}" width="25" height="25" alt="Instagram" /></a>
-            <a href="https://www.linkedin.com" target="_blank"><img src="{{ url('storage/assets/Linkedin.png') }}" width="25" height="25" alt="LinkedIn" /></a>
-            <a href="https://twitter.com" target="_blank"><img src="{{ url('storage/assets/X.png') }}" width="25" height="25" alt="Twitter" /></a>
-            <a href="https://www.youtube.com" target="_blank"><img src="{{ url('storage/assets/YouTube.svg') }}" width="25" height="25" alt="YouTube"/></a>
+            <a href="https://www.facebook.com" target="_blank"><img src="{{ url('public/storage/assets/Facebook.png') }}" width="25" height="25" alt="Facebook" /></a>
+            <a href="https://www.instagram.com" target="_blank"><img src="{{ url('public/storage/assets/Instagram.png') }}" width="25" height="25" alt="Instagram" /></a>
+            <a href="https://www.linkedin.com" target="_blank"><img src="{{ url('public/storage/assets/Linkedin.png') }}" width="25" height="25" alt="LinkedIn" /></a>
+            <a href="https://twitter.com" target="_blank"><img src="{{ url('public/storage/assets/X.png') }}" width="25" height="25" alt="Twitter" /></a>
+            <a href="https://www.youtube.com" target="_blank"><img src="{{ url('public/storage/assets/YouTube.svg') }}" width="25" height="25" alt="YouTube"/></a>
           </div>
         </div>
 
