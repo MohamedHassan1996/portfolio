@@ -27,17 +27,19 @@ use Illuminate\Support\Facades\Route;
 
 // ✅ Default (English) routes without prefix
 Route::middleware(['web'])->group(function () {
-    Route::get('{slug?}', [DynamicPageController::class, 'index'])
+    /*Route::get('{slug?}', [DynamicPageController::class, 'index'])
         ->where('slug', '^(?!ar|fr|es)[^/]*$') // Single segment, not 'ar', 'fr', 'es'
         ->name('dynamic.page');
 
     Route::get('{slug}/{single_slug}', [DynamicPageController::class, 'show'])
         ->where('slug', '^(?!ar|fr|es).*$') // Exclude 'ar', 'fr', 'es'
-        ->name('dynamic.page.show');
+        ->name('dynamic.page.show');*/
+
+    Route::get('/', [HomePageController::class, 'index'])->name('home.index');
 });
 
 // ✅ Language-prefixed routes for other languages
-Route::prefix('{lang?}')
+/*Route::prefix('{lang?}')
     ->where(['lang' => 'ar|fr|es']) // Supported languages except 'en'
     ->middleware(['web'])
     ->group(function () {
@@ -48,7 +50,7 @@ Route::prefix('{lang?}')
         // Match '/ar/slug/single-slug'
         Route::get('{slug}/{single_slug}', [DynamicPageController::class, 'show'])
             ->name('dynamic.page.show');
-    });
+    });*/
 
 /*Route::middleware(['web'])->group(function () {
     Route::get('{slug?}', function ($lang=null, $slug=null) {
@@ -71,3 +73,5 @@ Route::prefix('{lang?}')
         ->where('slug', '[^/]*') // Single segment after language prefix
         ->name('dynamic.page');
     });*/
+
+

@@ -7,16 +7,16 @@
         <div class="nav-container">
           <div class="brand-links">
             <!-- Brand Logo -->
-            <a href="{{ route('dynamic.page', ['slug' => '', 'lang' => app()->getLocale() == 'en' ? '':app()->getLocale() ]) }}" class="brand">
+            {{-- <a href="{{ route('dynamic.page', ['slug' => '', 'lang' => app()->getLocale() == 'en' ? '':app()->getLocale() ]) }}" class="brand">
               <img
                 src="{{ url('storage/assets/image_5d73f37c.jpeg') }}"
                 alt="Brand"
                 class="brand-logo"
               />
-            </a>
+            </a> --}}
 
             <!-- Navigation Links -->
-            <div class="nav-links">
+            {{-- <div class="nav-links">
                 @foreach ($navbarLinks as $navbarLink)
                     @if ($navbarLink->controller_name != 'ContactPageController')
                         <a href="{{ route('dynamic.page', ['lang' => app()->getLocale() == 'en' ? '':app()->getLocale(), 'slug' => $navbarLink->slug]) }}"
@@ -25,13 +25,13 @@
                         </a>
                     @endif
                 @endforeach
-            </div>
+            </div> --}}
 
           </div>
 
           <!-- Contact Us Button -->
         <div class="flex gap-5 flex-row-reverse">
-            @if (app()->getLocale() == 'en')
+            {{-- @if (app()->getLocale() == 'en')
             <a href="{{  route('dynamic.page', ['slug' => 'contact-us', 'lang' => '']) }}" class="contact-button">
                 Contact Us
             @else
@@ -39,7 +39,7 @@
                 تواصل معنا
             @endif
                 <img class="arrow-icon" src="{{  url('storage/icons/arrow.png') }}" alt="Arrow Icon" />
-            </a>
+            </a> --}}
                         <!-- language picker -->
                         <div class="custom-select relative w-[100px] cursor-pointer">
                             <div
