@@ -28,7 +28,7 @@
               class="hero-btn rounded border bg-transparent [font-family:Roboto,sans-serif] text-[#ea5212] hover:bg-[#ea5212] hover:text-[white] transition-colors cursor-pointer h-[41px] w-[151px] inline-flex items-center justify-center gap-[3px] box-border mt-[23.5px] border-solid border-[#ea5212]"
             >
               <span>{{ $heroSection->content[0]['btnText'] }}</span>
-              <img class="arrow-icon" src="{{ url('storage/icons/home-hero-btn.svg') }}" alt="" />
+              <img class="arrow-icon" src="{{ url('public/storage/icons/home-hero-btn.svg') }}" alt="" />
             </a>
           </div>
         </div>
@@ -49,7 +49,7 @@
       </p>
       <div class="mt-[6.5px]">
         <img
-        src="{{ url('storage/assets/scroll.png') }}"
+        src="{{ url('public/storage/assets/scroll.png') }}"
         alt="image"
           loading="lazy"
           class="h-[35px] max-w-[initial] w-[22.5px] block box-border"
