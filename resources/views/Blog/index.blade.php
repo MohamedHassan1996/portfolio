@@ -99,7 +99,7 @@
                         class="w-full [font-family:Roboto,sans-serif] text-base font-normal bg-transparent [outline:none] box-border ml-3 border-[none] text-[#8e8e8e]"
                       />
                       <div class="w-6 h-6 text-[#333333] flex mr-[13px] my-[13px]">
-                        <img src="./public/icons/search.svg" alt="">
+                        <img src="{{ url('public/storage/icons/search.png') }}" alt="">
                       </div>
                     </div>
                   </div>
