@@ -262,5 +262,67 @@
     'aboutUsSectionImages' => $aboutUsSectionImages,
 ]) --}}
 
+<script>
+     document.getElementById('contactForm').addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+    // Get values directly by name
+    console.log(document.getElementById('name').value);
+    console.log(document.getElementById('email').value);
+    console.log(document.getElementById('mobile-phone').value);
+    console.log(document.getElementById('subject').value);
+    console.log(document.getElementById('message').value);
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('mobile-phone').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+    // Create a data object
+    const data = {
+        name: name,
+        email: email,
+        phone: phone,
+        subject: subject,
+        message: message,
+    };
+
+        const popup = document.getElementById('popup');
+        const popupMessage = document.getElementById('popupMessage');
+        const loading = document.getElementById('loading');
+
+        try {
+          loading.style.display = 'block';
+
+          const response = await fetch('https://mbopharma.com/api/v1/contact-us/create', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+          });
+
+          loading.style.display = 'none';
+
+          if (response.ok) {
+            const result = await response.json();
+            popupMessage.textContent = 'Message sent successfully!';
+            popup.style.display = 'block';
+            event.target.reset();
+          } else {
+            const error = await response.json();
+            popupMessage.textContent = `Error: ${error.message || 'Something went wrong'}`;
+            popup.style.display = 'block';
+          }
+        } catch (error) {
+          loading.style.display = 'none';
+          console.error('Fetch Error:', error);
+          popupMessage.textContent = 'An error occurred while sending your message. Please try again.';
+          popup.style.display = 'block';
+        }
+      });
+
+</script>
+
 
 @include('Layout.footer')
