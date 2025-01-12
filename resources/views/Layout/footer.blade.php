@@ -38,7 +38,7 @@
 
         <div class="SubscribeForm w-[450px] sm:mb-[250px]">
           <form class="Subscribe flex flex-col sm:flex-row gap-5 mb-6">
-            <input type="email" name="email" id="email" class="w-full p-[12px] outline-none border border-white bg-transparent rounded-[2px] text-[white]" placeholder="{{ app()->getLocale() == 'en' ? 'Enter your email' : 'أدخل بريدك الإلكتروني' }}" />
+            <input type="email" required name="email" id="email" class="w-full p-[12px] outline-none border border-white bg-transparent rounded-[2px] text-[white]" placeholder="{{ app()->getLocale() == 'en' ? 'Enter your email' : 'أدخل بريدك الإلكتروني' }}" />
             <button class="bg-[#EA5212] text-[white] rounded-[4px] px-[12px] h-[48px] outline-none" type="submit">{{ app()->getLocale() == 'en' ? 'Subscribe' : 'اشترك' }}</button>
           </form>
           <p class="text-[white] [font-family: Montserrat] font-[400] text-[16px]">
@@ -63,6 +63,7 @@
   <script>
     document.querySelector('.Subscribe').addEventListener('submit', async (event) => {
       event.preventDefault(); // Prevent form default submission
+      console.log('Form submitted');
 
       const email = document.getElementById('email').value;
 
@@ -100,7 +101,7 @@
       const popup = document.createElement('div');
       popup.className = 'custom-popup';
       popup.style.position = 'fixed';
-      popup.style.top = '50%';.
+      popup.style.top = '50%';
       popup.style.left = '50%';
       popup.style.transform = 'translate(-50%, -50%)';
       popup.style.padding = '20px';

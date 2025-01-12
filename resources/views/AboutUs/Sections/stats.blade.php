@@ -4,8 +4,7 @@
         @foreach ($statsSection->content as $stat)
       <div class="flex justify-center items-center flex-col">
         <p
-          id="happyClients"
-          class="[font-family:Montserrat,sans-serif] text-[56px] font-bold leading-[67px] text-[#166e1d]"
+          class="stats-counter [font-family:Montserrat,sans-serif] text-[56px] font-bold leading-[67px] text-[#166e1d]"
         >
           {{ $stat['number'] }}
         </p>

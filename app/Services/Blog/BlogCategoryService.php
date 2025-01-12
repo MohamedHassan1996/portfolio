@@ -75,6 +75,8 @@ class BlogCategoryService{
             $blogCategory->translateOrNew('en')->slug = $blogCategoryData['slugEn'];
         }
 
+        $blogCategory->save();
+
 
         return $blogCategory;
 
