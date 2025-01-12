@@ -84,7 +84,7 @@
             </div>
           <!-- Menu Bars -->
           <button class="menu-bars">
-            <img src="url('public/storage/icons/bars.png')" alt="Menu Icon" />
+            <img src="{{ url('public/storage/icons/bars.png') }}" alt="Menu Icon" />
           </button>
 
         </div>
