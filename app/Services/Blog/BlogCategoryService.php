@@ -33,7 +33,7 @@ class BlogCategoryService{
     {
 
 
-        $blogCategory = BlogCategory::find($blogCategoryData['blogCategoryId']);
+        $blogCategory = new BlogCategory();
 
         $blogCategory->is_active = BlogCategoryStatus::from($blogCategoryData['isActive'])->value;
 
