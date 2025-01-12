@@ -73,7 +73,7 @@
       }
 
       try {
-        const response = await fetch('https://mbopharma.com/api/v1/subscribers/create', {
+        const response = await fetch('{{ url('/') }}/api/v1/subscribers/create', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
