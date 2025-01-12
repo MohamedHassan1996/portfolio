@@ -23,7 +23,7 @@
             </h2>
           @endif
 
-          <form class="contactPage-responsive flex justify-between gap-[45px] items-start flex-row gap-2 box-border mt-20">
+          <form id="contactForm" class="contactPage-responsive flex justify-between gap-[45px] items-start flex-row gap-2 box-border mt-20">
             <div class="w-full max-w-[500px] md:max-w-[550px] m-auto">
               <div class="box-border">
                 <!-- name and phone -->
@@ -34,7 +34,7 @@
                   </div>
                   <div class="main-inputs flex justify-center items-stretch flex-col grow shrink basis-0 gap-[10px]">
                     <label for="mobile-phone" class="[font-family:Montserrat,sans-serif] text-[17px] font-semibold leading-[20.5px] text-[#333333] mt-[15px]" >{{ app()->getLocale() == 'en' ? 'Phone' : 'الهاتف' }}</label>
-                    <inputtype="text" id="mobile-phone" class="border bg-[#fbfcf8] h-[50px] [font-family:Roboto,sans-serif] text-base font-normal box-border pl-3 rounded-sm border-solid border-[#333333] text-[#8e8e8e]" />
+                    <input type="text" id="mobile-phone" class="border bg-[#fbfcf8] h-[50px] [font-family:Roboto,sans-serif] text-base font-normal box-border pl-3 rounded-sm border-solid border-[#333333] text-[#8e8e8e]" />
                   </div>
                 </div>
 
@@ -64,6 +64,7 @@
                   <div class="w-[100.00%] box-border mt-[15px]">
                     <!-- Input Component is detected here -->
                     <input
+                      id="subject"
                       type="text"
                       class="border bg-[#fbfcf8] h-[50px] w-[100.00%] [font-family:Roboto,sans-serif] text-base font-normal box-border pl-3 rounded-sm border-solid border-[#333333] text-[#8e8e8e]"
                     />
@@ -86,6 +87,7 @@
               <!-- Button Component is detected here -->
               <button
                 class="rounded border bg-transparent [font-family:Roboto,sans-serif] text-base font-medium text-[#ea5212] cursor-pointer min-w-[131px] h-[41px] w-[131px] block box-border mt-[22.5px] border-solid hover:bg-[#ea5212] hover:text-[#fff] border-[#ea5212]"
+                type="submit"
               >
                 {{ app()->getLocale() == 'en' ? 'Send' : 'إرسال' }}
               </button>
@@ -241,6 +243,16 @@
             <!-- map and location -->
 
           </form>
+
+          <!-- Success and Error Popups -->
+            <div id="popup" style="display: none; position: fixed; top: 20%; left: 50%; transform: translate(-50%, -50%); z-index: 1000; background: white; padding: 20px; border: 1px solid #333; border-radius: 5px; text-align: center;">
+                <p id="popupMessage"></p>
+                <button onclick="document.getElementById('popup').style.display = 'none'">Close</button>
+            </div>
+            <div id="loading" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000;">
+                <p>Loading...</p>
+            </div>
+
 
         </div>
       </section>

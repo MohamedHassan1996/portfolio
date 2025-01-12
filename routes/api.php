@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\Private\Career\CandidateController;
 use App\Http\Controllers\Api\Private\Career\CareerController;
 use App\Http\Controllers\Api\Private\ContactUs\ContactUsController;
 use App\Http\Controllers\Api\Private\ContactUs\ContactUsMessageController;
+use App\Http\Controllers\Api\Private\ContactUs\WebsiteContactUsController;
 use App\Http\Controllers\Api\Private\Customer\CustomerController;
 use App\Http\Controllers\Api\Private\Event\EventController;
 use App\Http\Controllers\Api\Private\Faq\FaqController;
@@ -170,10 +171,15 @@ Route::prefix('v1/{lang}/admin/front-page-sections')->where(['lang' => 'en|ar'])
 });
 
 
-Route::prefix('v1/subscribers')->where(['lang' => 'en|ar'])->group(function(){
+Route::prefix('v1/subscribers')->group(function(){
     Route::post('create', [WebsiteSubscriberController::class, 'create']);
     Route::delete('delete', [WebsiteSubscriberController::class, 'delete']);
 });
+
+Route::prefix('v1/contact-us')->group(function(){
+    Route::post('create', [WebsiteContactUsController::class, 'create']);
+});
+
 
 Route::prefix('v1/{lang}/admin/selects')->where(['lang' => 'en|ar'])->group(function(){
     Route::get('', [SelectController::class, 'getSelects']);

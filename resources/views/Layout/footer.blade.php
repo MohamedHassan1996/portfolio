@@ -61,68 +61,113 @@
   </section>
   @vite(['resources/js/app.js'])
   <script>
-    document.querySelector('.Subscribe').addEventListener('submit', async (event) => {
-      event.preventDefault(); // Prevent form default submission
-      console.log('Form submitted');
+   document.querySelector('.Subscribe').addEventListener('submit', async (event) => {
+  event.preventDefault(); // Prevent form default submission
+  console.log('Form submitted');
 
-      const email = document.getElementById('email').value;
+  const email = document.getElementById('email').value;
 
-      if (!email) {
-        displayPopup('Please enter a valid email address.', false);
-        return;
-      }
+  if (!email) {
+    displayPopup('Please enter a valid email address.', false);
+    return;
+  }
 
-      try {
-        const response = await fetch('{{ url('/') }}/api/v1/subscribers/create', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            email: email,
-            isSubscribed: 1,
-          }),
-        });
+  // Show overlay with loading spinner
+  showLoadingOverlay();
 
-        if (response.ok) {
-          const result = await response.json();
-          displayPopup('Subscription successful. Thank you for subscribing!', true);
-          document.getElementById('email').value = ''; // Clear the input field
-        } else {
-          displayPopup('Failed to subscribe. Please try again later.', false);
-        }
-      } catch (error) {
-        console.error('Error:', error);
-        displayPopup('An error occurred. Please try again later.', false);
-      }
+  try {
+    const response = await fetch('{{ url('/') }}/api/v1/subscribers/create', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: email,
+        isSubscribed: 1,
+      }),
     });
 
-    function displayPopup(message, isSuccess) {
-      const popup = document.createElement('div');
-      popup.className = 'custom-popup';
-      popup.style.position = 'fixed';
-      popup.style.top = '50%';
-      popup.style.left = '50%';
-      popup.style.transform = 'translate(-50%, -50%)';
-      popup.style.padding = '20px';
-      popup.style.backgroundColor = isSuccess ? '#4CAF50' : '#f44336';
-      popup.style.color = 'white';
-      popup.style.borderRadius = '8px';
-      popup.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
-      popup.style.zIndex = 9999;
-      popup.innerHTML = `
-        <p style="margin: 0;">${message}</p>
-        <button style="margin-top: 10px; padding: 8px 12px; border: none; background: white; color: ${isSuccess ? '#4CAF50' : '#f44336'}; border-radius: 4px; cursor: pointer;">
-          OK
-        </button>
-      `;
-      document.body.appendChild(popup);
-
-      const closeButton = popup.querySelector('button');
-      closeButton.addEventListener('click', () => {
-        popup.remove();
-      });
+    if (response.ok) {
+      const result = await response.json();
+      displayPopup('Subscription successful. Thank you for subscribing!', true);
+      document.getElementById('email').value = ''; // Clear the input field
+    } else {
+      if (response.status === 401) {
+        displayPopup('You are already subscribed.', false);
+      } else {
+        displayPopup('Failed to subscribe. Please try again later.', false);
+      }
     }
+  } catch (error) {
+    console.error('Error:', error);
+    displayPopup('An error occurred. Please try again later.', false);
+  } finally {
+    // Hide the overlay after the response or error
+    hideLoadingOverlay();
+  }
+});
+
+function displayPopup(message, isSuccess) {
+  const popup = document.createElement('div');
+  popup.className = 'custom-popup';
+  popup.style.position = 'fixed';
+  popup.style.top = '50%';
+  popup.style.left = '50%';
+  popup.style.transform = 'translate(-50%, -50%)';
+  popup.style.padding = '20px';
+  popup.style.backgroundColor = isSuccess ? '#4CAF50' : '#f44336';
+  popup.style.color = 'white';
+  popup.style.borderRadius = '8px';
+  popup.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+  popup.style.zIndex = 10000;
+  popup.innerHTML = `
+    <p style="margin: 0;">${message}</p>
+    <button style="margin-top: 10px; padding: 8px 12px; border: none; background: white; color: ${isSuccess ? '#4CAF50' : '#f44336'}; border-radius: 4px; cursor: pointer;">
+      OK
+    </button>
+  `;
+  document.body.appendChild(popup);
+
+  const closeButton = popup.querySelector('button');
+  closeButton.addEventListener('click', () => {
+    popup.remove();
+  });
+}
+
+function showLoadingOverlay() {
+  const overlay = document.createElement('div');
+  overlay.id = 'loading-overlay';
+  overlay.style.position = 'fixed';
+  overlay.style.top = 0;
+  overlay.style.left = 0;
+  overlay.style.width = '100vw';
+  overlay.style.height = '100vh';
+  overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+  overlay.style.display = 'flex';
+  overlay.style.justifyContent = 'center';
+  overlay.style.alignItems = 'center';
+  overlay.style.zIndex = 9999;
+
+  overlay.innerHTML = `
+    <div style="border: 4px solid #f3f3f3; border-top: 4px solid #3498db; border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite;"></div>
+    <style>
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+  `;
+
+  document.body.appendChild(overlay);
+}
+
+function hideLoadingOverlay() {
+  const overlay = document.getElementById('loading-overlay');
+  if (overlay) {
+    overlay.remove();
+  }
+}
+
   </script>
 
     </body>
