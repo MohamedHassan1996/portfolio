@@ -13,7 +13,7 @@
           <p class="[font-family:Roboto,sans-serif] text-[16px] md:text-[20px] font-normal leading-[24px] md:leading-[29px] text-[#8e8e8e]">
             {{ $aboutUsSection->content[0]['description'] }}
           </p>
-          <a  href="{{ app()->getLocale() == 'en' ? url('about-us') : url('ar/عنا') }}" class="btn-aboutus-page rounded bg-[#166e1d] outline-none [font-family:Roboto,sans-serif] text-base font-medium text-[white] cursor-pointer h-10 w-full md:w-[200px] flex items-center justify-center gap-[1px] mt-4 border-[none]" onclick="window.location.href = './about-us.html'">
+          <a  href="{{ app()->getLocale() == 'en' ? url('about Us') : url('ar/نبذة عنا') }}" class="btn-aboutus-page rounded bg-[#166e1d] outline-none [font-family:Roboto,sans-serif] text-base font-medium text-[white] cursor-pointer h-10 w-full md:w-[200px] flex items-center justify-center gap-[1px] mt-4 border-[none]" onclick="window.location.href = './about-us.html'">
             <span>{{ $aboutUsSection->content[0]['btnText'] }}</span>
             <img class="arrow-icon" src="{{ url('public/storage/icons/about-icon-btn.svg') }}" alt="" />
           </a>
