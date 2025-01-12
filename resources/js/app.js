@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (ANSWER.classList.contains("hidden")) {
         ANSWER.classList.remove("hidden");
         ANSWER.classList.add("visible", "activeQuestion");
-        ICON.src = "{{ asset('storage/icons/minus-icon.svg') }}";
+        ICON.src = "https://mbopharma.com/public/storage/icons/minus.svg";
         element.style.borderTop = "1px solid #333";
         element.style.borderRight = "1px solid #333";
         element.style.borderLeft = "1px solid #333";
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         ANSWER.classList.remove("visible", "activeQuestion");
         ANSWER.classList.add("hidden");
-        ICON.src = "{{ asset('storage/icons/plus-icon.svg') }}";
+        ICON.src = "https://mbopharma.com/public/storage/icons/plus.svg";
         element.style.border = "none";
         element.style.backgroundColor = "#fff";
       }
