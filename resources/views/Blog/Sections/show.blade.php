@@ -7,7 +7,7 @@
         <div class="w-11/12 md:w-4/5 m-auto">
           <!-- hero blog details page -->
           <div class="hero relative">
-            <img src="./public/assets/image1.png" class="w-full h-auto max-h-[480px] rounded-[15px] object-cover" alt="hero image" loading="lazy" />
+            <img src="{{ url("storage/".$blog->thumbnail) }}" class="w-full h-auto max-h-[480px] rounded-[15px] object-cover" alt="hero image" loading="lazy" />
             <div class="bg-[white] absolute top-[16px] right-[16px] box-border flex justify-start items-center flex-col w-[60px] py-2 rounded-lg">
               <p class="[font-family:Montserrat,sans-serif] text-2xl font-semibold leading-[29px] text-[#333333]">
                 27
