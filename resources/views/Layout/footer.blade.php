@@ -7,21 +7,24 @@
 
           <div class="address">
             <div class="title items-stretch font-semibold text-[#FBFCF8] mt-1">{{ app()->getLocale() == 'en' ? 'Address:' : 'العنوان:' }}</div>
-            <p class="text-[#FBFCF8] font-[100]">Level 1, 12 Sample St, Sydney NSW 2000</p>
+            <p class="text-[#FBFCF8] font-[100]">
+                Behind Sindoub Insurance Hospital, above Basmala Center for Physiotherapy , Mansoura, Egypt</p>
           </div>
 
           <div class="contact">
             <div class="title items-stretch font-semibold text-[#FBFCF8]">{{ app()->getLocale() == 'en' ? 'Contact:' : 'اتصل بنا:' }}</div>
-            <p class="text-[#FBFCF8] font-[100] mt-1">+20 1007 8155 7</p>
+            <a href="tel:01069166696" class="text-[#FBFCF8] font-[100] mt-1">
+                010 69166696
+            </a>
             <p class="text-[#FBFCF8] font-[100]">info@relume.io</p>
           </div>
 
           <div class="social-media-icons flex gap-[12px]">
-            <a href="https://www.facebook.com" target="_blank"><img src="{{ url('public/storage/assets/Facebook.png') }}" width="25" height="25" alt="Facebook" /></a>
-            <a href="https://www.instagram.com" target="_blank"><img src="{{ url('public/storage/assets/Instagram.png') }}" width="25" height="25" alt="Instagram" /></a>
-            <a href="https://www.linkedin.com" target="_blank"><img src="{{ url('public/storage/assets/LinkedIn.png') }}" width="25" height="25" alt="LinkedIn" /></a>
-            <a href="https://twitter.com" target="_blank"><img src="{{ url('public/storage/assets/X.png') }}" width="25" height="25" alt="Twitter" /></a>
-            <a href="https://www.youtube.com" target="_blank"><img src="{{ url('public/storage/assets/Youtube.svg') }}" width="25" height="25" alt="YouTube"/></a>
+            <a href="https://www.facebook.com/mbopharma" target="_blank"><img src="{{ url('public/storage/assets/Facebook.png') }}" width="25" height="25" alt="Facebook" /></a>
+            <a href="https://www.instagram.com/mbopharma2019" target="_blank"><img src="{{ url('public/storage/assets/Instagram.png') }}" width="25" height="25" alt="Instagram" /></a>
+            <a href="https://www.linkedin.com/company/mbopharma" target="_blank"><img src="{{ url('public/storage/assets/LinkedIn.png') }}" width="25" height="25" alt="LinkedIn" /></a>
+            {{-- <a href="https://twitter.com" target="_blank"><img src="{{ url('public/storage/assets/X.png') }}" width="25" height="25" alt="Twitter" /></a> --}}
+            {{-- <a href="https://www.youtube.com" target="_blank"><img src="{{ url('public/storage/assets/Youtube.svg') }}" width="25" height="25" alt="YouTube"/></a> --}}
           </div>
         </div>
 
