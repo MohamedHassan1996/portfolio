@@ -75,7 +75,7 @@
                 <p
                   class="[font-family:Montserrat,sans-serif] text-[17px] font-semibold leading-[20.5px] uppercase text-[#333333] m-0 p-0"
                 >
-                  {{ app()->getLocale() == 'en' ? 'Latest News' : 'اخر الاخبار' } }}
+                  {{ app()->getLocale() == 'en' ? 'Latest News' : 'اخر الاخبار' }}
                 </p>
                 <div class="w-[100.00%] box-border my-4">
                   @foreach ($latestBlogs as $latestBlog)
