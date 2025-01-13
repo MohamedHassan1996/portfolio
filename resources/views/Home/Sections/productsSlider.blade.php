@@ -5,7 +5,7 @@
         <h3 class="[font-family:Montserrat,sans-serif] text-[17px] font-semibold leading-[20.5px] text-[#458B4A]">
           {{ $productsSection->content[0]['subTitle'] }}<span class="text-[#EA5212]">.</span>
         </h3>
-        <h1 class="main-title [font-family:Montserrat,sans-serif] text-[64px] leading-[76px] font-bold text-left uppercase text-[#fbfcf8] max-w-[60%] box-border mt-2">
+        <h1 class="main-title [font-family:Montserrat,sans-serif] text-[64px] leading-[76px] font-bold uppercase text-[#fbfcf8] max-w-[60%] box-border mt-2">
           <span >{{ $productsSection->content[0]['heading'] }}</span><span class="text-[#ee7541]">.</span>
         </h1>
       </div>
