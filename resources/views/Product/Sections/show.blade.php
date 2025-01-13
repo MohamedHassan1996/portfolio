@@ -6,10 +6,10 @@
 <div class="box-border flex justify-start items-center flex-col product-information-page">
     <div class="w-11/12 md:w-4/5 m-auto pt-8 pb-24 mx-[5px]">
       <div class="mt-32">
-        <button onclick="{{ url()->current() }}" class="flex items-center justify-center rounded-lg underline mb-2 border border-solid border-[2px] border-gray-400 p-2 ">
+        {{-- <a href="{{ url()->previous() }}" class="flex items-center justify-center rounded-lg underline mb-2 border border-solid border-[2px] border-gray-400 p-2 ">
           <img class="w-[20px] h-[20px]" src="{{ url('storage/icons/iconright.svg') }}" alt="">
-          products
-        </button>
+          {{ app()->getLocale() == 'en' ? 'Back' : 'الرجوع' }}
+        </a> --}}
         <div class="box-border grid md:grid-cols-[repeat(auto-fill,minmax(400px,1fr))] grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-[30px] mb-[40px]">
             @foreach ($product->images as $image)
             <img src="{{ url("storage/".$image->path) }}" class="w-full h-auto max-w-full rounded-xl" />
