@@ -299,7 +299,7 @@
   .hero-btn .arrow-icon {
     transform: rotate(90deg) !important;
   }
-  .contact-button-side, .contact-button .arrow-icon {
+  .contact-button-side .arrow-icon, .contact-button .arrow-icon {
     transform: rotate(-175deg) !important;
   }
 

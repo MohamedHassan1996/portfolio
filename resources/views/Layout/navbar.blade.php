@@ -121,9 +121,6 @@
                 <img class="arrow-icon" src="{{  url('public/storage/icons/arrow.png') }}" alt="Arrow Icon" />
             </a>
         </div>
-
-
-
         </div>
       </section>
       <!-- nav bar -->
