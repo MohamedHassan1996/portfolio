@@ -54,6 +54,15 @@ class BlogPageController extends Controller
         })
         ->first();
 
-       return view('Blog.Sections.show', compact('blog'));
+        $blogCategories = BlogCategory::withCount('blogs')->get();
+
+
+        $latestBlogs = Blog::where('is_published', BlogStatus::PUBLISHED->value)
+        ->where('id', '!=', $blog->id)
+        ->orderBy('id', 'desc')
+        ->limit(3)
+        ->get();
+
+       return view('Blog.Sections.show', compact('blog', 'latestBlogs', 'blogCategories'));
     }
 }
