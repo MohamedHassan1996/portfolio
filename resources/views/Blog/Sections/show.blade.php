@@ -72,11 +72,13 @@
                 </div>
               </div>
               <div class="">
-                <p
-                  class="[font-family:Montserrat,sans-serif] text-[17px] font-semibold leading-[20.5px] uppercase text-[#333333] m-0 p-0"
+                @if (count($latestBlogs) > 0)
+                    <p
+                    class="[font-family:Montserrat,sans-serif] text-[17px] font-semibold leading-[20.5px] uppercase text-[#333333] m-0 p-0"
                 >
-                  {{ app()->getLocale() == 'en' ? 'Latest News' : 'اخر الاخبار' }}
+                    {{ app()->getLocale() == 'en' ? 'Latest News' : 'اخر الاخبار' }}
                 </p>
+                @endif
                 <div class="w-[100.00%] box-border my-4">
                   @foreach ($latestBlogs as $latestBlog)
                   <div class="rounded bg-[rgba(51,51,51,0.04)] box-border flex justify-center items-center flex-row w-[100.00%] h-[100px] pl-2 pr-[7px] first:mt-0 mt-[16.00px]">

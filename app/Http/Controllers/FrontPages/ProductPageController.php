@@ -67,7 +67,7 @@ class ProductPageController extends Controller
             abort(404);
         }
 
-        $products = Product::where('is_active', ProductStatus::ACTIVE->value)->limit(3)->get();
+        $products = Product::where('is_active', ProductStatus::ACTIVE->value)->limit(3)->where('id', '!=', $product->id)->get();
 
        return view('Product.Sections.show', compact('product', 'products'));
     }
