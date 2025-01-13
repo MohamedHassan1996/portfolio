@@ -27,8 +27,8 @@
 
         <div class="flex flex-col gap-[16px] w-[100px]">
             @foreach ($navbarLinks as $navbarLink)
-                    @if ($navbarLink->controller_name != 'ContactPageController')
-                        <a href="{{ route('dynamic.page', ['lang' => app()->getLocale() == 'en' ? '':app()->getLocale(), 'slug' => $navbarLink->slug]) }}"
+                @if (!in_array($navbarLink->controller_name, ['CareerPageController', 'ContactPageController']))
+                    <a href="{{ route('dynamic.page', ['lang' => app()->getLocale() == 'en' ? '':app()->getLocale(), 'slug' => $navbarLink->slug]) }}"
                            class="[font-family:'Open_Sans',sans-serif] text-[18px] text-base font-normal leading-4 text-[#FBFCF8] cursor-pointer {{ session('active_navbar_link') === $navbarLink->slug ? 'active' : '' }}">
                             {{ $navbarLink->title }}
                         </a>
