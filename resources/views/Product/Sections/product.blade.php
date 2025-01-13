@@ -10,7 +10,7 @@
         @endif
       </h3>
       <h2
-        class="main-title [font-family:Montserrat,sans-serif] mb-[24px] text-[64px] leading-[70px] font-bold text-left uppercase text-[#333333] mt-2"
+        class="main-title [font-family:Montserrat,sans-serif] mb-[24px] text-[64px] leading-[70px] font-bold uppercase text-[#333333] mt-2"
       >
         {{ $whyUsSection->content[0]['heading'] }}
       </h2>
