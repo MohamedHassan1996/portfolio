@@ -7,7 +7,7 @@
           <h4 class="[font-family:Montserrat,sans-serif] text-[18px] font-semibold leading-[20.5px] text-[#166e1d] min-w-[96px] h-9 w-24">
             {{ $aboutUsSection->content[0]['subTitle'] }}
           </h4>
-          <h2 class="main-title [font-family:Montserrat,sans-serif] text-[32px] md:text-[64px] leading-[40px] md:leading-[70px] font-bold uppercase text-[#333333] mt-2">
+          <h2 class="main-title [font-family:Montserrat,sans-serif] text-[32px] md:text-[64px] leading-[40px] md:leading-[70px] font-bold uppercase text-[#333333] mb-5">
             <span>{{ $aboutUsSection->content[0]['heading'] }}</span>
           </h2>
           <p class="[font-family:Roboto,sans-serif] text-[16px] md:text-[20px] font-normal leading-[24px] md:leading-[29px] text-[#8e8e8e]">
