@@ -14,7 +14,7 @@ h6 {
   font-weight: unset !important;
 }
 ul li {
-  list-style: unset !important;
+  list-style: disc;
 }
 
   /* not used */
