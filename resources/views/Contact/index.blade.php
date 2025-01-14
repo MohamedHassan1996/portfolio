@@ -113,7 +113,7 @@
                   <p
                     class="[font-family:Montserrat,sans-serif] text-sm font-semibold leading-[17px] text-[#333333] m-0 p-0"
                   >
-                    Get To Know Us
+                    {{ app()->getLocale() == 'en' ? 'Get To Know Us' : 'العنوان' }}
                   </p>
                   <div
                     class="flex justify-start items-start flex-row w-[100.00%] box-border mt-2"
@@ -147,7 +147,7 @@
                     <p
                       class="[font-family:Roboto,sans-serif] text-sm font-normal text-left leading-[21px] text-[#166e1d] grow-0 shrink basis-auto ml-[7px] m-0 p-0"
                     >
-                      2464 Royal Ln. Mesa, New Jersey 45463
+                    {{ app()->getLocale() == 'en' ? 'Behind Sindoub Insurance Hospital, above Basmala Center for Physiotherapy , Mansoura, Egypt' : 'خلف مستشفى التأمين بسندوب، فوق مركز بسملة للاستشفاء الطبي، المنصورة، مصر'  }}
                     </p>
                   </div>
                 </div>
@@ -157,7 +157,7 @@
                   <p
                     class="[font-family:Montserrat,sans-serif] text-sm font-semibold leading-[17px] text-[#333333] m-0 p-0"
                   >
-                    Get In Touch
+                    {{ app()->getLocale() == 'en' ? 'Get In Touch' : 'اتصل بنا' }}
                   </p>
                   <div
                     class="flex justify-center items-stretch flex-col w-[100.00%] box-border mt-2"
@@ -191,11 +191,11 @@
                           </g>
                         </svg>
                       </div>
-                      <p
+                      <a href="tel:010 69166696"
                         class="[font-family:Roboto,sans-serif] text-sm font-normal text-[#166e1d] grow-0 shrink-0 basis-auto ml-[7px] m-0 p-0"
                       >
-                        (406) 555-0120
-                      </p>
+                      01069166696
+                      </a>
                     </div>
                     <div
                       class="flex justify-start items-center flex-row grow-0 shrink-0 basis-auto mt-2"
