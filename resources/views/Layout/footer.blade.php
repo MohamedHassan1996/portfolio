@@ -12,6 +12,7 @@
             <p class="text-[#FBFCF8] font-[100]">Behind Sindoub Insurance Hospital, above Basmala Center for Physiotherapy , Mansoura, Egypt</p>
             @else
             <p class="text-[#FBFCF8] font-[400]">خلف مستشفى التأمين بسندوب، فوق مركز بسملة للاستشفاء الطبي، المنصورة، مصر</p>
+            @endif
           </div>
 
           <div class="contact">
