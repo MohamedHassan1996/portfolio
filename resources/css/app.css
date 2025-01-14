@@ -3,11 +3,19 @@
 @tailwind utilities;
 
 /* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: unset !important;
+  font-weight: unset !important;
+}
+ul li {
+  list-style: unset !important;
+}
 
   /* not used */
   :root {
