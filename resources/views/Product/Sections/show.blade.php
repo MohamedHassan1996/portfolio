@@ -25,7 +25,7 @@
         </div>
         <div class="mt-10">
           <p class="main-title [font-family:Montserrat,sans-serif] text-[40px] font-bold leading-[48px] uppercase text-[#333333]" >
-            {{ app()->getLocale() == 'en' ? 'More Products' : 'منتجات اخرى' ) }}
+            {{ app()->getLocale() == 'en' ? 'More Products' : 'منتجات اخرى' }}
           </p>
           <div class="all-products grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-[31px] box-border mt-10" >
 
