@@ -97,7 +97,7 @@ class BlogService{
             $path =  $this->uploadService->uploadFile($blogData['thumbnail'], 'blogs');
         }
 
-        if($blog->thumbnail){
+        if($blog->thumbnail && $path){
             Storage::disk('public')->delete($blog->thumbnail);
         }
 
