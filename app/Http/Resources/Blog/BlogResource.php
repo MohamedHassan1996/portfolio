@@ -19,7 +19,7 @@ class BlogResource extends JsonResource
 
         $translations = $this->translations->mapWithKeys(function ($translation) {
             return [
-                'title' . ucfirst($translation->locale) => $translation->name ?? "",
+                'title' . ucfirst($translation->locale) => $translation->title ?? "",
                 'slug' . ucfirst($translation->locale) => $translation->slug ?? "",
                 'content' . ucfirst($translation->locale) => $translation->content ?? "",
                 'metaData' . ucfirst($translation->locale) => $translation->meta_data ?? [],

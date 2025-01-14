@@ -97,6 +97,10 @@ class BlogService{
             $path =  $this->uploadService->uploadFile($blogData['thumbnail'], 'blogs');
         }
 
+        if($blog->thumbnail){
+            Storage::disk('public')->delete($blog->thumbnail);
+        }
+
         if($path){
             $blog->thumbnail = $path;
         }
@@ -113,11 +117,6 @@ class BlogService{
             $blog->translateOrNew('en')->slug = $blogData['slugEn'];
             $blog->translateOrNew('en')->content = $blogData['contentEn'];
             $blog->translateOrNew('en')->meta_data = $blogData['metaDataEn'];
-        }
-
-        if($blog->thumbnail){
-            Storage::disk('public')->delete($blog->thumbnail);
-            $blog->thumbnail = $path;
         }
 
         $blog->save();
