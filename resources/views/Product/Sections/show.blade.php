@@ -25,13 +25,13 @@
         </div>
         <div class="mt-10">
           <p class="main-title [font-family:Montserrat,sans-serif] text-[40px] font-bold leading-[48px] uppercase text-[#333333]" >
-            more products
+            {{ app()->getLocale() == 'en' ? 'More Products' : 'منتجات اخرى' ) }}
           </p>
           <div class="all-products grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-[31px] box-border mt-10" >
 
             @foreach ($products as $productDate)
                 <div class="flex justify-center items-stretch flex-col">
-                    <img src="{{ url("storage/".$product->images()->first()->path) }}" class=" rounded-[10px]" />
+                    <img src="{{ url("storage/".$productDate->images()->first()->path) }}" class=" rounded-[10px]" />
                     <p class="[font-family:Montserrat,sans-serif] text-base font-semibold leading-[19px] uppercase text-[#333333] mt-4">
                       <a href="{{ url(app()->getLocale() == 'en' ? '/products/'.$productDate->slug : '/'.app()->getLocale().'/products/'.$productDate->slug) }}">{{ $productDate->name }}</a>
                     </p>
