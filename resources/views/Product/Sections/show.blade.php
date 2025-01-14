@@ -20,7 +20,7 @@
             {{ $product->name }}
           </h2>
           <p class="[font-family:Roboto,sans-serif] text-[16px] md:text-[22px] font-normal text-left leading-[30px] text-[#777777]">
-            {{!! $product->content !!}}
+            {!! $product->content !!}
         </p>
         </div>
         <div class="mt-10">
