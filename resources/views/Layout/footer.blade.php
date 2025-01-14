@@ -7,7 +7,11 @@
 
           <div class="address">
             <div class="title items-stretch font-semibold text-[#FBFCF8] mt-1">{{ app()->getLocale() == 'en' ? 'Address:' : 'العنوان:' }}</div>
-            <p class="text-[#FBFCF8] font-[400] }}">{{ app()->getLocale() == 'en' ? 'Behind Sindoub Insurance Hospital, above Basmala Center for Physiotherapy , Mansoura, Egypt' : 'خلف مستشفى التأمين بسندوب، فوق مركز بسملة للاستشفاء الطبي، المنصورة، مصر'}}</p>
+
+            @if(app()->getLocale() == 'en')
+            <p class="text-[#FBFCF8] font-[100]">Behind Sindoub Insurance Hospital, above Basmala Center for Physiotherapy , Mansoura, Egypt</p>
+            @else
+            <p class="text-[#FBFCF8] font-[400]">خلف مستشفى التأمين بسندوب، فوق مركز بسملة للاستشفاء الطبي، المنصورة، مصر</p>
           </div>
 
           <div class="contact">
