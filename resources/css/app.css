@@ -499,3 +499,31 @@ ul li {
   .custom-select.open .options {
     display: block;
   }
+
+
+  .blog-section-content {
+    ol li {
+      list-style: disc !important;
+    }
+    ul {
+      list-style: decimal !important;
+    }
+    h1 {
+      font-size: 2em !important;
+    }
+    h2 {
+      font-size: 1.5em !important;
+    }
+    h3 {
+      font-size: 1.17em !important;
+    }
+    u {
+      text-decoration: underline !important;
+    }
+    em {
+      font-style: italic !important;
+    }
+    strong {
+      font-weight: bold !important;
+    }
+  }

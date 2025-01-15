@@ -20,7 +20,9 @@
             <a href="tel:01069166696" class="text-[#FBFCF8] font-[100] mt-1">
                 010 69166696
             </a>
-            <p class="text-[#FBFCF8] font-[100]">info@relume.io</p>
+            <a href="mailto:mbopharma2019@gmail.com" class="text-[#FBFCF8] font-[100] mt-1">
+                mbopharma2019@gmail.com
+            </a>
           </div>
 
           <div class="social-media-icons flex gap-[12px]">

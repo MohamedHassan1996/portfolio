@@ -230,11 +230,12 @@
                           </g>
                         </svg>
                       </div>
-                      <p
+                      <a
+                        href="mailto:mbopharma2019@gmail.com"
                         class="[font-family:Roboto,sans-serif] text-sm font-normal text-[#166e1d] grow-0 shrink-0 basis-auto ml-[7px] m-0 p-0"
                       >
-                        curtis.weaver@example.com
-                      </p>
+                      mbopharma2019@gmail.com
+                    </a>
                     </div>
                   </div>
                 </div>
