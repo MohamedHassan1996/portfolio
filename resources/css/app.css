@@ -501,29 +501,34 @@ ul li {
   }
 
 
-  .blog-section-content {
-    ol li {
-      list-style: disc !important;
-    }
-    ul {
-      list-style: decimal !important;
-    }
-    h1 {
-      font-size: 2em !important;
-    }
-    h2 {
-      font-size: 1.5em !important;
-    }
-    h3 {
-      font-size: 1.17em !important;
-    }
-    u {
-      text-decoration: underline !important;
-    }
-    em {
-      font-style: italic !important;
-    }
-    strong {
-      font-weight: bold !important;
-    }
+  .blog-section-content ol li {
+    list-style: disc !important;
+  }
+
+  .blog-section-content ul {
+    list-style: decimal !important;
+  }
+
+  .blog-section-content h1 {
+    font-size: 2em !important;
+  }
+
+  .blog-section-content h2 {
+    font-size: 1.5em !important;
+  }
+
+  .blog-section-content h3 {
+    font-size: 1.17em !important;
+  }
+
+  .blog-section-content u {
+    text-decoration: underline !important;
+  }
+
+  .blog-section-content em {
+    font-style: italic !important;
+  }
+
+  .blog-section-content strong {
+    font-weight: bold !important;
   }
