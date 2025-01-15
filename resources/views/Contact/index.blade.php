@@ -96,7 +96,7 @@
             <!-- map and location -->
             <div class="border box-border rounded-lg border-solid border-[#e8e8e8] w-full sm:w-[90%] mx-auto">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1172.7072262053896!2d31.335977819574488!3d31.04707961734824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2seg!4v1732058217561!5m2!1sen!2seg"
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d410.6991973322873!2d31.39494614416438!3d31.02195058070881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDAxJzE5LjIiTiAzMcKwMjMnNDIuNCJF!5e1!3m2!1sen!2seg!4v1736935793336!5m2!1sen!2seg"
                 height="450"
                 style="border: 0"
                 allowfullscreen=""
