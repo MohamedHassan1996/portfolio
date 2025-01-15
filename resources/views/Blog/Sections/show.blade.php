@@ -24,9 +24,12 @@
 
             <div class="information md:w-[80%]">
               <p class="main-title [font-family:Montserrat,sans-serif] text-6xl font-bold leading-[72px] uppercase text-[#333333]">{{ $blog->title }}</p>
-              <p class="[font-family:Roboto,sans-serif] text-xl font-normal text-left leading-[30px] text-[#777777] w-full box-border mt-10 blog-section-content">
-                {!! $blog->content !!}
+              <p class="[font-family:Roboto,sans-serif] text-xl font-normal leading-[30px] text-[#777777] w-full box-border mt-10 ">
+               {{ $blog->description }}
               </p>
+              <div class="blog-section-content">
+                {!! $blog->content !!}
+              </div>
             </div>
 
             <!-- right controles status & Latest -->
