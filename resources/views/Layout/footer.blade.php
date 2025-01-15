@@ -20,6 +20,7 @@
             <a href="tel:01069166696" class="text-[#FBFCF8] font-[100] mt-1">
                 010 69166696
             </a>
+            <br>
             <a href="mailto:mbopharma2019@gmail.com" class="text-[#FBFCF8] font-[100] mt-1">
                 mbopharma2019@gmail.com
             </a>
