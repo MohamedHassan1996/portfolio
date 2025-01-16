@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\Private\ContactUs\WebsiteContactUsController;
 use App\Http\Controllers\Api\Private\Customer\CustomerController;
 use App\Http\Controllers\Api\Private\Event\EventController;
 use App\Http\Controllers\Api\Private\Faq\FaqController;
+use App\Http\Controllers\Api\Private\MainSetting\MainSettingController;
 use App\Http\Controllers\Api\Private\FrontPage\FrontPagecontroller;
 use App\Http\Controllers\Api\Private\FrontPage\FrontPageSectionController;
 use App\Http\Controllers\Api\Private\Newsletter\NewsletterController;
@@ -169,6 +170,13 @@ Route::prefix('v1/{lang}/admin/front-page-sections')->where(['lang' => 'en|ar'])
     Route::put('update', [FrontPageSectionController::class, 'update']);
     Route::delete('delete', [FrontPageSectionController::class, 'delete']);
 });
+
+Route::prefix('v1/{lang}/admin/main-settings')->where(['lang' => 'en|ar'])->group(function(){
+    Route::post('create', [MainSettingController::class, 'create']);
+    Route::get('edit', [MainSettingController::class, 'edit']);
+    Route::put('update', [MainSettingController::class, 'update']);
+});
+
 
 
 Route::prefix('v1/subscribers')->group(function(){

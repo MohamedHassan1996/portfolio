@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('main_settings', function (Blueprint $table) {
             $table->id();
-            $table->string('content')->nullable();
+            $table->json('content')->nullable();
+            $table->string('logo')->nullable();
+            $table->string('favicon')->nullable();
             $table->timestamps();
         });
     }

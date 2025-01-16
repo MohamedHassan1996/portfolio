@@ -11,5 +11,11 @@ class MainSetting extends Model
 
     protected $fillable = [
         'content',
+        'logo',
+        'favicon',
+    ];
+
+    protected $casts = [
+        'content' => 'array'
     ];
 }
