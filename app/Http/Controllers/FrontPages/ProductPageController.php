@@ -42,7 +42,7 @@ class ProductPageController extends Controller
         }
 
         // Paginate results (9 per page)
-        $products = $productsQuery->paginate(1);
+        $products = $productsQuery->paginate(10);
 
 
         return view('Product.index', compact('productPage', 'productCategories', 'products'));
