@@ -249,6 +249,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let swiper = new Swiper(".mySwiper", {
       effect: "coverflow",
       loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
       slidesPerView: 3,
       coverflowEffect: {
         rotate: 50,
