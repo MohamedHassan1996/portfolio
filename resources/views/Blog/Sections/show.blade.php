@@ -27,7 +27,7 @@
               <p class="[font-family:Roboto,sans-serif] text-xl font-normal leading-[30px] text-[#777777] w-full box-border mt-10 ">
                {{ $blog->description }}
               </p>
-              <div class="blog-section-content ">
+              <div class="blog-section-content">
                 {!! $blog->content !!}
               </div>
             </div>

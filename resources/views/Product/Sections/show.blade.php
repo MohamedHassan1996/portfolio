@@ -20,8 +20,10 @@
             {{ $product->name }}
           </h2>
           <p class="[font-family:Roboto,sans-serif] text-[16px] md:text-[22px] font-normal text-left leading-[30px] text-[#777777]">
-            {!! $product->content !!}
+            {{ $product->description }}
         </p>
+        <div class="blog-section-content">
+            {!! $product->content !!}
         </div>
         <div class="mt-10">
           <p class="main-title [font-family:Montserrat,sans-serif] text-[40px] font-bold leading-[48px] uppercase text-[#333333]" >
