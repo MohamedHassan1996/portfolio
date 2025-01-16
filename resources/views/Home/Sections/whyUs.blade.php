@@ -36,7 +36,7 @@
       >
         <div class="flex flex-row items-center gap-[11px] text-white">
           <image src="{{ url("public/storage/icons/Hand Coin Icon.png") }}" class="" alt="" />
-          <h5 class="title">{{ app()->getLocale() == 'en' ? 'recognized by bringing innovation and value to these markets via' : 'تقديم الابتكار و القيمة الحقيقة للسوق المصرى' }}</h5>
+          <h5 class="title">{{ app()->getLocale() == 'en' ? 'bringing innovation and value to egyptian markets ' : 'تقديم الابتكار و القيمة الحقيقة للسوق المصرى' }}</h5>
         </div>
         <div class="flex flex-row items-center gap-[11px] text-white">
           <image src="{{ url("public/storage/icons/Medicine Icon.png") }}" class="" alt="" />
