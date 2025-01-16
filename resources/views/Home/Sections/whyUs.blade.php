@@ -36,7 +36,7 @@
       >
         <div class="flex flex-row items-center gap-[11px] text-white">
           <image src="{{ url("public/storage/icons/Hand Coin Icon.png") }}" class="" alt="" />
-          <h5 class="title">{{ app()->getLocale() == 'en' ? 'Harum eum quas numquam nost' : 'هذا نص يتم ستبداله' }}</h5>
+          <h5 class="title">{{ app()->getLocale() == 'en' ? 'recognized by bringing innovation and value to these markets via' : 'تقديم الابتكار و القيمة الحقيقة للسوق المصرى' }}</h5>
         </div>
         <div class="flex flex-row items-center gap-[11px] text-white">
           <image src="{{ url("public/storage/icons/Medicine Icon.png") }}" class="" alt="" />
@@ -47,7 +47,7 @@
         </div>
         <div class="flex flex-row items-center gap-[11px] text-white">
           <image src="{{ url("public/storage/icons/Watch Icon.png") }}" class="" alt="" />
-          <h5 class="title">{{ app()->getLocale() == 'en' ? 'Harum eum quas numquam nost' : 'هذا نص يتم ستبداله' }}</h5>
+          <h5 class="title">{{ app()->getLocale() == 'en' ? 'Our goal is to have a presence in the Egyptian pharmaceutical and nutraceutical market' : 'هدفنا هو التواجد فى السوق المصرى' }}</h5>
         </div>
       </div>
     </div>
