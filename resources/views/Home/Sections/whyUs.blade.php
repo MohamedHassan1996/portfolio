@@ -40,14 +40,14 @@
         </div>
         <div class="flex flex-row items-center gap-[11px] text-white">
           <image src="{{ url("public/storage/icons/Medicine Icon.png") }}" class="" alt="" />
-          <h5 class="title">{{ app()->getLocale() == 'en' ? 'Harum eum quas numquam nost' : 'هذا نص يتم ستبداله' }}</div>
+          <h5 class="title">{{ app()->getLocale() == 'en' ? 'Delivering superior quality products' : 'تقديم منتجات عالية الجودة ' }}</div>
         <div class="flex flex-row items-center gap-[11px] text-white">
           <image src="{{ url("public/storage/icons/Target Icon.png") }}" class="" alt="" />
-          <h5 class="title">{{ app()->getLocale() == 'en' ? 'Harum eum quas numquam nost' : 'هذا نص يتم ستبداله' }}</h5>
+          <h5 class="title">{{ app()->getLocale() == 'en' ? "Striving for Leadership in Egypt's Pharmaceutical and Nutraceutical Market" : 'نسعى لنكون من الشركات الرائدة في سوق الأدوية والمكملات الغذائية بمصر' }}</h5>
         </div>
         <div class="flex flex-row items-center gap-[11px] text-white">
           <image src="{{ url("public/storage/icons/Watch Icon.png") }}" class="" alt="" />
-          <h5 class="title">{{ app()->getLocale() == 'en' ? 'Our goal is to have a presence in the Egyptian pharmaceutical and nutraceutical market' : 'هدفنا هو التواجد فى السوق المصرى' }}</h5>
+          <h5 class="title">{{ app()->getLocale() == 'en' ? 'Our goal is to have a presence in the Egyptian pharmaceutical and nutraceutical market' : 'هدفنا هو التواجد بقوة في سوق الأدوية والمكملات الغذائية بمصر' }}</h5>
         </div>
       </div>
     </div>
