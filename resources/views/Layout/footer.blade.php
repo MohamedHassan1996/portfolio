@@ -59,7 +59,11 @@
       </div>
       <div  class="text-center mt-6 border-t pt-[32px] flex items-center justify-between flex-wrap-reverse border-[#FBFCF8]">
         <p class="text-[#FBFCF8] text-[14px]">
-          {! app()->getLocale() == 'en' ? '© 2025 MBO pharma. All rights reserved.' : '<bdi>© 2025 MBO pharma.</bdi> جميع الحقوق محفوظة.' !}
+            @if (app()->getLocale() == 'en')
+                <bdi>© 2025 MBO pharma. All rights reserved.</bdi>
+            @else
+                <bdi>© 2025 MBO pharma. جميع الحقوق محفوظة.</bdi>
+            @endif
         </p>
         <!--<div class="links flex flex-col gap-[24px] md:flex-row">
           <a href="" class="text-white">Privacy Policy</a>
