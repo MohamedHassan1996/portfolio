@@ -25,12 +25,13 @@ class FrontPageSectionService{
     public function allFrontPageSections(array $filters)
     {
         $frontPageSections = QueryBuilder::for(FrontPageSection::class)
-            ->with(['frontPage' => function ($query) use ($filters) {
-                $query->where('front_page_id', $filters['frontPageId']);
-            }, 'translations', 'images'])
-            ->allowedFilters([])
-            ->where('is_active', true)
-            ->get();
+        ->with(['frontPage', 'translations', 'images']) // Eager load the relationships
+        ->whereHas('frontPage', function ($query) use ($filters) {
+            $query->where('front_page_id', $filters['frontPageId']);
+        })
+        ->allowedFilters([])
+        ->where('is_active', true)
+        ->get();
 
         return $frontPageSections;
     }
