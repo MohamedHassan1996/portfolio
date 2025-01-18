@@ -30,6 +30,7 @@ class FrontPageSection extends Model implements TranslatableContract
 
     public function frontPage()
     {
-        return $this->belongsTo(FrontPage::class);
+        return $this->belongsToMany(FrontPage::class, 'page_sections', 'front_page_section_id', 'front_page_id');
     }
+
 }

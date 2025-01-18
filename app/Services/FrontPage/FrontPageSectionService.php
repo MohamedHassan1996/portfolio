@@ -25,16 +25,16 @@ class FrontPageSectionService{
     public function allFrontPageSections(array $filters)
     {
         $frontPageSections = QueryBuilder::for(FrontPageSection::class)
-            ->with('translations') // Fetch translations if applicable
-            ->allowedFilters([
-            ])
+            ->with(['frontPage' => function ($query) use ($filters) {
+                $query->where('front_page_id', $filters['frontPageId']);
+            }, 'translations', 'images'])
+            ->allowedFilters([])
             ->where('is_active', true)
-            ->where('front_page_id', $filters['frontPageId'])
             ->get();
 
         return $frontPageSections;
-
     }
+
 
     public function createFrontPageSection(array $frontPageSectionData): FrontPageSection
     {
