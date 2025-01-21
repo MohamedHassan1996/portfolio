@@ -106,9 +106,11 @@ class ProductController extends Controller
 
         try {
             DB::beginTransaction();
-            $product = $this->productService->updateProduct($updateProductRequest->validated());
+            $data = $updateProductRequest->validated();
+
+            $product = $this->productService->updateProduct($data);
             if (isset($data['images'])) {
-                foreach ($updateProductRequest['images'] as $key => $image) {
+                foreach ($data['images'] as $key => $image) {
                     $path = $this->uploadService->uploadFile($image['path'], "products/$product->id");
 
                     $this->productImageService->createProductImage([
