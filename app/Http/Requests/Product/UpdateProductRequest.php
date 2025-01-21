@@ -41,6 +41,7 @@ class UpdateProductRequest extends FormRequest
             'metaDataEn' => ['required'],
             'metaDataAr' => ['required'],
             'isActive' => ['required', new Enum(ProductStatus::class)],
+            'images' => ['nullable']
         ];
     }
 
