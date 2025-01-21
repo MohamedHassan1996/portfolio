@@ -67,7 +67,6 @@ class MainSettingController extends Controller
                 'content' => $mainSettings->content,
                 'logo' => $mainSettings->logo?Storage::disk('public')->url($mainSettings->logo):"",
                 'favicon' => $mainSettings->favicon?Storage::disk('public')->url($mainSettings->favicon):"",
-
             ]
         ],200);
 

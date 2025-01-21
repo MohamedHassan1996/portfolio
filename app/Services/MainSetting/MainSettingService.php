@@ -4,6 +4,7 @@ namespace App\Services\MainSetting;
 
 use App\Models\MainSetting\MainSetting;
 use App\Services\Upload\UploadService;
+use Illuminate\Http\UploadedFile;
 
 class MainSettingService{
 
