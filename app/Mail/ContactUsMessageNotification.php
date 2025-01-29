@@ -59,7 +59,8 @@ class ContactUsMessageNotification extends Mailable
 
         // If the message is from the admin, link it to the original thread
         if ($this->contactUsMessage->is_admin) {
-            $email->withHeaders([
+            $email->from($this->contactUs->email, $this->contactUs->name)
+            ->withHeaders([
                 'In-Reply-To' => $messageId, // Ensures threading
                 'References' => $messageId, // Links it to the original message
             ]);
