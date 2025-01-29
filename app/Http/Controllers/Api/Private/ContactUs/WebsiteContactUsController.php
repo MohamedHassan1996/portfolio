@@ -45,7 +45,7 @@ class WebsiteContactUsController extends Controller
             $contactUsMessages = ContactUsMessage::create([
                 'contact_us_id' => $contactUs->id,
                 'message' => $request->message,
-                'is_admin' => 1,
+                'is_admin' => 0,
                 'is_read' => null
 
             ]);
