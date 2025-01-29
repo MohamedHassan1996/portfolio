@@ -31,10 +31,10 @@ class CustomerService{
 
         $customer = Customer::create([
             'name' => $customerData['name'],
-            'email' => $customerData['email'],
-            'phone' => $customerData['phone'],
-            'address' => $customerData['address'],
-            'description' => $customerData['description'],
+            'email' => $customerData['email']??"",
+            'phone' => $customerData['phone']??"",
+            'address' => $customerData['address']??"",
+            'description' => $customerData['description']??"",
         ]);
 
         return $customer;
@@ -53,10 +53,10 @@ class CustomerService{
 
         $customer->update([
             'name' => $customerData['name'],
-            'email' => $customerData['email'],
-            'phone' => $customerData['phone'],
-            'address' => $customerData['address'],
-            'description' => $customerData['description'],
+            'email' => $customerData['email']??"",
+            'phone' => $customerData['phone']??"",
+            'address' => $customerData['address']??"",
+            'description' => $customerData['description']??"",
         ]);
 
         return $customer;

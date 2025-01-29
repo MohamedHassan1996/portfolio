@@ -110,6 +110,7 @@ class BlogService{
             $blog->translateOrNew('ar')->slug = $blogData['slugAr'];
             $blog->translateOrNew('ar')->content = $blogData['contentAr'];
             $blog->translateOrNew('ar')->meta_data = $blogData['metaDataAr'];
+            $blog->translateOrNew('ar')->description = $blogData['descriptionAr'];
         }
 
         if (!empty($blogData['titleEn'])) {
@@ -117,6 +118,7 @@ class BlogService{
             $blog->translateOrNew('en')->slug = $blogData['slugEn'];
             $blog->translateOrNew('en')->content = $blogData['contentEn'];
             $blog->translateOrNew('en')->meta_data = $blogData['metaDataEn'];
+            $blog->translateOrNew('en')->description = $blogData['descriptionEn'];
         }
 
         $blog->save();

@@ -29,8 +29,8 @@ class UpdateUserRequest extends FormRequest
             'name' => 'required',
             'username'=> ['required', "unique:users,username,{$this->userId}"],
             'email'=> ['nullable', 'sometimes','email'],
-            'phone' => '',
-            'address' => '',
+            'phone' => 'nullable',
+            'address' => 'nullable',
             'status' => 'required',
             'password'=> [
                 'sometimes',

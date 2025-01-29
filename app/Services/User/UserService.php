@@ -49,9 +49,9 @@ class UserService{
         $user = User::create([
             'name' => $userData['name'],
             'username' => $userData['username'],
-            'email' => $userData['email'],
-            'phone' => $userData['phone'],
-            'address' => $userData['address'],
+            'email' => $userData['email']??"",
+            'phone' => $userData['phone']??"",
+            'address' => $userData['address']??"",
             'password' => $userData['password'],
             'status' => UserStatus::from($userData['status'])->value,
             'avatar' => $avatarPath
@@ -82,9 +82,9 @@ class UserService{
         $user = User::find($userData['userId']);
         $user->name = $userData['name'];
         $user->username = $userData['username'];
-        $user->email = $userData['email'];
-        $user->phone = $userData['phone'];
-        $user->address = $userData['address'];
+        $user->email = $userData['email']??"";
+        $user->phone = $userData['phone']??"";
+        $user->address = $userData['address']??"";
 
         if($userData['password']){
             $user->password = $userData['password'];

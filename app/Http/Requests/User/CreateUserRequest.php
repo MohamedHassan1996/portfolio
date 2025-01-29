@@ -31,12 +31,12 @@ class CreateUserRequest extends FormRequest
             'name' => 'required',
             'username'=> ['required', 'unique:users,username'],
             'email'=> ['nullable', 'sometimes','email'],
-            'phone' => '',
-            'address' => '',
+            'phone' => 'nullable',
+            'address' => 'nullable',
             'status' => ['required', new Enum(UserStatus::class)],
             'password'=> [
                 'required','string',
-                Password::min(8)->mixedCase()->numbers()->symbols()->uncompromised(),
+                Password::min(8),
                 /*'min:8',
                 'regex:/^.*(?=.{1,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x]).*$/'*/
             ],
