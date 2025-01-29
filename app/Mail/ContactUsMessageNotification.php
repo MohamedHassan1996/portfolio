@@ -47,7 +47,7 @@ class ContactUsMessageNotification extends Mailable
     $messageId = "<contact-{$this->contactUs->id}@yourdomain.com>";
 
     $email = $this->subject($this->contactUs->subject)
-                  ->view('emails.contact_us_message')
+                  ->view('Emails.contact_us_message')
                   ->with([
                       'subject' => $this->contactUs->subject,
                       'messageContent' => $this->contactUsMessage->message,
