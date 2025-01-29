@@ -43,29 +43,29 @@ class ContactUsMessageNotification extends Mailable
     }*/
 
     public function build()
-{
-    $messageId = "<contact-{$this->contactUs->id}@yourdomain.com>";
+    {
+        $messageId = "<contact-{$this->contactUs->id}@yourdomain.com>";
 
-    $email = $this->subject($this->contactUs->subject)
-                  ->view('Emails.contact_us_message')
-                  ->with([
-                      'subject' => $this->contactUs->subject,
-                      'messageContent' => $this->contactUsMessage->message,
-                  ])
-                  ->replyTo($this->contactUs->email) // User will receive replies
-                  ->withHeaders([
-                      'Message-ID' => $messageId, // Unique ID for threading
-                  ]);
+        $email = $this->subject($this->contactUs->subject)
+                    ->view('Emails.contact_us_message')
+                    ->with([
+                        'subject' => $this->contactUs->subject,
+                        'messageContent' => $this->contactUsMessage->message,
+                    ])
+                    ->replyTo($this->contactUs->email) // User will receive replies
+                    ->withHeaders([
+                        'Message-ID' => $messageId, // Unique ID for threading
+                    ]);
 
-    // If the message is from the admin, link it to the original thread
-    if ($this->contactUsMessage->is_admin) {
-        $email->withHeaders([
-            'In-Reply-To' => $messageId, // Ensures threading
-            'References' => $messageId, // Links it to the original message
-        ]);
+        // If the message is from the admin, link it to the original thread
+        if ($this->contactUsMessage->is_admin) {
+            $email->withHeaders([
+                'In-Reply-To' => $messageId, // Ensures threading
+                'References' => $messageId, // Links it to the original message
+            ]);
+        }
+
+        return $email;
     }
-
-    return $email;
-}
 
 }

@@ -30,7 +30,8 @@ class NewsletterMail extends Mailable
      */
     public function build()
     {
-        return $this->subject($this->newsletter->subject)
+        return $this->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'))
+                    ->subject($this->newsletter->subject)
                     ->view('Emails.newsletter')
                     ->with('content', $this->newsletter->content);
     }
