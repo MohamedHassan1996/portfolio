@@ -32,7 +32,7 @@ class ContactMessageService implements ContactMessageServiceInterface{
 
         $contactUs = ContactUs::find($contactUsData['contactUsId']);
 
-        //Mail::to($contactUs->email)->send(new ContactUsMessageNotification($contactUsMessage, $contactUs));
+        Mail::to($contactUs->email)->send(new ContactUsMessageNotification($contactUsMessage, $contactUs));
 
 
         return $contactUsMessage;
