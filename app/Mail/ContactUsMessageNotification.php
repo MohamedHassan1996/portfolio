@@ -57,10 +57,14 @@ class ContactUsMessageNotification extends Mailable
                         'Message-ID' => $messageId, // Unique ID for threading
                     ]);
 
+        if ($this->contactUsMessage->is_admin->value == 0) {
+            $email->from($this->contactUs->email, $this->contactUs->name);
+        }
+
+
         // If the message is from the admin, link it to the original thread
-        if ($this->contactUsMessage->is_admin) {
-            $email->from($this->contactUs->email, $this->contactUs->name)
-            ->withHeaders([
+        if ($this->contactUsMessage->is_admin->value == 1) {
+            $email->withHeaders([
                 'In-Reply-To' => $messageId, // Ensures threading
                 'References' => $messageId, // Links it to the original message
             ]);
