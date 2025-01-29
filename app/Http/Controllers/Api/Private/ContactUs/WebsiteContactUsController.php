@@ -7,13 +7,14 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ContactUs\UpdateContactUsRequest;
 use App\Http\Resources\ContactUs\AllContactUsCollection;
 use App\Http\Resources\ContactUs\ContactUsResource;
+use App\Mail\ContactUsMessageNotification;
 use App\Models\ContactUs\ContactUs;
 use App\Models\ContactUs\ContactUsMessage;
 use App\Utils\PaginateCollection;
 use App\Services\ContactUs\ContactUsService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Mail;
 
 class WebsiteContactUsController extends Controller
 {
@@ -49,6 +50,8 @@ class WebsiteContactUsController extends Controller
                 'is_read' => null
 
             ]);
+
+            Mail::to($contactUs->email)->send(new ContactUsMessageNotification($contactUsMessages, $contactUs));
 
             DB::commit();
 

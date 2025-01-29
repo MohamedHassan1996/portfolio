@@ -32,9 +32,10 @@ class ContactUsMessageNotification extends Mailable
      */
     public function build()
     {
-        return $this->subject('New Contact Us Message')
+        return $this->subject($this->contactUs->subject)
                     ->view('emails.contact_us_message')
                     ->with([
+                        'messageSubject' => $this->contactUsMessage->subject,
                         'messageContent' => $this->contactUsMessage->message,
                         'isAdmin' => $this->contactUsMessage->is_admin ? 'Admin' : 'User',
                         'isRead' => $this->contactUsMessage->is_read ? 'Read' : 'Unread',
