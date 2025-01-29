@@ -42,16 +42,9 @@
 <body>
 
 <div class="container">
-    <div class="header">New Contact Us Message</div>
-
     <div class="content">
-        <p><strong>Subject:</strong> {{ $messageSubject }}</p>
-        <p><strong>Message:</strong></p>
-        <p>{{ $messageContent }}</p>
-    </div>
-
-    <div class="footer">
-        <p>Thank you,<br> Your Company Name</p>
+        <p><strong>Subject:</strong> {{ $subject }}</p>
+        <p><strong>Message:</strong>{{ $messageContent }}</p>
     </div>
 </div>
 

@@ -51,7 +51,7 @@ class WebsiteContactUsController extends Controller
 
             ]);
 
-            Mail::to($contactUs->email)->send(new ContactUsMessageNotification($contactUsMessages, $contactUs));
+            Mail::to('mr10dev10@gmail.com')->send(new ContactUsMessageNotification($contactUsMessages, $contactUs));
 
             DB::commit();
 
