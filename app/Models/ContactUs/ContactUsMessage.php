@@ -16,7 +16,7 @@ class ContactUsMessage extends Model
         'message',
         'is_read',
         'is_admin',
-        'contact_us_Id',
+        'contact_us_id',
     ];
 
     protected $casts = [
