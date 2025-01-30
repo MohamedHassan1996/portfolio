@@ -88,10 +88,13 @@ class EventService{
         }
 
         $event->is_published = EventStatus::from($eventData['isPublished'])->value;
-        $event->thumbnail = $path;
         $event->date = $eventData['date'];
         $event->time = $eventData['time'];
         $event->location = $eventData['location'];
+
+        if($event->thumbnail && $path){
+            Storage::disk('public')->delete($event->thumbnail);
+        }
 
         if($path){
             $event->thumbnail = $path;
@@ -111,13 +114,6 @@ class EventService{
             $event->translateOrNew('en')->meta_data = $eventData['metaDataEn'];
         }
 
-        if($event->thumbnail && $path){
-            Storage::disk('public')->delete($event->thumbnail);
-        }
-
-        if($path){
-            $event->thumbnail = $path;
-        }
 
 
         $event->save();
