@@ -114,6 +114,9 @@ class ProductController extends Controller
             $product = $this->productService->updateProduct($data);
             if (isset($data['images'])) {
                 foreach ($data['images'] as $key => $image) {
+                    if (is_string($image['path'])) {
+                        continue;
+                    }
                     $path = $this->uploadService->uploadFile($image['path'], "products/$product->id");
 
                     $this->productImageService->createProductImage([
