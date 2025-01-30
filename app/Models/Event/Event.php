@@ -21,6 +21,7 @@ class Event extends Model implements TranslatableContract
         'location',
         'thumbnail',
         'is_published',
+        'published_at'
     ];
 
     protected $casts = [
