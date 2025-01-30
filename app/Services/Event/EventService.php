@@ -110,8 +110,12 @@ class EventService{
             $event->translateOrNew('en')->description = $eventData['descriptionEn'];
             $event->translateOrNew('en')->meta_data = $eventData['metaDataEn'];
         }
+
+        if($event->thumbnail && $path){
+            Storage::disk('public')->delete($event->thumbnail);
+        }
+
         if($path){
-            Storage::disk('public')->delete($path);
             $event->thumbnail = $path;
         }
 
