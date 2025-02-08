@@ -31,8 +31,8 @@
           <div class="text-white bg-[#EA5212] font-bolder w-[100px] px-2">{{ $whyUsSection->content[0]['experiences'][0]['title']}}</div>
         </div>
       </div>
-      <div
-        class="medicine-items absolute top-[270px] left-[20px] w-[405px] rounded-[8px] shadow-2xl gap-[8px] flex flex-col p-[15px] bg-[#166E1D]"
+      <div style="width: 405px"
+        class="medicine-items absolute top-[270px] left-[20px] rounded-[8px] shadow-2xl gap-[8px] flex flex-col p-[15px] bg-[#166E1D]"
       >
         <div class="flex flex-row items-center gap-[11px] text-white">
           <image src="{{ url("public/storage/icons/Hand Coin Icon.png") }}" class="" alt="" />
