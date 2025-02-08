@@ -3,15 +3,15 @@
     <div class="w-11/12 md:w-4/5 m-auto">
       <div class="flex gap-[64px] flex-wrap ">
         <div class="w-[450px] flex flex-col gap-[28px]">
-          <img src="{{ url('public/storage/assets/image_5d73f37c.jpeg') }}" width="70" height="50" alt="logo image" />
+          <img src="{{ url('public/storage/{{ $mainSettings->logo }}') }}" width="70" height="50" alt="logo image" />
 
           <div class="address">
             <div class="title items-stretch font-semibold text-[#FBFCF8] mt-1">{{ app()->getLocale() == 'en' ? 'Address:' : 'العنوان:' }}</div>
 
             @if(app()->getLocale() == 'en')
-            <p class="text-[#FBFCF8] font-[100]">Behind Sindoub Insurance Hospital, above Basmala Center for Physiotherapy , Mansoura, Egypt</p>
+            <p class="text-[#FBFCF8] font-[100]">{{ $mainSettings->content['addressesEn'][0] }}</p>
             @else
-            <p class="text-[#FBFCF8] font-[400]">خلف مستشفى التأمين بسندوب، فوق مركز بسملة للاستشفاء الطبي، المنصورة، مصر</p>
+            <p class="text-[#FBFCF8] font-[400]">{{ $mainSettings->content['addressesAr'][0] }}</p>
             @endif
           </div>
 
