@@ -21,8 +21,8 @@
                 <bdi>010 69166696</bdi>
             </a>
             <br>
-            <a href="mailto:{{ $mainSettings->emails[0] }}" class="text-[#FBFCF8] font-[100] mt-1">
-                {{ $mainSettings->emails[0] }}
+            <a href="mailto:{{ $mainSettings->content->emails[0] }}" class="text-[#FBFCF8] font-[100] mt-1">
+                {{ $mainSettings->content->emails[0] }}
             </a>
           </div>
 
