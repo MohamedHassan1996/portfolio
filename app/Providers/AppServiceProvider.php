@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Enums\FrontPage\FrontPageStatus;
 use App\Models\FrontPage\FrontPage;
+use App\Models\MainSetting\MainSetting;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -22,7 +23,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $frontPage = FrontPage::with('translations')->where('is_active', FrontPageStatus::ACTIVE)->get();
-
-        view()->share('navbarLinks', $frontPage);
+        $mainSettings = MainSetting::first();
+        view()->share([
+            'navbarLinks' => $frontPage,
+            'mainSettings' => $mainSettings
+        ]);
     }
 }

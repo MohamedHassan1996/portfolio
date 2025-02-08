@@ -62,7 +62,7 @@
               <div class="flex flex-col gap-[20px] w-full md:w-[70%] h-[602px]">
                 @foreach ($blogs as $blog)
                 <div class="bg-[white] box-border relative flex justify-start flex-col rounded-xl border-2 border-solid border-[#e8e8e8]">
-                    <img src="{{ url("storage/$blog->thumbnail") }}" class="w-full h-[300px] rounded-lg" alt="image1" loading="lazy">
+                    <img src="{{ url("storage/$blog->thumbnail") }}" class="w-full h-[400px] rounded-lg" alt="image1" loading="lazy">
                     <div class="bg-cover bg-no-repeat  box-border flex justify-start items-center flex-col pt-4">
                         <div class="bg-[white] absolute top-[16px] right-[16px] box-border flex justify-start items-center flex-col w-[60px] py-2 rounded-lg">
                           <p class="[font-family:Montserrat,sans-serif] text-2xl font-semibold leading-[29px] text-[#333333]">{{ $blog->created_at->format('d') }}</p>
