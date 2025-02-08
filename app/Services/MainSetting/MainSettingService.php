@@ -22,7 +22,7 @@ class MainSettingService{
 
         $mainSetting = new MainSetting();
 
-        $mainSetting->content = $mainSettingData['content'];
+        $mainSetting->content = json_decode($mainSettingData['content']);
 
 
 
