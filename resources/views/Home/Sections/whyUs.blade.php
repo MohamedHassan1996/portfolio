@@ -27,8 +27,8 @@
           loading="lazy"
         />
         <div class="absolute top-0 right-0 flex gap-2 border bg-white rounded-md border-[#EA5212]">
-          <div class="text-[#166E1D] font-bold text-[28px] p-1">{{ $whyUsSection->content[0]['experiences']['year']}}</div>
-          <div class="text-white bg-[#EA5212] font-bolder w-[100px] px-2">{{ $whyUsSection->content[0]['experiences']['title']}}</div>
+          <div class="text-[#166E1D] font-bold text-[28px] p-1">{{ $whyUsSection->content[0]['experiences'][0]['years']}}</div>
+          <div class="text-white bg-[#EA5212] font-bolder w-[100px] px-2">{{ $whyUsSection->content[0]['experiences'][0]['title']}}</div>
         </div>
       </div>
       <div
