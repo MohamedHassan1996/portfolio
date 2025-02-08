@@ -60,7 +60,7 @@ class MainSettingService{
 
         $mainSetting = MainSetting::find($mainSettingData['mainSettingId']);
 
-        $mainSetting->content = $mainSettingData['content'];
+        $mainSetting->content = json_decode($mainSettingData['content']);
 
         $logo = null;
         $favicon = null;
