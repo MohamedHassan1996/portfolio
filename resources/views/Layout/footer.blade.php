@@ -21,7 +21,7 @@
                 <bdi>010 69166696</bdi>
             </a>
             <br>
-            @dd($mainSettings->content)
+            @dd($mainSettings->emails)
             <a href="mailto:{{ $mainSettings->content->emails[0] }}" class="text-[#FBFCF8] font-[100] mt-1">
                 {{ $mainSettings->content->emails[0] }}
             </a>
