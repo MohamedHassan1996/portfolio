@@ -27,9 +27,9 @@
           </div>
 
           <div class="social-media-icons flex gap-[12px]">
-            <a href="https://www.facebook.com/mbopharma" target="_blank"><img src="{{ url('public/storage/assets/Facebook.png') }}" width="25" height="25" alt="Facebook" /></a>
-            <a href="https://www.instagram.com/mbopharma2019" target="_blank"><img src="{{ url('public/storage/assets/Instagram.png') }}" width="25" height="25" alt="Instagram" /></a>
-            <a href="https://www.linkedin.com/company/mbopharma" target="_blank"><img src="{{ url('public/storage/assets/LinkedIn.png') }}" width="25" height="25" alt="LinkedIn" /></a>
+            <a href="{{ $mainSettings->content['socialMedia']['facebook'] }}" target="_blank"><img src="{{ url('public/storage/assets/Facebook.png') }}" width="25" height="25" alt="Facebook" /></a>
+            <a href="{{ $mainSettings->content['socialMedia']['instagram'] }}" target="_blank"><img src="{{ url('public/storage/assets/Instagram.png') }}" width="25" height="25" alt="Instagram" /></a>
+            <a href="{{ $mainSettings->content['socialMedia']['linkedin'] }}" target="_blank"><img src="{{ url('public/storage/assets/LinkedIn.png') }}" width="25" height="25" alt="LinkedIn" /></a>
             {{-- <a href="https://twitter.com" target="_blank"><img src="{{ url('public/storage/assets/X.png') }}" width="25" height="25" alt="Twitter" /></a> --}}
             {{-- <a href="https://www.youtube.com" target="_blank"><img src="{{ url('public/storage/assets/Youtube.svg') }}" width="25" height="25" alt="YouTube"/></a> --}}
           </div>
