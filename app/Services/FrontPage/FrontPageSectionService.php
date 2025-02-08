@@ -94,6 +94,9 @@ class FrontPageSectionService{
 
         if (!empty($frontPageSectionData['images'])) {
             foreach ($frontPageSectionData['images'] as $image) {
+                if(is_string($image['path']) || empty($image['path'])){
+                    continue;
+                }
                 $path = $this->uploadService->uploadFile($image['path'], 'frontPageSections');
 
                 $frontPageSectionImage = FrontPageSectionImage::create([

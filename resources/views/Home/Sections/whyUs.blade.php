@@ -27,8 +27,8 @@
           loading="lazy"
         />
         <div class="absolute top-0 right-0 flex gap-2 border bg-white rounded-md border-[#EA5212]">
-          <div class="text-[#166E1D] font-bold text-[28px] p-1">+10</div>
-          <div class="text-white bg-[#EA5212] font-bolder w-[100px] px-2">{{ app()->getLocale() == 'en' ? 'Years from Experience' : 'سنوات من الخبرة' }}</div>
+          <div class="text-[#166E1D] font-bold text-[28px] p-1">{{ $whyUsSection->content['experiences']['year']}}</div>
+          <div class="text-white bg-[#EA5212] font-bolder w-[100px] px-2">{{ $whyUsSection->content['experiences']['title']}}</div>
         </div>
       </div>
       <div
@@ -36,18 +36,18 @@
       >
         <div class="flex flex-row items-center gap-[11px] text-white">
           <image src="{{ url("public/storage/icons/Hand Coin Icon.png") }}" class="" alt="" />
-          <h5 class="title">{{ app()->getLocale() == 'en' ? 'bringing innovation and value to egyptian markets ' : 'إحداث نقلة نوعية وإضافة قيمة للأسواق المصرية' }}</h5>
+          <h5 class="title">{{ $whyUsSection->content['extras'][0]}}</h5>
         </div>
         <div class="flex flex-row items-center gap-[11px] text-white">
           <image src="{{ url("public/storage/icons/Medicine Icon.png") }}" class="" alt="" />
-          <h5 class="title">{{ app()->getLocale() == 'en' ? 'Delivering superior quality products' : 'تقديم منتجات عالية الجودة ' }}</div>
+          <h5 class="title">{{$whyUsSection->content['extras'][1]}}</div>
         <div class="flex flex-row items-center gap-[11px] text-white">
           <image src="{{ url("public/storage/icons/Target Icon.png") }}" class="" alt="" />
-          <h5 class="title">{{ app()->getLocale() == 'en' ? "Striving for Leadership in Egypt's Pharmaceutical and Nutraceutical Market" : 'نسعى لنكون من الشركات الرائدة في سوق الأدوية والمكملات الغذائية بمصر' }}</h5>
+          <h5 class="title">{{$whyUsSection->content['extras'][2] }}</h5>
         </div>
         <div class="flex flex-row items-center gap-[11px] text-white">
           <image src="{{ url("public/storage/icons/Watch Icon.png") }}" class="" alt="" />
-          <h5 class="title">{{ app()->getLocale() == 'en' ? 'Our goal is to have a presence in the Egyptian pharmaceutical and nutraceutical market' : 'هدفنا هو التواجد بقوة في سوق الأدوية والمكملات الغذائية بمصر' }}</h5>
+          <h5 class="title">{{ $whyUsSection->content['extras'][3] }}</h5>
         </div>
       </div>
     </div>
