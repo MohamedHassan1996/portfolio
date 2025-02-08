@@ -3,7 +3,7 @@
     <div class="w-11/12 md:w-4/5 m-auto">
       <div class="flex gap-[64px] flex-wrap ">
         <div class="w-[450px] flex flex-col gap-[28px]">
-          <img src="{{ url('public/storage/{{ $mainSettings->logo }}') }}" width="70" height="50" alt="logo image" />
+            <img src="{{ url('public/storage/' . $mainSettings->logo) }}" width="70" height="50" alt="logo image" />
 
           <div class="address">
             <div class="title items-stretch font-semibold text-[#FBFCF8] mt-1">{{ app()->getLocale() == 'en' ? 'Address:' : 'العنوان:' }}</div>
