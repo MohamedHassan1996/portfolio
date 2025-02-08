@@ -17,8 +17,8 @@
 
           <div class="contact">
             <div class="title items-stretch font-semibold text-[#FBFCF8]">{{ app()->getLocale() == 'en' ? 'Contact:' : 'اتصل بنا:' }}</div>
-            <a href="tel:01069166696" class="text-[#FBFCF8] font-[100] mt-1">
-                <bdi>010 69166696</bdi>
+            <a href="tel:{{ $mainSettings->content['contact'][0] }}" class="text-[#FBFCF8] font-[100] mt-1">
+                <bdi>{{ $mainSettings->content['contact'][0] }}</bdi>
             </a>
             <br>
             <a href="mailto:{{ $mainSettings->content['emails'][0] }}" class="text-[#FBFCF8] font-[100] mt-1">
