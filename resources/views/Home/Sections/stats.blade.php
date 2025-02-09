@@ -6,8 +6,6 @@
         <p
           class="stats-counter [font-family:Montserrat,sans-serif] text-[56px] font-bold leading-[67px] text-[#166e1d]"
         >
-        @dd($stat, $stat['number'])
-
           {{ $stat['number'] }}
         </p>
         <p
