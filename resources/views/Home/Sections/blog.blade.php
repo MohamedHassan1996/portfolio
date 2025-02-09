@@ -9,7 +9,7 @@
     </div>
     <div  class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-[29.5px] mt-10">
         @foreach($blogs as $blog)
-        <div class="bg-[rgba(51,51,51,0.04)] max-h-[500px]  relative box-border flex justify-start items-stretch flex-col rounded-lg">
+        <div class="bg-[rgba(51,51,51,0.04)] relative box-border flex justify-start items-stretch flex-col rounded-lg">
             <div class="box-border flex justify-start items-stretch flex-col rounded-lg h-[300px]">
               <img src="{{ url("public/storage/".$blog->thumbnail) }}" class="h-full w-full" alt="" loading="lazy" />
               <div class="bg-[white] absolute top-3 right-3 box-border px-[15px] py-[7px] flex-col rounded-lg">
