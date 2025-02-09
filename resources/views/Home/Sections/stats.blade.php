@@ -1,5 +1,6 @@
 <!-- status numbres -->
 <section class="bg-[#f5f5f3]">
+    @dd($statsSection->content)
     <div class="w-4/5 sm:w-4/5 m-auto flex items-center flex-col lg:flex-row box-border justify-between gap-[50px] py-12">
         @foreach ($statsSection->content as $index => $stat)
       <div class="flex justify-center items-center flex-col">
