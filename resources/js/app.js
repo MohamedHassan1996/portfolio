@@ -66,41 +66,45 @@ document.addEventListener("DOMContentLoaded", () => {
     // CountersOnScroll(); // Call the function to initialize
 
     const CountersOnScroll = () => {
-      const counters = document.querySelectorAll("p[data-target]");
-      let hasScrolled = false;
-
-      const updateCounters = () => {
-        if (hasScrolled) return;
-
-        counters.forEach((counter) => {
-          const sectionTop = counter.getBoundingClientRect().top;
-          const scrollThreshold = window.innerHeight * 0.6;
-
-          if (sectionTop < scrollThreshold) {
-            hasScrolled = true;
-
-            const target = parseInt(counter.getAttribute("data-target"), 10);
-            let count = 0;
-            const totalDuration = 2000;
-            const increment = target / (totalDuration / 16);
-
-            const updateCounter = () => {
-              if (count < target) {
-                count += increment;
-                if (count > target) count = target;
-                counter.textContent = Math.floor(count);
-                requestAnimationFrame(updateCounter);
-              }
-            };
-
-            updateCounter();
-          }
-        });
+        const counters = document.querySelectorAll("p[data-target]");
+      
+        // Track which counters have started
+        const startedCounters = new Set();
+      
+        const updateCounters = () => {
+          counters.forEach((counter) => {
+            const sectionTop = counter.getBoundingClientRect().top;
+            const scrollThreshold = window.innerHeight * 0.6;
+      
+            // Start only if it's visible and hasn't started yet
+            if (sectionTop < scrollThreshold && !startedCounters.has(counter)) {
+              startedCounters.add(counter); // Mark as started
+      
+              const target = parseInt(counter.getAttribute("data-target"), 10);
+              let count = 0;
+              const totalDuration = 2000;
+              const increment = target / (totalDuration / 16);
+      
+              const updateCounter = () => {
+                if (count < target) {
+                  count += increment;
+                  if (count > target) count = target;
+                  counter.textContent = Math.floor(count);
+                  requestAnimationFrame(updateCounter);
+                }
+              };
+      
+              updateCounter();
+            }
+          });
+        };
+      
+        window.addEventListener("scroll", updateCounters);
       };
-
-      window.addEventListener("scroll", updateCounters);
-    };
-
+      
+      // Initialize the function
+      CountersOnScroll();
+      
     // تشغيل الفنكشن عند تحميل الصفحة
     window.addEventListener("DOMContentLoaded", CountersOnScroll);
 
