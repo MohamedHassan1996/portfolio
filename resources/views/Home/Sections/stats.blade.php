@@ -10,7 +10,6 @@
           class="[font-family:Montserrat,sans-serif] text-[56px] font-bold leading-[67px] text-[#166e1d]"
         >
         </p>
-        0   
         <p
           class="[font-family:Roboto,sans-serif] text-xl font-normal text-center text-[#777777] w-[139px] mt-1"
         >
