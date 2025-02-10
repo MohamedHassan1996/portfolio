@@ -25,45 +25,84 @@ document.addEventListener("DOMContentLoaded", () => {
       button.classList.remove("text-black");
     };
 
+    // const CountersOnScroll = () => {
+    //     const counters = document.querySelectorAll('[class^="stats-counter"]'); // Select all elements starting with "stats-counter"
+
+    //     const updateCounters = () => {
+    //         counters.forEach((counter) => {
+    //             const sectionTop = counter.getBoundingClientRect().top + window.scrollY;
+    //             const scrollThreshold = sectionTop - window.innerHeight * 0.6;
+
+    //             // Check if counter is in the viewport
+    //             if (window.scrollY >= scrollThreshold && !counter.classList.contains('counted')) {
+    //                 let count = 0;
+    //                 const target = parseInt(counter.textContent, 10); // Get initial number from HTML
+    //                 const totalDuration = 2000; // Animation duration in ms
+    //                 const increment = target / (totalDuration / 16); // Increment per frame (assuming 60fps)
+
+    //                 const updateCounter = () => {
+    //                     if (count < target) {
+    //                         count += increment;
+    //                         if (count > target) count = target;
+    //                         counter.textContent = Math.floor(count);
+    //                         requestAnimationFrame(updateCounter);
+    //                     } else {
+    //                         counter.classList.add('counted'); // Mark the counter as completed
+    //                     }
+    //                 };
+
+    //                 updateCounter(); // Start counting animation
+    //             }
+    //         });
+    //     };
+
+    //     // Bind scroll event
+    //     window.addEventListener('scroll', updateCounters);
+
+    //     // Trigger an initial update in case the counters are already in view when the page loads
+    //     updateCounters();
+    // };
+
+    // CountersOnScroll(); // Call the function to initialize
+
     const CountersOnScroll = () => {
-        const counters = document.querySelectorAll('[class^="stats-counter"]'); // Select all elements starting with "stats-counter"
+      const counters = document.querySelectorAll("p[data-target]");
+      let hasScrolled = false;
 
-        const updateCounters = () => {
-            counters.forEach((counter) => {
-                const sectionTop = counter.getBoundingClientRect().top + window.scrollY;
-                const scrollThreshold = sectionTop - window.innerHeight * 0.6;
+      const updateCounters = () => {
+        if (hasScrolled) return;
 
-                // Check if counter is in the viewport
-                if (window.scrollY >= scrollThreshold && !counter.classList.contains('counted')) {
-                    let count = 0;
-                    const target = parseInt(counter.textContent, 10); // Get initial number from HTML
-                    const totalDuration = 2000; // Animation duration in ms
-                    const increment = target / (totalDuration / 16); // Increment per frame (assuming 60fps)
+        counters.forEach((counter) => {
+          const sectionTop = counter.getBoundingClientRect().top;
+          const scrollThreshold = window.innerHeight * 0.6;
 
-                    const updateCounter = () => {
-                        if (count < target) {
-                            count += increment;
-                            if (count > target) count = target;
-                            counter.textContent = Math.floor(count);
-                            requestAnimationFrame(updateCounter);
-                        } else {
-                            counter.classList.add('counted'); // Mark the counter as completed
-                        }
-                    };
+          if (sectionTop < scrollThreshold) {
+            hasScrolled = true;
 
-                    updateCounter(); // Start counting animation
-                }
-            });
-        };
+            const target = parseInt(counter.getAttribute("data-target"), 10);
+            let count = 0;
+            const totalDuration = 2000;
+            const increment = target / (totalDuration / 16);
 
-        // Bind scroll event
-        window.addEventListener('scroll', updateCounters);
+            const updateCounter = () => {
+              if (count < target) {
+                count += increment;
+                if (count > target) count = target;
+                counter.textContent = Math.floor(count);
+                requestAnimationFrame(updateCounter);
+              }
+            };
 
-        // Trigger an initial update in case the counters are already in view when the page loads
-        updateCounters();
+            updateCounter();
+          }
+        });
+      };
+
+      window.addEventListener("scroll", updateCounters);
     };
 
-    CountersOnScroll(); // Call the function to initialize
+    // تشغيل الفنكشن عند تحميل الصفحة
+    window.addEventListener("DOMContentLoaded", CountersOnScroll);
 
     const NAVBAR = document.querySelector(".menu-bars");
     NAVBAR.addEventListener("click", () => {
