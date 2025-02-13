@@ -6,10 +6,9 @@
 
       <div class="flex justify-center items-center flex-col">
         <p
-          data-target="22"
+          data-target="{{ $stat['number'] }}"
           class="[font-family:Montserrat,sans-serif] text-[56px] font-bold leading-[67px] text-[#166e1d]"
         >
-          {{ $stat['number'] }}
         </p>
         <p
           class="[font-family:Roboto,sans-serif] text-xl font-normal text-center text-[#777777] w-[139px] mt-1"
