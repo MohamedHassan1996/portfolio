@@ -37,7 +37,6 @@ class SendCandidateController extends Controller
             if(isset($data['cv']) && $data['cv'] instanceof UploadedFile){
                 $path =  $this->uploadService->uploadFile($data['cv'], 'candidates');
             }
-            dd($data);
             $candidate = Candidate::create([
                 'name' => $data['name'],
                 'email' => $data['email'],
@@ -46,6 +45,8 @@ class SendCandidateController extends Controller
                 'cover_letter' => $data['coverLetter']??null,
                 'career_id' => $data['careerId'],
             ]);
+            dd($candidate);
+
             Mail::to(env('MAIL_USERNAME'))->send(new SendCandidateCv($candidate));
             DB::commit();
         } catch (\Throwable $th) {
