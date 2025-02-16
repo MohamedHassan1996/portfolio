@@ -123,7 +123,7 @@
               >
               <textarea
                 type="cover-letter"
-                name="cover-letter"
+                name="coverLetter"
                 id="cover-letter"
                 placeholder="Upload your cv.."
                 class="text-[#333] h-[180px] rounded-[2px] outline-none p-[12px] border border-[1px] border-solid border-[#333]"
