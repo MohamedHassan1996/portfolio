@@ -33,6 +33,8 @@ class SendCandidateCv extends Mailable
         if ($cvPath) {
             $sendCareer->attach(Storage::disk('public')->path($cvPath));
         }
+
+        dd($cvPath);
         return $sendCareer;
     }
 
