@@ -37,6 +37,7 @@ class SendCandidateController extends Controller
             if(isset($data['cv']) && $data['cv'] instanceof UploadedFile){
                 $path =  $this->uploadService->uploadFile($data['cv'], 'candidates');
             }
+            dd($data);
             $candidate = Candidate::create([
                 'name' => $data['name'],
                 'email' => $data['email'],
