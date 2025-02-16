@@ -11,68 +11,10 @@
             <h2
               class="main-title [font-family:Montserrat,sans-serif] text-4xl md:text-6xl font-bold leading-[72px] uppercase text-[#333333]"
             >
-              <span>prod</span><span class="text-[#ea5212]">u</span
-              ><span>ct manager</span><span class="text-[#ea5212]">.</span>
+              {{ $career->title }}<span class="text-[#ea5212]">.</span>
             </h2>
             <div class="box-border mt-10">
-              <p
-                class="[font-family:Montserrat,sans-serif] text-2xl md:text-[29px] font-semibold leading-[35px] text-[#333333]"
-              >
-                Job Responsibilities
-              </p>
-              <p
-                class="[font-family:Roboto,sans-serif] text-lg md:text-xl font-normal leading-[30px] text-[#777777] mt-4"
-              >
-                Molestias perferendis tempora sequi consequatur quos distinctio
-                quod error ipsam. Nisi earum quam facere saepe occaecati ad sequi
-                laboriosam. Sequi aut quia beatae qui.<br />
-                Qui et est tempora reiciendis sed. Sit deleniti neque rem non.
-                Voluptatem excepturi cupiditate sunt qui itaque nobis. Sapiente
-                provident qui pariatur labore ad. Et est laudantium commodi eos
-                aut omnis nesciunt.<br />
-                Vel voluptatem est. Modi rerum ad at dolores id inventore soluta
-                vel. Iusto nihil
-              </p>
-            </div>
-            <div class="w-full box-border mt-10">
-              <p
-                class="[font-family:Montserrat,sans-serif] text-2xl md:text-[29px] font-semibold leading-[35px] text-[#333333] m-0 p-0"
-              >
-                Qualifications
-              </p>
-              <p
-                class="[font-family:Roboto,sans-serif] text-lg md:text-xl font-normal text-left leading-[30px] text-[#777777] w-full box-border mt-4 m-0 p-0"
-              >
-                Molestias perferendis tempora sequi consequatur quos distinctio
-                quod error ipsam. Nisi earum quam facere saepe occaecati ad sequi
-                laboriosam. Sequi aut quia beatae qui.<br />
-                Qui et est tempora reiciendis sed. Sit deleniti neque rem non.
-                Voluptatem excepturi cupiditate sunt qui itaque nobis. Sapiente
-                provident qui pariatur labore ad. Et est laudantium commodi eos
-                aut omnis nesciunt.<br />
-                Vel voluptatem est. Modi rerum ad at dolores id inventore soluta
-                vel. Iusto nihil
-              </p>
-            </div>
-            <div class="w-full box-border mt-10">
-              <p
-                class="[font-family:Montserrat,sans-serif] text-2xl md:text-[29px] font-semibold leading-[35px] text-[#333333] m-0 p-0"
-              >
-                Other Benefits
-              </p>
-              <p
-                class="[font-family:Roboto,sans-serif] text-lg md:text-xl font-normal text-left leading-[30px] text-[#777777] w-full box-border mt-4 m-0 p-0"
-              >
-                Molestias perferendis tempora sequi consequatur quos distinctio
-                quod error ipsam. Nisi earum quam facere saepe occaecati ad sequi
-                laboriosam. Sequi aut quia beatae qui.<br />
-                Qui et est tempora reiciendis sed. Sit deleniti neque rem non.
-                Voluptatem excepturi cupiditate sunt qui itaque nobis. Sapiente
-                provident qui pariatur labore ad. Et est laudantium commodi eos
-                aut omnis nesciunt.<br />
-                Vel voluptatem est. Modi rerum ad at dolores id inventore soluta
-                vel. Iusto nihil
-              </p>
+              {{ $career->content }}
             </div>
           </div>
 
