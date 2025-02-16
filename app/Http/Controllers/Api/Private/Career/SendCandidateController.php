@@ -47,7 +47,12 @@ class SendCandidateController extends Controller
             ]);
 
             Mail::to(env('MAIL_USERNAME'))->send(new SendCandidateCv($candidate));
+
             DB::commit();
+
+            return response()->json([
+                'message' => 'CV sent successfully',
+            ]);
         } catch (\Throwable $th) {
             DB::rollBack();
             throw $th;
