@@ -3,118 +3,260 @@
 <!-- blogs page -->
 <section>
     @include('Layout.navbar')
-    <div class="blog-information py-[150px]">
-        <div class="w-11/12 md:w-4/5 m-auto">
-          <!-- hero blog details page -->
-          <div class="hero relative">
-            <img src="{{ url("storage/".$blog->thumbnail) }}" class="w-full h-auto max-h-[480px] rounded-[15px] object-cover" alt="hero image" loading="lazy" />
-            <div class="bg-[white] absolute top-[16px] right-[16px] box-border flex justify-start items-center flex-col w-[60px] py-2 rounded-lg">
-              <p class="[font-family:Montserrat,sans-serif] text-2xl font-semibold leading-[29px] text-[#333333]">
-                {{ $blog->created_at->format('d') }}
+    <div class="career-details-page">
+        <div
+          class="w-11/12 sm:w-4/5 m-auto flex flex-col md:flex-row justify-start items-start gap-8 box-border pt-40 pb-24"
+        >
+          <div class="flex-1">
+            <h2
+              class="main-title [font-family:Montserrat,sans-serif] text-4xl md:text-6xl font-bold leading-[72px] uppercase text-[#333333]"
+            >
+              <span>prod</span><span class="text-[#ea5212]">u</span
+              ><span>ct manager</span><span class="text-[#ea5212]">.</span>
+            </h2>
+            <div class="box-border mt-10">
+              <p
+                class="[font-family:Montserrat,sans-serif] text-2xl md:text-[29px] font-semibold leading-[35px] text-[#333333]"
+              >
+                Job Responsibilities
               </p>
               <p
-                class="[font-family:Roboto,sans-serif] text-sm font-normal text-[#333333]"
+                class="[font-family:Roboto,sans-serif] text-lg md:text-xl font-normal leading-[30px] text-[#777777] mt-4"
               >
-                {{ $blog->created_at->format('M') }}
+                Molestias perferendis tempora sequi consequatur quos distinctio
+                quod error ipsam. Nisi earum quam facere saepe occaecati ad sequi
+                laboriosam. Sequi aut quia beatae qui.<br />
+                Qui et est tempora reiciendis sed. Sit deleniti neque rem non.
+                Voluptatem excepturi cupiditate sunt qui itaque nobis. Sapiente
+                provident qui pariatur labore ad. Et est laudantium commodi eos
+                aut omnis nesciunt.<br />
+                Vel voluptatem est. Modi rerum ad at dolores id inventore soluta
+                vel. Iusto nihil
+              </p>
+            </div>
+            <div class="w-full box-border mt-10">
+              <p
+                class="[font-family:Montserrat,sans-serif] text-2xl md:text-[29px] font-semibold leading-[35px] text-[#333333] m-0 p-0"
+              >
+                Qualifications
+              </p>
+              <p
+                class="[font-family:Roboto,sans-serif] text-lg md:text-xl font-normal text-left leading-[30px] text-[#777777] w-full box-border mt-4 m-0 p-0"
+              >
+                Molestias perferendis tempora sequi consequatur quos distinctio
+                quod error ipsam. Nisi earum quam facere saepe occaecati ad sequi
+                laboriosam. Sequi aut quia beatae qui.<br />
+                Qui et est tempora reiciendis sed. Sit deleniti neque rem non.
+                Voluptatem excepturi cupiditate sunt qui itaque nobis. Sapiente
+                provident qui pariatur labore ad. Et est laudantium commodi eos
+                aut omnis nesciunt.<br />
+                Vel voluptatem est. Modi rerum ad at dolores id inventore soluta
+                vel. Iusto nihil
+              </p>
+            </div>
+            <div class="w-full box-border mt-10">
+              <p
+                class="[font-family:Montserrat,sans-serif] text-2xl md:text-[29px] font-semibold leading-[35px] text-[#333333] m-0 p-0"
+              >
+                Other Benefits
+              </p>
+              <p
+                class="[font-family:Roboto,sans-serif] text-lg md:text-xl font-normal text-left leading-[30px] text-[#777777] w-full box-border mt-4 m-0 p-0"
+              >
+                Molestias perferendis tempora sequi consequatur quos distinctio
+                quod error ipsam. Nisi earum quam facere saepe occaecati ad sequi
+                laboriosam. Sequi aut quia beatae qui.<br />
+                Qui et est tempora reiciendis sed. Sit deleniti neque rem non.
+                Voluptatem excepturi cupiditate sunt qui itaque nobis. Sapiente
+                provident qui pariatur labore ad. Et est laudantium commodi eos
+                aut omnis nesciunt.<br />
+                Vel voluptatem est. Modi rerum ad at dolores id inventore soluta
+                vel. Iusto nihil
               </p>
             </div>
           </div>
 
-          <div class="mt-[40px] flex flex-col-reverse md:flex-row justify-between gap-[32px]">
-
-            <div class="information md:w-[80%]">
-              <p class="main-title [font-family:Montserrat,sans-serif] text-6xl font-bold leading-[72px] uppercase text-[#333333]">{{ $blog->title }}</p>
-              <p class="[font-family:Roboto,sans-serif] text-xl font-normal leading-[30px] text-[#777777] w-full box-border mt-10 ">
-               {{ $blog->description }}
-              </p>
-              <div class="blog-section-content">
-                {!! $blog->content !!}
-              </div>
-            </div>
-
-            <!-- right controles status & Latest -->
-            <div  class="border bg-[white] h-[fit-content] box-border flex justify-start items-stretch flex-col gap-[31px] pt-[39px] px-[10px] rounded-lg border-solid border-[#e8e8e8]">
-              <div>
-                <!-- Input Component is detected here -->
-                <div class="border bg-[#fbfcf8] h-[50px] box-border flex flex-row items-center [justify-content:start] rounded-sm border-solid border-[#333333]">
-                  <input
-                    placeholder="Search"
-                    type="text"
-                    class="w-full [font-family:Roboto,sans-serif] text-base font-normal bg-transparent [outline:none] box-border ml-3 border-[none] text-[#8e8e8e]"
+          <div class="bg-white shadow rounded-lg box-border py-8 flex justify-center items-stretch flex-col mx-auto px-6 w-full max-w-[500px]">
+            <div class="flex justify-center items-stretch flex-col gap-4">
+              <div class="location bg-[rgba(51,51,51,0.04)] flex justify-center sm:justify-between flex-col sm:flex-row items-center flex-row gap-0 sm:gap-2 h-[61px] pl-4 pr-3 rounded-lg w-full"
+              >
+                <div class="flex justify-start items-center flex-row">
+                  <img
+                    src="./public/icons/location-icon.svg"
+                    alt="location-icon"
+                    class="w-6 h-6"
+                    loading="lazy"
                   />
-                  <div class="w-6 h-6 text-[#333333] flex mr-[13px] my-[13px]">
-                    <img src="{{ url('public/storage/icons/search.png') }}" alt="" />
-                  </div>
-                </div>
-              </div>
-              <div class="">
-                <p
-                  class="[font-family:Montserrat,sans-serif] text-[17px] font-semibold leading-[20.5px] uppercase text-[#333333]"
-                >
-                  {{ app()->getLocale() == 'en' ? 'Categories' : 'التصنيفات' }}
-                </p>
-                <div
-                  class="flex justify-center items-stretch flex-col gap-4 box-border mt-4"
-                >
-                  @foreach ($blogCategories as $blogCategory)
-                  <div
-                    class="rounded bg-[rgba(51,51,51,0.04)] box-border flex justify-between items-center flex-row gap-2 h-[43px] px-[15px]"
+                  <p
+                    class="[font-family:Roboto,sans-serif] text-lg font-normal text-[#333333]"
                   >
-                    <p
-                      class="[font-family:Roboto,sans-serif] text-lg font-medium text-[#333333] m-0 p-0"
-                    >
-                      {{ $blogCategory->name }}
-                    </p>
-                    <p
-                      class="[font-family:Roboto,sans-serif] text-lg font-medium text-[#333333] m-0 p-0"
-                    >
-                      {{ $blogCategory->blogs_count }}
-                    </p>
-                  </div>
-                  @endforeach
+                    Location
+                  </p>
                 </div>
-              </div>
-              <div class="">
-                @if (count($latestBlogs) > 0)
-                    <p
-                    class="[font-family:Montserrat,sans-serif] text-[17px] font-semibold leading-[20.5px] uppercase text-[#333333] m-0 p-0"
+                <p
+                  class="[font-family:Roboto,sans-serif] text-sm font-medium text-[#166e1d]"
                 >
-                    {{ app()->getLocale() == 'en' ? 'Latest News' : 'اخر الاخبار' }}
+                  2464 Royal, New Jersey 45463
                 </p>
-                @endif
-                <div class="w-[100.00%] box-border my-4">
-                  @foreach ($latestBlogs as $latestBlog)
-                  <div class="rounded bg-[rgba(51,51,51,0.04)] box-border flex justify-center items-center flex-row w-[100.00%] h-[100px] pl-2 pr-[7px] first:mt-0 mt-[16.00px]">
-                    <img
-                      class="rounded h-[69px] max-w-[initial] object-cover w-[85px] box-border block border-[none]"
-                      src="{{ url("public/storage/$latestBlog->thumbnail") }}"
-                    />
-                    <div class="grow-0 shrink basis-auto ml-[7px] py-2">
-                      <div
-                        class="bg-[rgba(51,51,51,0.04)] box-border flex justify-start items-center flex-col w-[35px] rounded-[999px]"
-                      >
-                        <p
-                          class="[font-family:Roboto,sans-serif] text-[8px] font-normal text-[#333333] m-0 p-0"
-                        >
-                          {{ $latestBlog->blogCategory->name }}
-                        </p>
-                      </div>
-                      <p
-                        class="[font-family:Roboto,sans-serif] text-lg font-medium text-left leading-[27px] text-[#333333] w-[100.00%] mt-[3px] m-0 p-0"
-                      >
-                        {{ $latestBlog->title }}
-                      </p>
-                    </div>
-                  </div>
-
-                  @endforeach
+              </div>
+              <div class="calendar bg-[rgba(51,51,51,0.04)] flex justify-center sm:justify-between flex-col sm:flex-row items-center flex-row gap-0 sm:gap-2 h-[61px] pl-4 pr-3 rounded-lg w-full">
+                <div class="flex justify-start items-center flex-row gap-2">
+                  <img
+                    src="./public/icons/calendar-icon.svg"
+                    class="w-6 h-6"
+                    alt="calendar-icon"
+                    loading="lazy"
+                  />
+                  <p
+                    class="[font-family:Roboto,sans-serif] text-lg font-normal text-[#333333]"
+                  >
+                    Job type
+                  </p>
                 </div>
+                <p
+                  class="[font-family:Roboto,sans-serif] text-sm font-medium text-[#166e1d]"
+                >
+                  Full time
+                </p>
+              </div>
+              <div class="salary bg-[rgba(51,51,51,0.04)] flex justify-center sm:justify-between flex-col sm:flex-row items-center flex-row gap-0 sm:gap-2 h-[61px] pl-4 pr-3 rounded-lg w-full">
+                <div class="flex justify-start items-center flex-row gap-2">
+                  <img
+                    src="./public/icons/salary-icon.svg"
+                    class="w-6 h-6"
+                    alt="salary-icon"
+                    loading="lazy"
+                  />
+                  <p
+                    class="[font-family:Roboto,sans-serif] text-lg font-normal text-[#333333]"
+                  >
+                    Salary
+                  </p>
+                </div>
+                <p
+                  class="[font-family:Roboto,sans-serif] text-sm font-medium text-[#166e1d]"
+                >
+                  7k - 12k
+                </p>
+              </div>
+              <div class="time bg-[rgba(51,51,51,0.04)] flex justify-center sm:justify-between flex-col sm:flex-row items-center flex-row gap-0 sm:gap-2 h-[61px] pl-4 pr-3 rounded-lg w-full"
+              >
+                <div class="flex justify-start items-center flex-row gap-2">
+                  <img
+                    src="./public/icons/time-icon.svg"
+                    class="w-6 h-6"
+                    alt="time-icon"
+                    loading="lazy"
+                  />
+                  <p
+                    class="[font-family:Roboto,sans-serif] text-lg font-normal text-[#333333]"
+                  >
+                    Working Days
+                  </p>
+                </div>
+                <p
+                  class="[font-family:Roboto,sans-serif] text-sm font-medium text-[#166e1d]"
+                >
+                  Weekly - 5 Days
+                </p>
               </div>
             </div>
-
+            <button class="apply-jop rounded border bg-transparent [font-family:Roboto,sans-serif] text-base font-medium text-[#166e1d] w-full max-w-[450px] h-[49px] block box-border mt-6 hover:bg-[#166e1d] hover:text-white border-solid border-[#166e1d]">
+              Apply Now
+            </button>
           </div>
         </div>
       </div>
+
+      <!-- modle form jop -->
+      <div class="overlay-modle-career z-50 fixed inset-0 bg-black bg-opacity-50 items-center justify-center" style="display: none">
+        <div class="formjop rounded-[15px] px-[10px] sm:px-[40px] py-[30px] bg-[#FBFCF8] w-[300px] overflow-x-hidden md:w-[675px] h-[700px] absolute top-[20px] shadow-2xl overflow-scroll">
+          <h1 class="main-title [font-family:Montserrat,sans-serif] text-5xl font-bold text-left leading-[72px] uppercase text-[#333333]">
+            Apply details<span class="text-[#ea5212]">.</span>
+          </h1>
+          <form class="py-[32px] px-[10px] sm:px-[24px] mt-[10px] flex flex-col gap-[32px]">
+
+            <div class="flex flex-col md:flex-row justify-between gap-[16px]">
+
+              <div class="name flex flex-col gap-[16px] w-full">
+                <label for="name" class="capitalize font-bold">name</label>
+                <input
+                  type="name"
+                  name="name"
+                  id="name"
+                  placeholder="Brooklyn Simmons"
+                  class="text-[#333] rounded-[2px] outline-none p-[12px] border border-[1px] border-solid border-[#333]"
+                />
+              </div>
+              <div class="phone flex flex-col gap-[16px] w-full">
+                <label for="phone" class="capitalize font-bold"
+                  >phone number</label
+                >
+                <input
+                  type="phone"
+                  name="phone"
+                  id="phone"
+                  placeholder="(316) 555-0116"
+                  class="text-[#333] rounded-[2px] outline-none p-[12px] border border-[1px] border-solid border-[#333]"
+                />
+              </div>
+
+            </div>
+
+            <div class="email flex flex-col gap-[16px]">
+              <label for="email" class="capitalize font-bold">email</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="example@mail.com"
+                class="text-[#333] rounded-[2px] outline-none p-[12px] border border-[1px] border-solid border-[#333]"
+              />
+            </div>
+
+            <div class="cv flex flex-col gap-[16px] w-full relative">
+              <label for="cv" class="capitalize font-bold text-[#333] mb-2">Upload CV</label>
+              <div class="flex items-center border border-[#333] rounded-[4px] bg-[#f9f9f9] p-2">
+                <input
+                  type="file"
+                  name="cv-upload"
+                  id="cv-upload"
+                  class="flex-1 cursor-pointer bg-transparent outline-none"
+                  aria-label="Upload your CV"
+                  accept=".pdf,.doc,.docx"
+                />
+                <label for="cv-upload" class="flex items-center justify-center cursor-pointer">
+                  <img src="./public/icons/upload-icon.svg" alt="Upload Icon" class="w-6 h-6" />
+                </label>
+              </div>
+              <p class="text-[red] text-sm mt-1">*Accepted formats: PDF, DOC, DOCX</p> <!-- Added helper text -->
+            </div>
+
+            <div class="cover-letter flex flex-col gap-[16px] w-full relative">
+              <label for="cover-letter" class="capitalize font-bold"
+                >cover letter</label
+              >
+              <textarea
+                type="cover-letter"
+                name="cover-letter"
+                id="cover-letter"
+                placeholder="Upload your cv.."
+                class="text-[#333] h-[180px] rounded-[2px] outline-none p-[12px] border border-[1px] border-solid border-[#333]"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="capitalize text-[white] h-[50px] rounded-[4px] bg-[#166E1D]"
+            >
+              send
+            </button>
+          </form>
+          <button class="close-career-modle absolute top-[24px] right-[24px]">
+            <img src="./public/icons/_CrossIcon_.png" alt="" />
+          </button>
+        </div>
+      </div>
+
 
 </section>
 @include('Layout.footer')

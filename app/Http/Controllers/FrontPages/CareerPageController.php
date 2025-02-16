@@ -38,26 +38,25 @@ class CareerPageController extends Controller
     }
 
     public function show($lang = 'en', $slug, $singleSlug, Request $request){
-        $product = Product::with('translations')
+        $career = Career::with('translations')
         ->whereHas('translations', function ($query) use ($singleSlug) {
             $query->where('slug', $singleSlug)->where('locale', app()->getLocale());
         })
         ->first();
 
-        if (!$product) {
-            $product = Product::with('translations')
+        if (!$career) {
+            $career = Product::with('translations')
             ->whereHas('translations', function ($query) use ($singleSlug) {
                 $query->where('slug', $singleSlug)->whereIn('locale', ['en', 'ar']);
             })
             ->first();
         }
 
-        if (!$product) {
+        if (!$career) {
             abort(404);
         }
 
-        $products = Product::where('is_active', ProductStatus::ACTIVE->value)->limit(3)->where('id', '!=', $product->id)->get();
 
-       return view('Product.Sections.show', compact('product', 'products'));
+       return view('Career.Sections.show', compact('career'));
     }
 }
