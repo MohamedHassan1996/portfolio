@@ -104,7 +104,7 @@
               <div class="flex items-center border border-[#333] rounded-[4px] bg-[#f9f9f9] p-2">
                 <input
                   type="file"
-                  name="cv-upload"
+                  name="cv"
                   id="cv-upload"
                   class="flex-1 cursor-pointer bg-transparent outline-none"
                   aria-label="Upload your CV"
