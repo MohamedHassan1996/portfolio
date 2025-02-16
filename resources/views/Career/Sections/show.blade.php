@@ -81,12 +81,12 @@
               <div class="location bg-[rgba(51,51,51,0.04)] flex justify-center sm:justify-between flex-col sm:flex-row items-center flex-row gap-0 sm:gap-2 h-[61px] pl-4 pr-3 rounded-lg w-full"
               >
                 <div class="flex justify-start items-center flex-row">
-                  <img
+                  {{-- <img
                     src="./public/icons/location-icon.svg"
                     alt="location-icon"
                     class="w-6 h-6"
                     loading="lazy"
-                  />
+                  /> --}}
                   <p
                     class="[font-family:Roboto,sans-serif] text-lg font-normal text-[#333333]"
                   >
@@ -101,12 +101,12 @@
               </div>
               <div class="calendar bg-[rgba(51,51,51,0.04)] flex justify-center sm:justify-between flex-col sm:flex-row items-center flex-row gap-0 sm:gap-2 h-[61px] pl-4 pr-3 rounded-lg w-full">
                 <div class="flex justify-start items-center flex-row gap-2">
-                  <img
+                  {{-- <img
                     src="./public/icons/calendar-icon.svg"
                     class="w-6 h-6"
                     alt="calendar-icon"
                     loading="lazy"
-                  />
+                  /> --}}
                   <p
                     class="[font-family:Roboto,sans-serif] text-lg font-normal text-[#333333]"
                   >
@@ -121,12 +121,12 @@
               </div>
               <div class="salary bg-[rgba(51,51,51,0.04)] flex justify-center sm:justify-between flex-col sm:flex-row items-center flex-row gap-0 sm:gap-2 h-[61px] pl-4 pr-3 rounded-lg w-full">
                 <div class="flex justify-start items-center flex-row gap-2">
-                  <img
+                  {{-- <img
                     src="./public/icons/salary-icon.svg"
                     class="w-6 h-6"
                     alt="salary-icon"
                     loading="lazy"
-                  />
+                  /> --}}
                   <p
                     class="[font-family:Roboto,sans-serif] text-lg font-normal text-[#333333]"
                   >
@@ -142,12 +142,12 @@
               <div class="time bg-[rgba(51,51,51,0.04)] flex justify-center sm:justify-between flex-col sm:flex-row items-center flex-row gap-0 sm:gap-2 h-[61px] pl-4 pr-3 rounded-lg w-full"
               >
                 <div class="flex justify-start items-center flex-row gap-2">
-                  <img
+                  {{-- <img
                     src="./public/icons/time-icon.svg"
                     class="w-6 h-6"
                     alt="time-icon"
                     loading="lazy"
-                  />
+                  /> --}}
                   <p
                     class="[font-family:Roboto,sans-serif] text-lg font-normal text-[#333333]"
                   >
