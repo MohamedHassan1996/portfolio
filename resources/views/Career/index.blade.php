@@ -13,6 +13,7 @@
                     <span>Join </span>
                     <span class="font-normal">Our</span>
                     <span> Team: </span>
+                    <br>
                     <span class="text-[#ea5212]">Build</span>
                     <span> the Future of Healthcare</span>
                     <span class="text-[#ea5212]">.</span>
