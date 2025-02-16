@@ -34,7 +34,6 @@ class SendCandidateCv extends Mailable
             $sendCareer->attach(Storage::disk('public')->path($cvPath));
         }
 
-        dd($cvPath);
         return $sendCareer;
     }
 
