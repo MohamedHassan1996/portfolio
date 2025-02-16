@@ -19,7 +19,7 @@
                 @elseif (app()->getLocale() == 'ar')
                     <span>انضم </span>
                     <span class="font-normal">لفريقنا</span>
-                    <span class="text-[#ea5212]">لتشكيل</span>
+                    <span class="text-[#ea5212]">لبناء</span>
                     <span>مستقبل افضل </span>
                     <span class="text-[#ea5212]">.</span>
                 @endif
