@@ -144,4 +144,16 @@
 
 
 </section>
+<script>
+    /* career jop modle */
+    function toggleModal(buttonSelector, modalSelector, displayStyle) {
+      const button = document.querySelector(buttonSelector);
+      button.addEventListener("click", () => {
+        document.querySelector(modalSelector).style.display = displayStyle;
+      });
+    }
+
+    toggleModal(".apply-jop", ".overlay-modle-career", "flex");
+    toggleModal(".close-career-modle", ".overlay-modle-career", "none");
+  </script>
 @include('Layout.footer')
