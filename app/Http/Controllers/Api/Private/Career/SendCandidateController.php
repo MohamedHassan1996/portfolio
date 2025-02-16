@@ -45,7 +45,6 @@ class SendCandidateController extends Controller
                 'cover_letter' => $data['coverLetter']??null,
                 'career_id' => $data['careerId'],
             ]);
-            dd($candidate);
 
             Mail::to(env('MAIL_USERNAME'))->send(new SendCandidateCv($candidate));
             DB::commit();
