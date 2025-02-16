@@ -46,7 +46,6 @@
         <p><strong>Name:</strong> {{ $candidate->name }}</p>
         <p><strong>Email:</strong>{{  $candidate->email }}</p>
         <p><strong>Phone:</strong>{{  $candidate->phone }}</p>
-@dd($candidate->phone)
     </div>
 </div>
 
