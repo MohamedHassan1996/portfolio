@@ -33,13 +33,13 @@
                   <p
                     class="[font-family:Roboto,sans-serif] text-lg font-normal text-[#333333]"
                   >
-                    {{ $detail->title }}
+                    {{ $detail['title'] }}
                   </p>
                 </div>
                 <p
                   class="[font-family:Roboto,sans-serif] text-sm font-medium text-[#166e1d]"
                 >
-                {{ $detail->value }}
+                {{ $detail['value'] }}
 
                 </p>
               </div>
