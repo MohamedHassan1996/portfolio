@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\Private\Blog\BlogCategoryController;
 use App\Http\Controllers\Api\Private\Blog\BlogController;
 use App\Http\Controllers\Api\Private\Career\CandidateController;
 use App\Http\Controllers\Api\Private\Career\CareerController;
+use App\Http\Controllers\Api\Private\Career\SendCandidateController;
 use App\Http\Controllers\Api\Private\ContactUs\ContactUsController;
 use App\Http\Controllers\Api\Private\ContactUs\ContactUsMessageController;
 use App\Http\Controllers\Api\Private\ContactUs\WebsiteContactUsController;
@@ -193,3 +194,6 @@ Route::prefix('v1/{lang}/admin/selects')->where(['lang' => 'en|ar'])->group(func
     Route::get('', [SelectController::class, 'getSelects']);
 });
 
+Route::prefix('v1/website/send-candidate')->group(function(){
+    Route::post('create', [SendCandidateController::class, 'create']);
+});

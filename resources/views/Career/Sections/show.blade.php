@@ -59,8 +59,8 @@
           <h1 class="main-title [font-family:Montserrat,sans-serif] text-5xl font-bold text-left leading-[72px] uppercase text-[#333333]">
             Apply details<span class="text-[#ea5212]">.</span>
           </h1>
-          <form class="py-[32px] px-[10px] sm:px-[24px] mt-[10px] flex flex-col gap-[32px]">
-
+          <form class="jopForm py-[32px] px-[10px] sm:px-[24px] mt-[10px] flex flex-col gap-[32px]">
+            <input type="hidden" value="{{ $career->id }}">
             <div class="flex flex-col md:flex-row justify-between gap-[16px]">
 
               <div class="name flex flex-col gap-[16px] w-full">
@@ -155,5 +155,28 @@
 
     toggleModal(".apply-jop", ".overlay-modle-career", "flex");
     toggleModal(".close-career-modle", ".overlay-modle-career", "none");
+
+    const form = document.querySelector(".jopForm");
+      form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+        const formData = new FormData(form);
+
+        try {
+          const response = await fetch("https://mbopharma.com/api/v1/website/send-candidate/create", {
+            method: "POST", body: formData,
+          });
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+
+          const result = await response.json();
+          alert("Application submitted successfully!");
+          console.log(result);
+        } catch (error) {
+          alert("Failed to submit the form!");
+          console.error("Error:", error);
+        }
+      });
   </script>
 @include('Layout.footer')
