@@ -20,6 +20,7 @@
 
           <div class="bg-white shadow rounded-lg box-border py-8 flex justify-center items-stretch flex-col mx-auto px-6 w-full max-w-[500px]">
             <div class="flex justify-center items-stretch flex-col gap-4">
+              @foreach ($career->extra_details as $detail)
               <div class="location bg-[rgba(51,51,51,0.04)] flex justify-center sm:justify-between flex-col sm:flex-row items-center flex-row gap-0 sm:gap-2 h-[61px] pl-4 pr-3 rounded-lg w-full"
               >
                 <div class="flex justify-start items-center flex-row">
@@ -32,76 +33,18 @@
                   <p
                     class="[font-family:Roboto,sans-serif] text-lg font-normal text-[#333333]"
                   >
-                    Location
+                    {{ $detail->title }}
                   </p>
                 </div>
                 <p
                   class="[font-family:Roboto,sans-serif] text-sm font-medium text-[#166e1d]"
                 >
-                  2464 Royal, New Jersey 45463
+                {{ $detail->value }}
+
                 </p>
               </div>
-              <div class="calendar bg-[rgba(51,51,51,0.04)] flex justify-center sm:justify-between flex-col sm:flex-row items-center flex-row gap-0 sm:gap-2 h-[61px] pl-4 pr-3 rounded-lg w-full">
-                <div class="flex justify-start items-center flex-row gap-2">
-                  {{-- <img
-                    src="./public/icons/calendar-icon.svg"
-                    class="w-6 h-6"
-                    alt="calendar-icon"
-                    loading="lazy"
-                  /> --}}
-                  <p
-                    class="[font-family:Roboto,sans-serif] text-lg font-normal text-[#333333]"
-                  >
-                    Job type
-                  </p>
-                </div>
-                <p
-                  class="[font-family:Roboto,sans-serif] text-sm font-medium text-[#166e1d]"
-                >
-                  Full time
-                </p>
-              </div>
-              <div class="salary bg-[rgba(51,51,51,0.04)] flex justify-center sm:justify-between flex-col sm:flex-row items-center flex-row gap-0 sm:gap-2 h-[61px] pl-4 pr-3 rounded-lg w-full">
-                <div class="flex justify-start items-center flex-row gap-2">
-                  {{-- <img
-                    src="./public/icons/salary-icon.svg"
-                    class="w-6 h-6"
-                    alt="salary-icon"
-                    loading="lazy"
-                  /> --}}
-                  <p
-                    class="[font-family:Roboto,sans-serif] text-lg font-normal text-[#333333]"
-                  >
-                    Salary
-                  </p>
-                </div>
-                <p
-                  class="[font-family:Roboto,sans-serif] text-sm font-medium text-[#166e1d]"
-                >
-                  7k - 12k
-                </p>
-              </div>
-              <div class="time bg-[rgba(51,51,51,0.04)] flex justify-center sm:justify-between flex-col sm:flex-row items-center flex-row gap-0 sm:gap-2 h-[61px] pl-4 pr-3 rounded-lg w-full"
-              >
-                <div class="flex justify-start items-center flex-row gap-2">
-                  {{-- <img
-                    src="./public/icons/time-icon.svg"
-                    class="w-6 h-6"
-                    alt="time-icon"
-                    loading="lazy"
-                  /> --}}
-                  <p
-                    class="[font-family:Roboto,sans-serif] text-lg font-normal text-[#333333]"
-                  >
-                    Working Days
-                  </p>
-                </div>
-                <p
-                  class="[font-family:Roboto,sans-serif] text-sm font-medium text-[#166e1d]"
-                >
-                  Weekly - 5 Days
-                </p>
-              </div>
+
+              @endforeach
             </div>
             <button class="apply-jop rounded border bg-transparent [font-family:Roboto,sans-serif] text-base font-medium text-[#166e1d] w-full max-w-[450px] h-[49px] block box-border mt-6 hover:bg-[#166e1d] hover:text-white border-solid border-[#166e1d]">
               Apply Now

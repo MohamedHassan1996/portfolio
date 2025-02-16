@@ -36,24 +36,11 @@
                   <p
                     class="[font-family:'Open_Sans',sans-serif] text-[17px] font-normal text-left leading-[23px] text-[#8e8e8e]"
                   >
-                    Qui veritatis quo non nostrum eveniet consequatur animi
-                    voluptas<br />
-                    etQui veritatis quo non nostrum eveniet consequaturQui veritatis
-                    quo non nostrum eveniet consequatur animi
+                    {{ $career->description }}
                   </p>
                   <div
                     class="flex justify-start items-center flex-row grow-0 shrink-0 basis-auto"
                   >
-                    <button
-                      class="bg-[rgba(51,51,51,0.04)] [font-family:Roboto,sans-serif] text-base font-normal text-[#333333] cursor-pointer min-w-[109px] h-8 w-[109px] rounded-[999px] border-[none]"
-                    >
-                      Full time
-                    </button>
-                    <button
-                      class="bg-[rgba(51,51,51,0.04)] [font-family:Roboto,sans-serif] text-base font-normal text-[#333333] cursor-pointer min-w-[149px] h-8 w-[149px] ml-4 rounded-[999px] border-[none]"
-                    >
-                      +2 Experience
-                    </button>
                   </div>
                 </a>
               </div>
