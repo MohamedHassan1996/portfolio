@@ -18,7 +18,7 @@
             <!-- Navigation Links -->
             <div class="nav-links">
                 @foreach ($navbarLinks as $navbarLink)
-                    @if (!in_array($navbarLink->controller_name, ['CareerPageController', 'ContactPageController']))
+                    @if (!in_array($navbarLink->controller_name, ['ContactPageController']))
                         <a href="{{ route('dynamic.page', ['lang' => app()->getLocale() == 'en' ? '':app()->getLocale(), 'slug' => $navbarLink->slug]) }}"
                            class="nav-link {{ session('active_navbar_link') === $navbarLink->slug ? 'active' : '' }}">
                             {{ $navbarLink->title }}
@@ -104,7 +104,7 @@
            <!-- side bar -->
            <div class="side-bar-responsive bg-[#FFFFFF] flex gap-[16px] flex-col h-[100vh] text-[32px] w-[300px] absolute top-0 left-[-320px] py-[32px] px-[50px]">
             @foreach ($navbarLinks as $navbarLink)
-                @if (!in_array($navbarLink->controller_name, ['CareerPageController', 'ContactPageController']))
+                @if (!in_array($navbarLink->controller_name, ['ContactPageController']))
                     <a href="{{ route('dynamic.page', ['lang' => app()->getLocale() == 'en' ? '' : app()->getLocale(), 'slug' => $navbarLink->slug]) }}"
                        class="nav-link capitalize {{ session('active_navbar_link') === $navbarLink->slug ? 'text-[#166E1D] active' : 'text-[#BBB]' }}">
                         {{ $navbarLink->title }}
