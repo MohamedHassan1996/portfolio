@@ -60,7 +60,7 @@
             Apply details<span class="text-[#ea5212]">.</span>
           </h1>
           <form class="jopForm py-[32px] px-[10px] sm:px-[24px] mt-[10px] flex flex-col gap-[32px]">
-            <input type="hidden" value="{{ $career->id }}">
+            <input type="hidden" value="{{ $career->id }}" name="careerId">
             <div class="flex flex-col md:flex-row justify-between gap-[16px]">
 
               <div class="name flex flex-col gap-[16px] w-full">
