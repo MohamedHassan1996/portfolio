@@ -14,7 +14,7 @@
               {{ $career->title }}<span class="text-[#ea5212]">.</span>
             </h2>
             <div class="box-border mt-10">
-              {{ $career->content }}
+              {!! $career->content !!}
             </div>
           </div>
 
