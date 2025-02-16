@@ -8,7 +8,7 @@
         <section class="box-border flex justify-start items-center flex-col bg-[#fbfcf8]">
           <div class="careers-boxes w-11/12 sm:w-4/5 m-auto box-border pt-8 pb-24">
             <div class="w-[100.00%] box-border mt-32">
-              <p class="main-title [font-family:Montserrat,sans-serif] text-6xl font-bold text-left leading-[72px] uppercase text-[#333333]">
+              <p class="main-title [font-family:Montserrat,sans-serif] text-6xl font-bold leading-[72px] uppercase text-[#333333]">
                 @if (app()->getLocale() == 'en')
                     <span>Join </span>
                     <span class="font-normal">Our</span>
