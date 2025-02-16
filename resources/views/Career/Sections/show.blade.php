@@ -111,7 +111,7 @@
                   accept=".pdf,.doc,.docx"
                 />
                 <label for="cv-upload" class="flex items-center justify-center cursor-pointer">
-                  <img src="{{ asset('public/icons/upload-icon.svg') }}" alt="Upload Icon" class="w-6 h-6" />
+                  <img src="{{ asset('storage/icons/upload-icon.svg') }}" alt="Upload Icon" class="w-6 h-6" />
                 </label>
               </div>
               <p class="text-[red] text-sm mt-1">*Accepted formats: PDF, DOC, DOCX</p> <!-- Added helper text -->
@@ -137,7 +137,7 @@
             </button>
           </form>
           <button class="close-career-modle absolute top-[24px] right-[24px]">
-            <img src="{{ asset('public/icons/_CrossIcon_.png') }}" alt="" />
+            <img src="{{ asset('storage/icons/_CrossIcon_.png') }}" alt="" />
           </button>
         </div>
       </div>
