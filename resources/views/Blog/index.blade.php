@@ -139,7 +139,7 @@
                       <div class="rounded bg-[rgba(51,51,51,0.04)] gap-4 box-border flex justify-start items-center flex-row w-[100.00%] h-[85px] pl-2 pr-[7px] first:mt-0 mt-[16.00px]">
                         <img class="rounded h-[69px] max-w-[initial] object-cover w-[85px] box-border block border-[none]" src="{{ url("storage/$blog->thumbnail") }}" />
                         <div class="grow-0 shrink basis-auto py-2">
-                          <div class="bg-[rgba(51,51,51,0.04)] box-border flex justify-start items-center flex-col w-[35px] rounded-[999px]">
+                          <div class="bg-[rgba(51,51,51,0.04)] box-border flex justify-start items-center flex-col w-fit rounded-[999px]">
                             <p class="[font-family:Roboto,sans-serif] text-[8px] font-normal text-[#333333] m-0 p-0">
                               {{$blog->blogCategory->name}}
                             </p>
