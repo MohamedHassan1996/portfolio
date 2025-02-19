@@ -39,6 +39,7 @@ class CreateProductRequest extends FormRequest
             'metaDataAr' => ['required'],
             'isActive' => ['required', new Enum(ProductStatus::class)],
             'images' => ['nullable'],
+            'productCategoryId' => ['required']
         ];
 
 

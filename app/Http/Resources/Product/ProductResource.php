@@ -44,6 +44,7 @@ class ProductResource extends JsonResource
             'metaDataEn' => $translations['metaDataEn']?? [] ,
             'metaDataAr' => $translations['metaDataAr']?? [],
             'images' => $this->images? ProductImageResource::collection($this->images): [],
+            'productCategoryId' => $this->product_category_id
         ];
     }
 
