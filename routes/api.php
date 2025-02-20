@@ -14,6 +14,7 @@ use App\Http\Controllers\Api\Private\Faq\FaqController;
 use App\Http\Controllers\Api\Private\MainSetting\MainSettingController;
 use App\Http\Controllers\Api\Private\FrontPage\FrontPagecontroller;
 use App\Http\Controllers\Api\Private\FrontPage\FrontPageSectionController;
+use App\Http\Controllers\Api\Private\FrontPage\SectionImageController;
 use App\Http\Controllers\Api\Private\Newsletter\NewsletterController;
 use App\Http\Controllers\Api\Private\Newsletter\SubscriberController;
 use App\Http\Controllers\Api\Private\Newsletter\WebsiteSubscriberController;
@@ -162,6 +163,10 @@ Route::prefix('v1/{lang}/admin/front-pages')->where(['lang' => 'en|ar'])->group(
     Route::get('edit', [FrontPagecontroller::class, 'edit']);
     Route::put('update', [FrontPagecontroller::class, 'update']);
     Route::delete('delete', [FrontPagecontroller::class, 'delete']);
+});
+
+Route::prefix('v1/{lang}/admin/front-pages')->where(['lang' => 'en|ar'])->group(function(){
+    Route::delete('delete', [SectionImageController::class, 'delete']);
 });
 
 Route::prefix('v1/{lang}/admin/front-page-sections')->where(['lang' => 'en|ar'])->group(function(){
