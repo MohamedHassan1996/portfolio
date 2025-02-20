@@ -4,7 +4,7 @@
 <section>
     @include('Layout.navbar')
     <div class="blog-information py-[150px]">
-        <div class="w-full md:w-11/12 px-2 md:px-5 m-auto">
+        <div class="w-11/12 sm:w-4/5 m-auto">
           <!-- hero blog details page -->
           <div class="hero relative flex flex-col-reverse md:flex-row gap-10 md:gap-20 w-full">
             <div class="w-full md:w-[65%]">
