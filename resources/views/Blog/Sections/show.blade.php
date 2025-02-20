@@ -31,8 +31,6 @@
                     </div>
                 </div>
             </div>
-          </div>
-            <!-- right controles status & Latest -->
             <div  class="border w-full md:w-[35%] bg-[white] h-[fit-content] box-border flex justify-start items-stretch flex-col gap-[31px] pt-[39px] px-[10px] rounded-lg border-solid border-[#e8e8e8]">
             <div>
                 <!-- Input Component is detected here -->
@@ -111,6 +109,7 @@
                 </div>
             </div>
             </div>
+          </div>
         </div>
       </div>
 
