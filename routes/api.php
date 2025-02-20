@@ -165,7 +165,7 @@ Route::prefix('v1/{lang}/admin/front-pages')->where(['lang' => 'en|ar'])->group(
     Route::delete('delete', [FrontPagecontroller::class, 'delete']);
 });
 
-Route::prefix('v1/{lang}/admin/front-pages')->where(['lang' => 'en|ar'])->group(function(){
+Route::prefix('v1/{lang}/admin/section-images')->where(['lang' => 'en|ar'])->group(function(){
     Route::delete('delete', [SectionImageController::class, 'delete']);
 });
 
