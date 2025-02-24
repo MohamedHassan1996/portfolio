@@ -20,7 +20,7 @@
       <div class="hero-section-top flex justify-between">
         <div class="flex justify-start items-center flex-row">
           <div class="flex justify-center flex-col">
-            <h1 class="hero-title [font-family:Montserrat,sans-serif] font-[900] w-full md:w-4/5 text-[88px] font-bold text-left leading-[97px] uppercase text-[#2b2b2b]">
+            <h1 class="hero-title [font-family:Montserrat,sans-serif] font-[900] w-full text-[88px] font-bold text-left leading-[97px] uppercase text-[#2b2b2b]">
               {{ $heroSection->content[0]['heading'] }}
             </h1>
             <a
