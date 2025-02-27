@@ -42,7 +42,7 @@ class BlogPageController extends Controller
         }
 
         // Paginate results (9 per page)
-        $blogs = $blogQuery->paginate(1);
+        $blogs = $blogQuery->paginate(5);
 
         return view('Blog.index', compact('blogPage', 'blogCategories', 'blogs'));
     }
