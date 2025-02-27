@@ -208,7 +208,7 @@
                 </div>
             </div>
             @if ($blogs->hasPages())
-                <div class="pagination-container flex items-center justify-center space-x-2 mt-8">
+                <div class="pagination-container flex items-center justify-center space-x-2 mt-8 my-10">
                     {{-- Previous Page Link --}}
                     @if ($blogs->onFirstPage())
                         <span class="disabled text-gray-400">❮</span>
