@@ -63,7 +63,7 @@
               </div> --}}
 
 
-                            <div class="flex flex-col gap-[20px] w-full md:w-[70%] h-[602px]">
+                            <div class="flex flex-col gap-[20px] w-full md:w-[70%]">
                                 @foreach ($blogs as $blog)
                                     <div
                                         class="bg-[white] box-border relative flex justify-start flex-col rounded-xl border-2 border-solid border-[#e8e8e8]">
