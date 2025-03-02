@@ -82,14 +82,14 @@
                 @endif
                 <div class="w-[100.00%] box-border my-4">
                 @foreach ($latestBlogs as $latestBlog)
-                <div class="rounded bg-[rgba(51,51,51,0.04)] box-border flex justify-center items-center flex-row w-[100.00%] h-[100px] pl-2 pr-[7px] first:mt-0 mt-[16.00px]">
+                <div class="rounded bg-[rgba(51,51,51,0.04)] box-border flex items-center flex-row w-[100.00%] h-[100px] pl-2 pr-[7px] first:mt-0 mt-[16.00px]">
                     <img
                     class="rounded h-[69px] max-w-[initial] object-cover w-[85px] box-border block border-[none]"
                     src="{{ url("public/storage/$latestBlog->thumbnail") }}"
                     />
                     <div class="grow-0 shrink basis-auto ml-[7px] py-2">
                     <div
-                        class="bg-[rgba(51,51,51,0.04)] box-border flex justify-start items-center flex-col w-[35px] rounded-[999px]"
+                        class="bg-[rgba(51,51,51,0.04)] box-border flex justify-start items-center flex-col w-fit rounded-[999px]"
                     >
                         <p
                         class="[font-family:Roboto,sans-serif] text-[8px] font-normal text-[#333333] m-0 p-0"
@@ -100,7 +100,7 @@
                     <p
                         class="[font-family:Roboto,sans-serif] text-lg font-medium text-left leading-[27px] text-[#333333] w-[100.00%] mt-[3px] m-0 p-0"
                     >
-                        {{ $latestBlog->title }}
+                        {{ Str::limit($latestBlog->title, 30) }}
                     </p>
                     </div>
                 </div>
