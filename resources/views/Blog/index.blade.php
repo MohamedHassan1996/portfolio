@@ -136,7 +136,7 @@
                                                 class="rounded bg-[rgba(51,51,51,0.04)] box-border flex justify-between items-center flex-row gap-2 h-[43px] px-[15px]">
                                                 <p
                                                     class="[font-family:Roboto,sans-serif] text-lg font-medium text-[#333333] m-0 p-0">
-                                                    {{ Str::limit($blogCategory->name ?? '', 30) }}
+                                                    {{ Str::limit($blogCategory->name, 30) }}
                                                 </p>
                                                 <p
                                                     class="[font-family:Roboto,sans-serif] text-lg font-medium text-[#333333] m-0 p-0">
