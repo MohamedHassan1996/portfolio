@@ -7,7 +7,7 @@
         <div class="w-11/12 sm:w-4/5 m-auto">
           <!-- hero blog details page -->
           <div class="hero relative flex flex-col-reverse md:flex-row gap-10 md:gap-20 w-full">
-            <div class="w-full md:w-[65%]">
+            <div class="w-full md:w-[65%] relative">
                 <div class="mb-20">
                     <img src="{{ url("storage/".$blog->thumbnail) }}" class="w-full rounded-[15px]" alt="hero image" loading="lazy" />
                     <div class="bg-[white] absolute top-[16px] right-[16px] box-border flex justify-start items-center flex-col w-[60px] py-2 rounded-lg">
