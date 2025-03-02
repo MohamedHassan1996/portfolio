@@ -23,7 +23,7 @@
                             <p
                                 class="main-title [font-family:Montserrat,sans-serif] text-6xl font-bold leading-[72px] uppercase text-[#333333] max-w-[845px] box-border">
                             </p>
-                            <span>مقالات</span>
+                            <span>رؤى مهنية: أخبار و مقالات</span>
                             <span class="text-[#ea5212]">.</span>
                             </p>
                         @endif
