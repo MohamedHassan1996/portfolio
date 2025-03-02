@@ -3,6 +3,9 @@
 <!-- blogs page -->
 <section>
     @include('Layout.navbar')
+    @php
+    use Illuminate\Support\Str;
+@endphp
 
     <div class="blog-page">
         <div class="blog-container flex justify-start flex-col w-4/5 m-auto">
