@@ -15,7 +15,6 @@
                 <span class="[font-family:Montserrat,sans-serif] text-6xl font-normal text-[#ea5212]  leading-[72px] uppercase"> </span>
                 <span class="font-normal">questions</span><span class="font-bold text-[#ea5212]">.</span>
               </p>
-
             @elseif (app()->getLocale() == 'ar')
             <p class="main-title [font-family:Montserrat,sans-serif] text-6xl font-bold  leading-[72px] uppercase text-[#333333] max-w-[954px]"><span>الأسئلة</span>
                 <span class="text-[#ea5212]  leading-[72px] uppercase">الاكثر شيوعا</span>
