@@ -9,7 +9,7 @@
           <div class="hero relative flex flex-col-reverse md:flex-row gap-10 md:gap-20 w-full">
             <div class="w-full md:w-[65%]">
                 <div class="mb-20">
-                    <img src="{{ url("storage/".$blog->thumbnail) }}" class="w-full h-full rounded-[15px]" alt="hero image" loading="lazy" />
+                    <img src="{{ url("storage/".$blog->thumbnail) }}" class="w-full rounded-[15px]" alt="hero image" loading="lazy" />
                     <div class="bg-[white] absolute top-[16px] right-[16px] box-border flex justify-start items-center flex-col w-[60px] py-2 rounded-lg">
                       <p class="[font-family:Montserrat,sans-serif] text-2xl font-semibold leading-[29px] text-[#333333]">
                         {{ $blog->created_at->format('d') }}
