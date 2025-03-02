@@ -175,7 +175,7 @@
                                                     </div>
                                                     <p
                                                         class="[font-family:Roboto,sans-serif] text-lg font-medium leading-[27px] text-[#333333] w-[100.00%] mt-[3px] m-0 p-0">
-                                                        {{ $blog->title }}
+                                                        {{ Str::limit($blog->title, 30) }}
                                                     </p>
                                                 </div>
                                             </div>
