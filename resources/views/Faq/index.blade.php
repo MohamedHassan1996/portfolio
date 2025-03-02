@@ -10,12 +10,12 @@
     <div class="FAQ">
         <div class="w-11/12 sm:w-4/5 m-auto flex justify-start items-stretch flex-col pt-40 pb-24">
             @if (app()->getLocale() == 'en')
-            <p class="main-title [font-family:Montserrat,sans-serif] text-6xl font-bold  leading-[72px] uppercase text-[#333333] max-w-[954px]"><span>Key </span>
-                <span class="text-[#ea5212]  leading-[72px] uppercase">Questions</span>
+            <p class="main-title [font-family:Montserrat,sans-serif] text-6xl font-bold  leading-[72px] uppercase text-[#333333] max-w-[954px]"><span>the most </span>
+                <span class="text-[#ea5212]  leading-[72px] uppercase">frequently asked</span>
                 <span class="[font-family:Montserrat,sans-serif] text-6xl font-normal text-[#ea5212]  leading-[72px] uppercase"> </span>
-                <span>That Matter to </span>
-                <span class="font-normal">You</span><span class="font-bold text-[#ea5212]">.</span>
+                <span class="font-normal">questions</span><span class="font-bold text-[#ea5212]">.</span>
               </p>
+
             @elseif (app()->getLocale() == 'ar')
             <p class="main-title [font-family:Montserrat,sans-serif] text-6xl font-bold  leading-[72px] uppercase text-[#333333] max-w-[954px]"><span>الأسئلة</span>
                 <span class="text-[#ea5212]  leading-[72px] uppercase">الاكثر شيوعا</span>
