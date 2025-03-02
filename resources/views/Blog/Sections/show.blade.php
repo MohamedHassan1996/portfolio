@@ -82,7 +82,7 @@
                 @endif
                 <div class="w-[100.00%] box-border my-4">
                 @foreach ($latestBlogs as $latestBlog)
-                <div class="rounded bg-[rgba(51,51,51,0.04)] box-border flex items-start flex-row w-[100.00%] h-[100px] pl-2 pr-[7px] first:mt-0 mt-[16.00px]">
+                <div class="rounded bg-[rgba(51,51,51,0.04)] box-border flex items-center flex-row w-[100.00%] h-[100px] pl-2 pr-[7px] first:mt-0 mt-[16.00px]">
                     <img
                     class="rounded h-[69px] max-w-[initial] object-cover w-[85px] box-border block border-[none]"
                     src="{{ url("public/storage/$latestBlog->thumbnail") }}"
