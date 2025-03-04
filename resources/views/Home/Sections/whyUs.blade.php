@@ -34,20 +34,20 @@
       <div style="width: 405px"
         class="medicine-items absolute top-[270px] left-[20px] rounded-[8px] shadow-2xl gap-[20px] md:gap-[8px] flex flex-col p-[15px] bg-[#166E1D]"
       >
-        <div class="flex flex-row items-center gap-[11px] text-white">
+        <div class="flex items-center gap-[11px] text-white">
           <image src="{{ url("public/storage/icons/Hand Coin Icon.png") }}" class="" alt="" />
-          <h5 class="title">{{ $whyUsSection->content[0]['extras'][0]}}</h5>
+          <h5 class="title text-start">{{ $whyUsSection->content[0]['extras'][0]}}</h5>
         </div>
-        <div class="flex flex-row items-center gap-[11px] text-white">
+        <div class="flex items-center gap-[11px] text-white">
           <image src="{{ url("public/storage/icons/Medicine Icon.png") }}" class="" alt="" />
-          <h5 class="title">{{$whyUsSection->content[0]['extras'][1]}}</div>
-        <div class="flex flex-row items-center gap-[11px] text-white">
+          <h5 class="title text-start">{{$whyUsSection->content[0]['extras'][1]}}</div>
+        <div class="flex items-center gap-[11px] text-white">
           <image src="{{ url("public/storage/icons/Target Icon.png") }}" class="" alt="" />
-          <h5 class="title">{{$whyUsSection->content[0]['extras'][2] }}</h5>
+          <h5 class="title text-start">{{$whyUsSection->content[0]['extras'][2] }}</h5>
         </div>
-        <div class="flex flex-row items-center gap-[11px] text-white">
+        <div class="flex items-center gap-[11px] text-white">
           <image src="{{ url("public/storage/icons/Watch Icon.png") }}" class="" alt="" />
-          <h5 class="title">{{ $whyUsSection->content[0]['extras'][3] }}</h5>
+          <h5 class="title text-start">{{ $whyUsSection->content[0]['extras'][3] }}</h5>
         </div>
       </div>
     </div>
