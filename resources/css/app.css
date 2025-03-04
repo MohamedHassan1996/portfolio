@@ -437,9 +437,6 @@ ul li {
         left: 50%;
         transform: translate(-50%);
       }
-      .medicine-items > div {
-        flex-direction: column !important;
-      }
     }
     .team-card {
       grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)) !important;
