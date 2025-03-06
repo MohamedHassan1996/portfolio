@@ -43,7 +43,6 @@
                     class="flex justify-start items-center flex-row grow-0 shrink-0 basis-auto"
                   >
                 </a>
-            </div>
               </div>
               @endforeach
             </div>
