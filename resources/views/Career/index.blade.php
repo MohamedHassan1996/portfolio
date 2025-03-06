@@ -24,9 +24,8 @@
                     <span class="text-[#ea5212]">.</span>
                 @endif
               </p>
-              <div class="grid gap-8 mt-12 justify-center grid-cols-[repeat(auto-fill,minmax(300px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(400px,1fr))]">
-
               @foreach ($careers as $career)
+              <div class="grid gap-8 mt-12 justify-center grid-cols-[repeat(auto-fill,minmax(300px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(400px,1fr))]">
                 <a href="{{ url()->current()}}/{{ $career->slug }}" class="career-box-content cursor-pointer border bg-[white] box-border flex justify-center items-stretch flex-col gap-4 max-w-[600px] px-[31px] py-8 rounded-lg border-solid border-[#e8e8e8]"
                 >
                   <p
@@ -42,6 +41,7 @@
                   <div
                     class="flex justify-start items-center flex-row grow-0 shrink-0 basis-auto"
                   >
+                  </div>
                 </a>
               </div>
               @endforeach
